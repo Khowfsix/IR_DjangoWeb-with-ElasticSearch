@@ -1,2 +1,2 @@
-# IR_DjangoWeb-with-ElasticSearch
+# IR - DjangoWeb with ElasticSearch
 Đồ án cuối kỳ môn Infomation Retrieval
