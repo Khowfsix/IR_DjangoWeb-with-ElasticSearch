@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a7ccadc-2a98-41d6-ac12-08638eaeb146" name="Changes" comment="add template">
-      <change beforePath="$PROJECT_DIR$/.idea/IR_DjangoWeb-with-ElasticSearch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/IR_DjangoWeb-with-ElasticSearch.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/book-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/book-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
