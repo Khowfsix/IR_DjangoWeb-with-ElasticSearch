@@ -1,3 +1,5 @@
 numpy==1.21.6
 elasticsearch==8.7.0
 django==3.2.18
+elasticsearch-dsl
+django-elasticsearch-dsl
