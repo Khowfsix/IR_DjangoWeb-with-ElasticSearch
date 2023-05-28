@@ -1,69 +1,39 @@
 DELETE finalproject_index_v3
 PUT /finalproject_index_v3
 {
-
   "settings": {
-
     "analysis": {
-
       "analyzer": {
-        
         "default": {
-          
           "type": "simple"
-          
         },
-        
         "default_search": {
-          
           "type": "simple"
-          
         },
-
         "my_content_analyzer": {
-
           "tokenizer": "lowercase",
-          
           "char_filter": ["html_strip"],
-
           "filter": [ "my_custom_stop_words_filter", "my_shingle", "trim", "remove_duplicates", "unique"]
-
         },
         "my_orthers_analyzer": {
-
           "tokenizer": "lowercase",
-          
           "char_filter": ["html_strip"],
-
           "filter": ["my_shingle", "trim", "remove_duplicates", "unique"]
-
         }
-
       },
-
       "filter": {
         "my_custom_stop_words_filter": {
-
           "type": "stop",
-
           "ignore_case": true,
-
           "stopwords_path": "vietnamese-stopwords.txt"
-
         }, 
         "my_shingle": {
-
           "type": "shingle",
-
           "max_shingle_size": 2,
-
           "filler_token": ""
         }
-
       }
-
     }
-
   },
   "mappings": {
     "dynamic": false,
@@ -74,8 +44,7 @@ PUT /finalproject_index_v3
         "search_analyzer": "my_orthers_analyzer",
         "fields": {
           "keyword": {
-            "type": "keyword",
-            
+            "type": "keyword",       
             "ignore_above": 256, 
             "eager_global_ordinals": true
           }
@@ -133,7 +102,7 @@ PUT /finalproject_index_v3
          "store": true,
         "term_vector": "with_positions_offsets"
       },
-	"Danh mục": {
+	    "Danh mục": {
         "type": "text",
         "analyzer": "my_orthers_analyzer",
         "search_analyzer": "my_orthers_analyzer",
