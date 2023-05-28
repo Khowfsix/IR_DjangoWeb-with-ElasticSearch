@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a7ccadc-2a98-41d6-ac12-08638eaeb146" name="Changes" comment="add template">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/BookWeb_withElasticSearch/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/BookWeb_withElasticSearch/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/views.py" afterDir="false" />
@@ -17,6 +18,88 @@
       <change beforePath="$PROJECT_DIR$/dataset/web capture/Web capture_book detail.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/dataset/web capture/Web capture_book detail.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataset/web capture/Web capture_index.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/dataset/web capture/Web capture_index.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vietnamese-stopwords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/vietnamese-stopwords.txt" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/elastic_pass.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/task.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vietnamese-stopwords.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/BookWeb_withElasticSearch/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/BookWeb_withElasticSearch/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/BookWeb_withElasticSearch/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/BookWeb_withElasticSearch/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/book-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/templates/book-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/animate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/bootstrap-datepicker.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/css/mixins/_text-hide.css" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/elasticSearchModels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/flexslider.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/icomoon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/ionicons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/magnific-popup.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/owl.carousel.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/owl.theme.default.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/css/style.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/bootstrap/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/bootstrap/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/bootstrap/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/bootstrap/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/bootstrap/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/flaticon/backup.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/flaticon/font/Flaticon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/flaticon/font/Flaticon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/flaticon/font/Flaticon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/flaticon/font/Flaticon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/flaticon/font/_flaticon.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/flaticon/font/flaticon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/flaticon/font/flaticon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/flaticon/license/license.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/icomoon/icomoon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/icomoon/icomoon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/icomoon/icomoon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/icomoon/icomoon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/ionicons/css/_ionicons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/ionicons/css/ionicons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/ionicons/fonts/ionicons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/ionicons/fonts/ionicons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/ionicons/fonts/ionicons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/ionicons/fonts/ionicons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/fonts/ionicons/fonts/ionicons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/aos.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/bootstrap-datepicker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/google_map.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/jquery-3.2.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/jquery-migrate-3.0.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/jquery.animateNumber.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/jquery.countTo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/jquery.easing.1.3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/jquery.flexslider-min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/jquery.magnific-popup.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/jquery.stellar.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/jquery.waypoints.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/magnific-popup-options.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/owl.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/js/respond.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/temp/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/temp/add-to-wishlist.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/temp/book-with-category.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/temp/cart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/temp/checkout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/temp/contact.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/template/temp/order-complete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/v3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/v3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/web capture.rar" beforeDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +110,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -75,8 +159,13 @@
       <recent name="D:\UTE\Year_3\HK_2\Truy tim thong tin\project\IR_DjangoWeb-with-ElasticSearch\BookWeb_withElasticSearch\Books\template" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+<<<<<<< Updated upstream
       <recent name="D:\UTE\Year_3\HK_2\Truy tim thong tin\project\IR_DjangoWeb-with-ElasticSearch\BookWeb_withElasticSearch\Books" />
       <recent name="D:\UTE\Year_3\HK_2\Truy tim thong tin\project\IR_DjangoWeb-with-ElasticSearch\BookWeb_withElasticSearch" />
+=======
+      <recent name="D:\UTE\Year_3\HK_2\Truy tim thong tin\project\IR_DjangoWeb-with-ElasticSearch\BookWeb_withElasticSearch" />
+      <recent name="D:\UTE\Year_3\HK_2\Truy tim thong tin\project\IR_DjangoWeb-with-ElasticSearch" />
+>>>>>>> Stashed changes
     </key>
   </component>
   <component name="RunManager">
