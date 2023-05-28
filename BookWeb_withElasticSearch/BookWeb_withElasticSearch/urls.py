@@ -21,4 +21,5 @@ from Books import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_view, name='homepage'),
+    path('searching/', views.search_keyword_view, name='searching_with_keyword'),
 ]
