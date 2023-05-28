@@ -1,27 +1,59 @@
+from elasticsearch import Elasticsearch
+
+from django.http import HttpResponse
 from django.shortcuts import render
-from django_elasticsearch_dsl import Document
-from django_elasticsearch_dsl.registries import registry
+
 from .models import Book
+
+# Sửa password lại theo từng server
+es = Elasticsearch(
+    ["http://localhost:9200/"],
+    http_auth=("elastic", "wFhjJdsQdVM66xXuR2yk")
+)
+
 
 # Create your views here.
 def index(request):
-    return render(request, 'BookWeb_withElasticSearch/Books/template/index.html')
+    """
+    Hiển thị tất cả các sách tỏng dataset
+    """
+
+    # Thực hiện truy vấn
+    search_result = es.search(index="finalproject_index_v3",
+                              body={"query": {"match_all": {}}})
+    hits = search_result["hits"]["hits"]
+
+    indexContext = {
+
+    }
+    return render(request=request,
+                  template_name='index.html',
+                  context=indexContext)
 
 
-@registry.register_document
-class BookDocument(Document):
-    class Index:
-        # Name of the Elasticsearch index
-        name = 'books'
-        # See Elasticsearch Indices API reference for available settings
-        settings = {'number_of_shards': 1, 'number_of_replicas': 0}
+def detail(request, book):
+    """
+    Hiện thị thông tin của 1 quyển sách
+        và top 20 quyển sách khác có liên quan
+    Input: 1 quyển sách
+    """
+    detailContext = {
 
-    class Django:
-        model = Book # The model associated with this Document
+    }
+    return render(request=request,
+                  template_name='detail.html',
+                  context=detailContext)
 
-        # The fields of the model you want to be indexed in Elasticsearch
-        fields = [
-            'title',
-            'author',
-            'description',
-        ]
+
+def search(request, keyword):
+    """
+    Hiển thị danh sách các quyển sách có liên quan đến
+        từ khóa được tìm kiếm theo thứ tự
+    Input: Từ khóa nhập vào thanh Search
+    """
+    searchContext = {
+
+    }
+    return render(request=request,
+                  template_name='index.html',
+                  context=searchContext)
