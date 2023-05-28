@@ -5,8 +5,344 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a7ccadc-2a98-41d6-ac12-08638eaeb146" name="Changes" comment="add template">
+      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/_common.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/_version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/easter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/parser/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/parser/_parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/parser/isoparser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/relativedelta.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/rrule.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/tz/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/tz/_common.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/tz/_factories.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/tz/tz.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/tz/win.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/tzwin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/zoneinfo/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/zoneinfo/dateutil-zoneinfo.tar.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/dateutil/zoneinfo/rebuild.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl-7.3.dist-info/AUTHORS.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl-7.3.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl-7.3.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl-7.3.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl-7.3.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl-7.3.dist-info/REQUESTED" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl-7.3.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl-7.3.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/documents.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/fields.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/indices.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/management/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/management/commands/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/management/commands/search_index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/registries.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/test/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/django_elasticsearch_dsl/test/testcases.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-7.17.9.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-7.17.9.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-7.17.9.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-7.17.9.dist-info/NOTICE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-7.17.9.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-7.17.9.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-7.17.9.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/__init__.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/_extra_imports.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/__init__.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/async_search.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/autoscaling.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/cat.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ccr.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/cluster.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/dangling_indices.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/data_frame.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/data_frame.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/deprecation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/deprecation.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/enrich.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/eql.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/features.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/fleet.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/graph.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ilm.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/indices.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ingest.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/license.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/logstash.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/migration.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ml.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/monitoring.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/nodes.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/remote.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/remote.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/rollup.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/searchable_snapshots.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/security.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/shutdown.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/slm.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/snapshot.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/sql.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ssl.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/tasks.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/text_structure.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/transform.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/utils.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/watcher.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/xpack.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/compat.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/helpers.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/http_aiohttp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/http_aiohttp.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/transport.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/transport.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/__init__.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/async_search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/async_search.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/autoscaling.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/autoscaling.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/cat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/cat.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/ccr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/ccr.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/cluster.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/cluster.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/dangling_indices.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/dangling_indices.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/data_frame.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/data_frame.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/deprecation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/deprecation.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/enrich.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/enrich.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/eql.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/eql.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/features.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/features.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/fleet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/fleet.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/graph.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/graph.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/ilm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/ilm.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/indices.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/indices.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/ingest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/ingest.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/license.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/license.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/logstash.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/logstash.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/migration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/migration.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/ml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/ml.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/monitoring.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/monitoring.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/nodes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/nodes.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/remote.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/remote.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/rollup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/rollup.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/searchable_snapshots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/searchable_snapshots.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/security.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/security.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/shutdown.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/shutdown.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/slm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/slm.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/snapshot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/snapshot.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/sql.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/sql.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/ssl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/ssl.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/tasks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/tasks.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/text_structure.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/text_structure.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/transform.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/transform.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/utils.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/watcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/watcher.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/xpack.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client/xpack.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/compat.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/connection/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/connection/__init__.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/connection/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/connection/base.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/connection/http_requests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/connection/http_requests.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/connection/http_urllib3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/connection/http_urllib3.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/connection/pooling.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/connection/pooling.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/connection_pool.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/connection_pool.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/exceptions.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/helpers/__init__.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/helpers/actions.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/helpers/errors.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/helpers/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/helpers/test.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/serializer.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/transport.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/utils.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl-7.4.1.dist-info/AUTHORS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl-7.4.1.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl-7.4.1.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl-7.4.1.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl-7.4.1.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl-7.4.1.dist-info/REQUESTED" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl-7.4.1.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl-7.4.1.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/aggs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/analysis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/connections.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/document.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/faceted_search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/field.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/function.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/mapping.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/query.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/response/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/response/aggs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/response/hit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/update_by_query.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch_dsl/wrappers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/python_dateutil-2.8.2.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/python_dateutil-2.8.2.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/python_dateutil-2.8.2.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/python_dateutil-2.8.2.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/python_dateutil-2.8.2.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/python_dateutil-2.8.2.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/python_dateutil-2.8.2.dist-info/zip-safe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/six-1.16.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/six-1.16.0.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/six-1.16.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/six-1.16.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/six-1.16.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/six-1.16.0.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/six.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/BookWeb_withElasticSearch/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/BookWeb_withElasticSearch/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookWeb_withElasticSearch/Books/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-8.7.0.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-8.7.0.dist-info/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-8.7.0.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-8.7.0.dist-info/NOTICE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-8.7.0.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-8.7.0.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-8.7.0.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch-8.7.0.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/_base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/async_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/async_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/autoscaling.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/autoscaling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/cat.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/cat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ccr.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ccr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/cluster.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/cluster.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/dangling_indices.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/dangling_indices.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/enrich.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/enrich.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/eql.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/eql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/features.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/features.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/fleet.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/fleet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ilm.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ilm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/indices.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/indices.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ingest.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ingest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/license.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/license.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/logstash.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/logstash.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/migration.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/migration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ml.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ml.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/monitoring.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/monitoring.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/nodes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/rollup.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/rollup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/searchable_snapshots.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/searchable_snapshots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/security.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/security.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/shutdown.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/shutdown.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/slm.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/slm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/snapshot.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/snapshot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ssl.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/ssl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/text_structure.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/text_structure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/transform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/watcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/watcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/xpack.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/client/xpack.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_async/helpers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/_base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/async_search.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/autoscaling.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/cat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/ccr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/cluster.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/dangling_indices.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/enrich.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/eql.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/features.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/fleet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/graph.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/ilm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/indices.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/ingest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/license.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/logstash.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/migration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/ml.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/monitoring.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/nodes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/rollup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/searchable_snapshots.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/security.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/shutdown.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/slm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/snapshot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/sql.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/ssl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/tasks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/text_structure.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/transform.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/watcher.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_sync/client/xpack.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_version.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/_version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/compat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/helpers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/helpers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/helpers/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/helpers/actions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/helpers/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/helpers/errors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/transport.py" beforeDir="false" afterPath="$PROJECT_DIR$/IR_project_venv/Lib/site-packages/elasticsearch/transport.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +358,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="a4069137-aa91-43a7-a235-8ddd47f0ce16" />
+        <option name="url" value="https://github.com/Khowfsix/IR_DjangoWeb-with-ElasticSearch" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
