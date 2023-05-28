@@ -20,5 +20,5 @@ from Books import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='homepage'),
+    path('', views.index_view, name='homepage'),
 ]

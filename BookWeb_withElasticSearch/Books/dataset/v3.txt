@@ -133,7 +133,7 @@ PUT /finalproject_index_v3
          "store": true,
         "term_vector": "with_positions_offsets"
       },
-	"Danh mục": {
+	    "Danh mục": {
         "type": "text",
         "analyzer": "my_orthers_analyzer",
         "search_analyzer": "my_orthers_analyzer",
