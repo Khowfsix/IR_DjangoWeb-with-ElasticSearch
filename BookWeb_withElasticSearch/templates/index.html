@@ -1,4 +1,4 @@
-{% load static %} 
+{% load static %}
 <!DOCTYPE HTML>
 <html>
 
@@ -49,20 +49,28 @@
 		<nav class="colorlib-nav" role="navigation">
 			<div class="top-menu">
 				<div class="container">
+
 					<div class="row">
 						<div class="col-sm-7 col-md-9">
 							<div id="colorlib-logo"><a href="index.html">Book Web - with Elastic Search</a></div>
 						</div>
+
+
+						<!-- Search bar -->
 						<div class="col-sm-5 col-md-10">
-							<form action="#" class="search-wrap">
+							<form action="{% url 'searching_with_keyword'%}" class="search-wrap">
 								<div class="form-group">
-									<input type="search" class="form-control search" placeholder="Tìm kiếm">
+									<input type="search" name="keyword" class="form-control search"
+										placeholder="Tìm kiếm">
 									<button class="btn btn-primary submit-search text-center" type="submit"><i
 											class="icon-search"></i></button>
 								</div>
 							</form>
 						</div>
 					</div>
+
+
+
 					<div class="row">
 						<div class="col-sm-12 text-left menu-1">
 							<ul>
@@ -132,28 +140,29 @@
 
 		<div class="colorlib-product">
 			<div class="container">
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
 						<h2>SÁCH BÁN CHẠY</h2>
 					</div>
-				</div>
+				</div> -->
 				<div class="row row-pb-md">
 
 					{% for book in Books %}
-						<div class="col-lg-3 mb-4 text-center">
-							<div class="desc">
-								<span class="price">{{book.GiaNhaNam}} (Đã có VAT)</span>
-							</div>
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="desc">
+							<span class="price">{{book.GiaNhaNam}} (Đã có VAT)</span>
+						</div>
 
-							<a href="book-detail.html" class="prod-img">
-								<img src={{book.LinkImage}}
-									class="img-fluid">
-							</a>
+						<a href="book-detail.html" class="prod-img">
+							<img src={{book.LinkImage}} class="img-fluid">
+						</a>
 
+						<a href="book-detail.html" class="prod-img">
 							<div class="desc">
 								<h3>{{book.Ten}}</h3>
 							</div>
-						</div>
+						</a>
+					</div>
 					{% endfor %}
 
 				</div>
