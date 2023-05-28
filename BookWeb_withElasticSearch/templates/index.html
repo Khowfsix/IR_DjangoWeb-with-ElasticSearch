@@ -52,16 +52,18 @@
 
 					<div class="row">
 						<div class="col-sm-7 col-md-9">
-							<div id="colorlib-logo"><a href="index.html">Book Web - with Elastic Search</a></div>
+							<div id="colorlib-logo"><a href="{% url 'homepage' %}">Book Web - with Elastic Search</a>
+							</div>
 						</div>
 
 
 						<!-- Search bar -->
 						<div class="col-sm-5 col-md-10">
-							<form action="{% url 'searching_with_keyword'%}" class="search-wrap">
+							<form action="{% url 'searching_with_keyword'%}" class="search-wrap"
+								onsubmit="return validateForm()">
 								<div class="form-group">
 									<input type="search" name="keyword" class="form-control search"
-										placeholder="Tìm kiếm">
+										placeholder="Tìm kiếm" id="searching bar">
 									<button class="btn btn-primary submit-search text-center" type="submit"><i
 											class="icon-search"></i></button>
 								</div>
@@ -273,6 +275,17 @@
 	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
 	<!-- Main -->
 	<script src="{% static 'js/main.js' %}"></script>
+
+	<script>
+		function validateForm() {
+			var inputField = document.getElementById("searching bar");
+			if (inputField.value == "") {
+				alert("Đừng tìm kiếm thứ gì đó vô định chứ\nNhập từ khóa vào!");
+				return false;
+			}
+			return true;
+		}
+	</script>
 
 </body>
 
