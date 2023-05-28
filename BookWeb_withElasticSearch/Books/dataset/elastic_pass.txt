@@ -2,15 +2,15 @@ action.auto_create_index: .monitoring*,.watches,.triggered_watches,.watcher-hist
 
 
 Γä╣∩╕Å  Password for the elastic user (reset with `bin/elasticsearch-reset-password -u elastic`):
-  wFhjJdsQdVM66xXuR2yk
+  yLkHabXo_wWKzb0UxO1P
 
 Γä╣∩╕Å  HTTP CA certificate SHA-256 fingerprint:
-  f4d9440b3aac22758a9a548aa2bca5628c6806215153d36e07ec215517c12cb5
+  82b198ebfeb438cdb4caac0895fd4bbc801b2555e60528365fa90ac9f1b3954f
 
 Γä╣∩╕Å  Configure Kibana to use this cluster:
 ΓÇó Run Kibana and click the configuration link in the terminal when Kibana starts.
 ΓÇó Copy the following enrollment token and paste it into Kibana in your browser (valid for the next 30 minutes):
-  eyJ2ZXIiOiI4LjYuMiIsImFkciI6WyIxNzIuMTYuMC4yMTg6OTIwMCJdLCJmZ3IiOiJmNGQ5NDQwYjNhYWMyMjc1OGE5YTU0OGFhMmJjYTU2MjhjNjgwNjIxNTE1M2QzNmUwN2VjMjE1NTE3YzEyY2I1Iiwia2V5IjoiQ3ROZVlJZ0JoOTljNTM5WVhxdjg6UFNxQlJaYzRUR3k2WEdQSUN4N2U4QSJ9
+  eyJ2ZXIiOiI4LjYuMiIsImFkciI6WyIxOTIuMTY4LjAuMTI1OjkyMDAiXSwiZmdyIjoiODJiMTk4ZWJmZWI0MzhjZGI0Y2FhYzA4OTVmZDRiYmM4MDFiMjU1NWU2MDUyODM2NWZhOTBhYzlmMWIzOTU0ZiIsImtleSI6ImI2VjhZNGdCM1Y0QlpzLWJ1NmJxOkpYdW1pMFB0UTFpbmU5UndzZThlSUEifQ==
 
 Γä╣∩╕Å  Configure other nodes to join this cluster:
 ΓÇó On this node:

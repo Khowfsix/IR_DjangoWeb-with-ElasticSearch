@@ -139,21 +139,25 @@
 				</div>
 				<div class="row row-pb-md">
 
-					{% for hit in hits %}
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="desc">
-							<span class="price">295.200đ (Đã có VAT)</span>
-						</div>
+					{% for book in Books %}
+						<div class="col-lg-3 mb-4 text-center">
+							<div class="desc">
+								<span class="price">{{book.GiaNhaNam}} (Đã có VAT)</span>
+							</div>
 
-						<a href="book-detail.html" class="prod-img">
-							<img src="http://static.nhanam.com.vn/thumb/0x320/crop/Books/Images/2023/1/30/K86N2QWU.jpg"
-								class="img-fluid">
-						</a>
-					</div>
+							<a href="book-detail.html" class="prod-img">
+								<img src={{book.LinkImage}}
+									class="img-fluid">
+							</a>
+
+							<div class="desc">
+								<h3>{{book.Ten}}</h3>
+							</div>
+						</div>
 					{% endfor %}
 
 				</div>
-				<div class="row">
+				{% comment %} <div class="row">
 					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
 						<h2>VĂN HỌC NƯỚC NGOÀI</h2>
 					</div>
@@ -173,7 +177,7 @@
 					</div>
 					{% endfor %}
 
-				</div>
+				</div> {% endcomment %}
 			</div>
 		</div>
 
