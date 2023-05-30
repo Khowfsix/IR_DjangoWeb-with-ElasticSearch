@@ -1,0 +1,346 @@
+DELETE /finalproject_index
+
+PUT /finalproject_index
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "default": {
+          "type": "simple"
+        },
+        "default_search": {
+          "type": "simple"
+        },
+        "my_content_analyzer": {
+          "tokenizer": "lowercase",
+          "char_filter": [
+            "html_strip"
+          ],
+          "filter": [
+            "my_custom_stop_words_filter",
+            "my_shingle",
+            "trim",
+            "remove_duplicates",
+            "unique"
+          ]
+        },
+        "my_orthers_analyzer": {
+          "tokenizer": "lowercase",
+          "char_filter": [
+            "html_strip"
+          ],
+          "filter": [
+            "my_shingle",
+            "trim",
+            "remove_duplicates",
+            "unique"
+          ]
+        }
+      },
+      "filter": {
+        "my_custom_stop_words_filter": {
+          "type": "stop",
+          "ignore_case": true,
+          "stopwords_path": "vietnamese-stopwords.txt"
+        },
+        "my_shingle": {
+          "type": "shingle",
+          "max_shingle_size": 2,
+          "filler_token": ""
+        }
+      }
+    },
+    "number_of_shards": 1,
+    "similarity": {
+      "my_DFR": {
+        "type": "DFR",
+        "basic_model": "g",
+        "after_effect": "l",
+        "normalization": "h2",
+        "normalization.h2.c": "3.0"
+      },
+      "scripted_tfidf": {
+        "type": "scripted",
+        "weight_script": {
+          "source": "double idf = Math.log((field.docCount+1.0)/(term.docFreq+1.0)) + 1.0; return query.boost * idf;"
+        },
+        "script": {
+          "source": "double tf = Math.sqrt(doc.freq); double norm = 1/Math.sqrt(doc.length); return weight * tf * norm;"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "dynamic": false,
+    "properties": {
+      "Dịch giả": {
+        "type": "text",
+        "analyzer": "my_orthers_analyzer",
+        "search_analyzer": "my_orthers_analyzer",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256,
+            "eager_global_ordinals": true
+          }
+        },
+        "store": true,
+        "term_vector": "with_positions_offsets"
+      },
+      "Giá Nhã Nam": {
+        "type": "double",
+        "coerce": true
+      },
+      "Giá bìa": {
+        "type": "double",
+        "coerce": true,
+        "store": true
+      },
+      "Giới thiệu sách": {
+        "type": "text",
+        "analyzer": "my_content_analyzer",
+        "search_analyzer": "my_content_analyzer",
+        "term_vector": "with_positions_offsets"
+      },
+      "Kích thước": {
+        "type": "keyword",
+        "index": false,
+        "eager_global_ordinals": true
+      },
+      "LinkImage": {
+        "type": "keyword",
+        "index": false,
+        "eager_global_ordinals": true
+      },
+      "Mã sản phẩm": {
+        "type": "keyword",
+        "index": false,
+        "eager_global_ordinals": true,
+        "store": true
+      },
+      "Ngày phát hành": {
+        "type": "date",
+        "format": "dd-MM-yyyy",
+        "store": true
+      },
+      "Nhà xuất bản": {
+        "type": "text",
+        "analyzer": "my_orthers_analyzer",
+        "search_analyzer": "my_orthers_analyzer",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256,
+            "eager_global_ordinals": true
+          }
+        },
+        "store": true,
+        "term_vector": "with_positions_offsets"
+      },
+      "Danh mục": {
+        "type": "text",
+        "analyzer": "my_orthers_analyzer",
+        "search_analyzer": "my_orthers_analyzer",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256,
+            "eager_global_ordinals": true
+          }
+        },
+        "store": true,
+        "term_vector": "with_positions_offsets"
+      },
+      "Số trang": {
+        "type": "long",
+        "index": false
+      },
+      "Tác giả": {
+        "type": "text",
+        "analyzer": "my_orthers_analyzer",
+        "search_analyzer": "my_orthers_analyzer",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256,
+            "eager_global_ordinals": true
+          }
+        },
+        "store": true,
+        "term_vector": "with_positions_offsets"
+      },
+      "Tên": {
+        "type": "text",
+        "analyzer": "my_orthers_analyzer",
+        "search_analyzer": "my_orthers_analyzer",
+        "store": true,
+        "term_vector": "with_positions_offsets"
+      }
+    }
+  }
+}
+
+GET finalproject_index
+
+# Reindex 
+POST _reindex
+{
+  "source": {
+    "index": "book_index"
+  },
+  "dest": {
+    "index": "finalproject_index"
+  }
+}
+
+GET finalproject_index/_search
+{
+  "query":
+  {
+    "match_all": {}
+  }
+}
+
+GET finalproject_index/_search
+{
+  "query":
+  {
+    "match_all": {}
+  },
+  "from": 0,
+  "size": 3000,
+  "sort": {
+    "_score": {
+      "order": "desc"
+    }
+  }
+}
+
+//query string
+GET finalproject_index/_search
+{
+  "query": {
+    "query_string": {
+      "query": "(đồng tiền) OR (giá trị)",
+      "fields": ["Giới thiệu sách"]
+    }
+  },
+  "from": 0,
+  "size": 10,
+  "sort": {
+    "_score": {
+      "order": "desc"
+    }
+  }
+}
+
+# Search with keyword
+GET finalproject_index/_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "match": {
+            "Danh mục": "Sach"
+          }
+        },
+        {
+          "match": {
+            "Tác giả": "a"
+          }
+        },
+        {
+          "match": {
+            "Tên": "a"
+          }
+        },
+        {
+          "match": {
+            "Dịch giả": "a"
+          }
+        },
+        {
+          "match": {
+            "Nhà xuất bản": "a"
+          }
+        },
+        {
+          "match": {
+            "Giới thiệu sách": "a"
+          }
+        }
+      ],
+      "minimum_should_match": 1
+    }
+  },
+  "size": 100
+}
+
+
+// get all category
+GET finalproject_index/_search
+{
+  "size": 0,
+  "aggs": {
+    "unique_field_values": {
+      "terms": {
+        "field": "Danh mục.keyword"
+      }
+    }
+  }
+}
+
+// get by id
+GET finalproject_index/_search
+{
+  "query":
+  {
+    "match": {
+      "Mã sản phẩm": "8935235223264"
+    }
+  }
+}
+
+# Top 20 sách có liên quan
+GET finalproject_index/_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "match": {
+            "Danh mục": "Văn học nước ngoài"
+          }
+        },
+        {
+          "match": {
+            "Tác giả": "Linda Lê"
+          }
+        },
+        {
+          "match": {
+            "Tên": "Sóng ngầm"
+          }
+        },
+        {
+          "match": {
+            "Dịch giả": "Bùi Thu Thủy"
+          }
+        },
+        {
+          "match": {
+            "Nhà xuất bản": "Hội nhà văn"
+          }
+        },
+        {
+          "match": {
+            "Giới thiệu sách": "Có điều gì gắn kết một tay cướp biển đã chết cách đây 600 năm, một người Argentina quyết cứu rừng vùng Patagonia, một thầy giáo lưu vong vẫn mơ về ngôi trường của mình và thức giấc với bụi phấn trên ngón tay, một người vùng Bengal yêu những con tàu và trên đường đưa chúng tới nghĩa trang tàu thì kể chuyện cho chúng nghe? Từ khắp mọi ngóc ngách, những số phận nhỏ bé ấy được xâu chuỗi dưới ngòi bút của Luis Sepúlveda trong một hành trình đặc biệt: hành trình chống lại sự vô danh, chống lại quên lãng.   Bằng ngôn ngữ đầy chất thơ như tiếng sóng dồi của biển cả hay ngọt ngào như thịt một loại quả nhiệt đới, bằng ngòi bút đầy nhân văn, Sepúlveda kể lại câu chuyện của những người bạn, những con người chẳng ai biết tới nhưng lại trở thành những anh hùng theo cách của họ, như chính những bông hồng nở giữa sa mạc Atacama."
+          }
+        }
+      ],
+      "minimum_should_match": 1
+    }
+  },
+  "size": 20
+}

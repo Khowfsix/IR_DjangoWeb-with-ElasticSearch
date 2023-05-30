@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_view, name='homepage'),
     path('searching/', views.search_keyword_view, name='searching_with_keyword'),
-    path('detail/', views.detail_view, name='detail'),
+    path('detail/<str:id>', views.detail_view, name='detail'),
 ]
