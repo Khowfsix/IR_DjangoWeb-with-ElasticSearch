@@ -51,7 +51,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-7 col-md-9">
-							<div id="colorlib-logo"><a href="index.html">Book Web - with Elastic Search</a></div>
+							<div id="colorlib-logo"><a href="{% url 'homepage' %}">Book Web - with Elastic Search</a>
+							</div>
 						</div>
 						<div class="col-sm-5 col-md-10">
 							<form action="#" class="search-wrap">
@@ -121,7 +122,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<p class="bread"><span><a href="index.html">Trang chủ</a></span> / <span>Chi tiết sách</span>
+						<p class="bread"><span><a href="{% url 'homepage' %}">Trang chủ</a></span> / <span>Chi tiết
+								sách</span>
 						</p>
 					</div>
 				</div>
@@ -135,29 +137,26 @@
 					<div class="col-sm-20">
 						<div class="item">
 							<a href="#" class="prod-img">
-								<img src="http://static.nhanam.com.vn/thumb/0x320/crop/Books/Images/2023/1/30/K86N2QWU.jpg"
-									class="img-fluid">
+								<img src={{ThisBook.LinkImage}} class="img-fluid">
 							</a>
 						</div>
 					</div>
 
 					<div class="col-sm-8">
 						<div class="product-desc">
-							<h3>BẢN ĐỒ THẾ GIỚI CÀ PHÊ - TỪ HẠT ĐẾN PHA CHẾ - KHÁM PHÁ, GIẢI THÍCH VÀ THƯỞNG THỨC CÀ PHÊ
+							<h3>{{ThisBook.Ten}}
 							</h3>
 							<p class="price">
-								<span><b>Giá Nhã Nam:</b> 295.200đ (Đã có VAT)</span>
+								<span><b>Giá Nhã Nam:</b> {{ThisBook.GiaNhaNam}} (Đã có VAT)</span>
 							</p>
 
-							<div>
-								<b>Mã sản phẩm:</b> 8935235236974
-							</div>
-							<div><b>Tác giả:</b> James Hoffmann</div>
-							<div><b>Dịch giả:</b> Hoàng Quang Anh , Nguyễn Nhã Nam</div>
-							<div><b>Nhà xuất bản:</b> Thế Giới</div>
-							<div><b>Số trang:</b> 268</div>
-							<div><b>Kích thước:</b> 19x27 cm</div>
-							<div><b>Ngày phát hành:</b> 06-02-2023</div>
+							<div><b>Mã sản phẩm:</b> {{ThisBook.MaSanPham}} </div>
+							<div><b>Tác giả:</b> {{ThisBook.TacGia}} </div>
+							<div><b>Dịch giả:</b> {{ThisBook.DichGia}} </div>
+							<div><b>Nhà xuất bản:</b> {{ThisBook.NhaXuatBan}} </div>
+							<div><b>Số trang:</b> {{ThisBook.SoTrang}} </div>
+							<div><b>Kích thước:</b> {{ThisBook.KichThuoc}} </div>
+							<div><b>Ngày phát hành:</b> {{ThisBook.NgayPhatHanh}} </div>
 
 							<div class="input-group mb-4">
 								<span class="input-group-btn">
@@ -202,31 +201,7 @@
 									<div class="tab-content" id="pills-tabContent">
 										<div class="tab-pane border fade show active" id="pills-description"
 											role="tabpanel" aria-labelledby="pills-description-tab">
-											<p>CÀ PHÊ CHƯA BAO GIỜ NGON HƠN, VÀ THÚ VỊ HƠN THẾ!</p>
-											<p>James Hoffmann - một trong những barista nổi tiếng nhất thế giới, nhà vô
-												địch World Barista năm 2007, đồng thời chủ nhân
-												kênh vlog về cà phê đặc sản có gần 1,5 triệu người đăng ký trên Youtube
-												- đã viết một cuốn sách được cả giới chuyên gia
-												cà phê và những người mộ điệu yêu thích, trở thành một trong những cuốn
-												sách nổi tiếng nhất thế giới về cà phê đặc sản.
-												Bản đồ thế giới cà phê không chỉ giới thiệu về cây cà phê, lịch sử việc
-												uống cà phê của loài người. các phong cách
-												thưởng thức cà phê trên thế giới mà còn đưa bạn bước lên một hành trình
-												vòng quanh thế giới đến thăm các nước sản xuất
-												cà phê từ châu Phi, đến châu Á, châu Mỹ... với những hình ảnh, bản đồ
-												sinh động, cung cấp các thông tin cô đọng về nguồn
-												gốc, hồ sơ hương vị, các vùng trồng cà phê nổi tiếng của từng quốc gia.
-												Một cuốn sách không thể thiếu cho những người
-												say mê cả phê và muốn tìm hiểu về các loại cà phê tuyệt vời nhất thế
-												giới.</p>
-											<p>"Các chuyên gia và cả những người mê cà phê đều sẽ yêu cuốn sách đẹp đẽ
-												này của James Hoffmann. Từ cái nhìn tổng quan về
-												những vùng trồng cà phê nổi bật nhất thế giới cho đến hướng dẫn pha chế
-												theo từng bước, nội dung sách đầy tính giáo dục,
-												khơi gợi suy nghĩ và vô cùng có ích. Tôi đã giới thiệu sách cho độc giả
-												của tạp chí Barista không biết bao nhiều lần mà
-												kể."</p>
-											<p>Sarah Allen, BTV tạp chí Barista</p>
+											<p> {{ThisBook.GioiThieuSach}} </p>
 										</div>
 									</div>
 								</div>
@@ -234,6 +209,34 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="row">
+					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
+						<h2>NHỮNG SÁCH CÓ LIÊN QUAN</h2>
+					</div>
+				</div>
+				<div class="row row-pb-md">
+
+					{% for book in RelatedBooks %}
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="desc">
+							<span class="price">{{book.GiaNhaNam}} (Đã có VAT)</span>
+						</div>
+
+						<a href="detail/{{book.MaSanPham}}" class="prod-img">
+							<img src={{book.LinkImage}} class="img-fluid">
+						</a>
+
+						<a href="detail/{{book.MaSanPham}}" class="prod-img">
+							<div class="desc">
+								<h3>{{book.Ten}}</h3>
+							</div>
+						</a>
+					</div>
+					{% endfor %}
+
+				</div>
+
 			</div>
 
 			<footer id="colorlib-footer" role="contentinfo">
