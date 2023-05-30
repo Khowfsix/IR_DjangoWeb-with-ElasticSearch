@@ -155,16 +155,16 @@
 							<span class="price">{{book.GiaNhaNam}} (Đã có VAT)</span>
 						</div>
 
-						<a href="detail/{{book.MaSanPham}}" class="prod-img">
+						<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
 							<img src={{book.LinkImage}} class="img-fluid">
 						</a>
 
-						<a href="detail/{{book.MaSanPham}}" class="prod-img">
+						<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
 							<div class="desc">
 								<h3>{{book.Ten}}</h3>
 							</div>
 						</a>
-					</div>
+					</div>s
 					{% endfor %}
 
 				</div>
