@@ -1,0 +1,21 @@
+action.auto_create_index: .monitoring*,.watches,.triggered_watches,.watcher-history*,.ml*
+
+
+Γä╣∩╕Å  Password for the elastic user (reset with `bin/elasticsearch-reset-password -u elastic`):
+  yLkHabXo_wWKzb0UxO1P
+
+Γä╣∩╕Å  HTTP CA certificate SHA-256 fingerprint:
+  82b198ebfeb438cdb4caac0895fd4bbc801b2555e60528365fa90ac9f1b3954f
+
+Γä╣∩╕Å  Configure Kibana to use this cluster:
+ΓÇó Run Kibana and click the configuration link in the terminal when Kibana starts.
+ΓÇó Copy the following enrollment token and paste it into Kibana in your browser (valid for the next 30 minutes):
+  eyJ2ZXIiOiI4LjYuMiIsImFkciI6WyIxOTIuMTY4LjAuMTI1OjkyMDAiXSwiZmdyIjoiODJiMTk4ZWJmZWI0MzhjZGI0Y2FhYzA4OTVmZDRiYmM4MDFiMjU1NWU2MDUyODM2NWZhOTBhYzlmMWIzOTU0ZiIsImtleSI6ImI2VjhZNGdCM1Y0QlpzLWJ1NmJxOkpYdW1pMFB0UTFpbmU5UndzZThlSUEifQ==
+
+Γä╣∩╕Å  Configure other nodes to join this cluster:
+ΓÇó On this node:
+  Γüâ Create an enrollment token with `bin/elasticsearch-create-enrollment-token -s node`.
+  Γüâ Uncomment the transport.host setting at the end of config/elasticsearch.yml.
+  Γüâ Restart Elasticsearch.
+ΓÇó On other nodes:
+  Γüâ Start Elasticsearch with `bin/elasticsearch --enrollment-token <token>`, using the enrollment token that you generated.

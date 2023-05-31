@@ -1,0 +1,157 @@
+DELETE finalproject_index_v3
+PUT /finalproject_index_v3
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "default": {
+          "type": "simple"
+        },
+        "default_search": {
+          "type": "simple"
+        },
+        "my_content_analyzer": {
+          "tokenizer": "lowercase",
+          "char_filter": ["html_strip"],
+          "filter": [ "my_custom_stop_words_filter", "my_shingle", "trim", "remove_duplicates", "unique"]
+        },
+        "my_orthers_analyzer": {
+          "tokenizer": "lowercase",
+          "char_filter": ["html_strip"],
+          "filter": ["my_shingle", "trim", "remove_duplicates", "unique"]
+        }
+      },
+      "filter": {
+        "my_custom_stop_words_filter": {
+          "type": "stop",
+          "ignore_case": true,
+          "stopwords_path": "vietnamese-stopwords.txt"
+        }, 
+        "my_shingle": {
+          "type": "shingle",
+          "max_shingle_size": 2,
+          "filler_token": ""
+        }
+      }
+    }
+  },
+  "mappings": {
+    "dynamic": false,
+    "properties": {
+      "Dịch giả": {
+        "type": "text",
+        "analyzer": "my_orthers_analyzer",
+        "search_analyzer": "my_orthers_analyzer",
+        "fields": {
+          "keyword": {
+            "type": "keyword",       
+            "ignore_above": 256, 
+            "eager_global_ordinals": true
+          }
+        },
+        "store": true,
+        "term_vector": "with_positions_offsets"
+      },
+      "Giá Nhã Nam": {
+        "type": "double",
+        "coerce": true
+      },
+      "Giá bìa": {
+        "type": "double",
+        "coerce": true,
+        "store": true
+      },
+      "Giới thiệu sách": {
+        "type": "text",
+        "analyzer": "my_content_analyzer",
+        "search_analyzer": "my_content_analyzer",
+        "term_vector": "with_positions_offsets"
+      },
+      "Kích thước": {
+        "type": "keyword",
+        "index": false,
+        "eager_global_ordinals": true
+      },
+      "LinkImage": {
+        "type": "keyword",
+        "index": false,
+        "eager_global_ordinals": true
+      },
+      "Mã sản phẩm": {
+        "type": "keyword",
+        "index": false,
+        "eager_global_ordinals": true,
+        "store": true
+      },
+      "Ngày phát hành": {
+        "type": "date",
+        "format": "dd-MM-yyyy",
+        "store": true
+      },
+      "Nhà xuất bản": {
+        "type": "text",
+        "analyzer": "my_orthers_analyzer",
+        "search_analyzer": "my_orthers_analyzer",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256,
+            "eager_global_ordinals": true
+          }
+        },
+         "store": true,
+        "term_vector": "with_positions_offsets"
+      },
+	    "Danh mục": {
+        "type": "text",
+        "analyzer": "my_orthers_analyzer",
+        "search_analyzer": "my_orthers_analyzer",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256,
+            "eager_global_ordinals": true
+          }
+        },
+         "store": true,
+        "term_vector": "with_positions_offsets"
+      },
+      "Số trang": {
+        "type": "long",
+        "index": false
+      },
+      "Tác giả": {
+        "type": "text",
+        "analyzer": "my_orthers_analyzer",
+        "search_analyzer": "my_orthers_analyzer",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256,
+            "eager_global_ordinals": true
+          }
+        },
+        "store": true,
+        "term_vector": "with_positions_offsets"
+      },
+      "Tên": {
+        "type": "text",
+        "analyzer": "my_orthers_analyzer",
+        "search_analyzer": "my_orthers_analyzer",
+        "store": true,
+        "term_vector": "with_positions_offsets"
+      }
+    }
+  }
+}
+
+GET finalproject_index_v3/_analyze
+{
+  "analyzer": "my_content_analyzer", 
+  "text":     "“THI ĐỖ, RỒI ĐI LÀM CÔNG SỞ, đó là mục đích của cả một đời. Nhưng bây giờ Trường mới rõ cái nhỏ mọn của điều mong ước ấy. Sự sống đã cho chàng bao nhiêu bài học hay."
+}
+GET finalproject_index_v3/_analyze
+{
+  "analyzer": "my_orthers_analyzer", 
+  "text":     "NGÀY MỚI - VIỆT NAM DANH TÁC"
+}

@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from Books import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index_view, name='homepage'),
+    path('searching/', views.search_keyword_view, name='searching_with_keyword'),
+    path('detail/<str:id>', views.detail_view, name='detail'),
+    path('filter/', views.filter, name='filter')
 ]
