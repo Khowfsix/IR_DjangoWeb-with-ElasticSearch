@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\UTE\Year_3\HK_2\Truy tim thong tin\project\IR_DjangoWeb-with-ElasticSearch\IR_project_venv"
+VIRTUAL_ENV="C:\Users\ad\IR_DjangoWeb-with-ElasticSearch\IR_project_venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="D:\UTE\Year_3\HK_2\Truy tim thong tin\project\IR_DjangoWeb-with-ElasticSearch\IR_project_venv"
+$env:VIRTUAL_ENV="C:\Users\ad\IR_DjangoWeb-with-ElasticSearch\IR_project_venv"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name

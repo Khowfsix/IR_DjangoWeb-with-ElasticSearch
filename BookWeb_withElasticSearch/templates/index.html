@@ -4,7 +4,7 @@
 
 <head>
 	<title>
-		IRS Book Web - Index
+		IRS Book Web
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,6 +39,82 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
 
+	<style>
+		* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	}
+
+	.range-slide {
+	position: relative;
+	margin: 40px;
+	height: 4px;
+	width: 240px;
+	}
+
+	.slide {
+	position: absolute;
+	top: 0;
+	height: 4px;
+	background: #ccc;
+	left: 9px;
+	right: 9px;
+	}
+
+	.line {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 4px;
+	background-color: red;
+	}
+
+	.thumb {
+	position: absolute;
+	z-index: 2;
+	text-align: left;
+	border: 1px solid red;
+	background-color: #4ee44e;
+	border-radius: 50%;
+	outline: none;
+	top: -7px;
+	height: 18px;
+	width: 18px;
+	margin-left: -9px;
+	}
+
+	input {
+	-webkit-appearance: none;
+	appearance: none;
+	position: absolute;
+	pointer-events: none;
+	z-index: 3;
+	height: 3px;
+	top: 0;
+	width: 100%;
+	opacity: 0;
+	margin: 0;
+	}
+
+	input::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	pointer-events: all;
+	border-radius: 50%;
+	cursor: pointer;
+	width: 18px;
+	height: 18px;
+	}
+
+	.display {
+	margin: 40px;
+	width: 240px;
+	display: flex;
+	justify-content: space-between;
+	}
+	</style>
 </head>
 
 <body>
@@ -49,14 +125,12 @@
 		<nav class="colorlib-nav" role="navigation">
 			<div class="top-menu">
 				<div class="container">
-
 					<div class="row">
 						<div class="col-sm-7 col-md-9">
 							<div id="colorlib-logo"><a href="{% url 'homepage' %}">Book Web - with Elastic Search</a>
 							</div>
-						</div>
-
-
+						</div>	
+						
 						<!-- Search bar -->
 						<div class="col-sm-5 col-md-10">
 							<form action="{% url 'searching_with_keyword'%}" class="search-wrap"
@@ -139,57 +213,142 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="colorlib-product">
-			<div class="container">
-				<!-- <div class="row">
-					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
-						<h2>SÁCH BÁN CHẠY</h2>
+		<div style="display: flex">
+			<div class="filter-container" style="margin-left: 100px;">
+				<form id="filter-form">
+					<div class="form-group">
+						<label for="price-filter">Giá:</label>
+						<select id="price-filter" class="form-control">
+							<option value="">Tất cả</option>
+							<option value="under-50000">Dưới 50.000</option>
+							<option value="50000-100000">50.000 - 100.000</option>
+							<option value="over-100000">Trên 100.000</option>
+						</select>
 					</div>
-				</div> -->
-				<div class="row row-pb-md">
-
-					{% for book in Books %}
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="desc">
-							<span class="price">{{book.GiaNhaNam}} (Đã có VAT)</span>
-						</div>
-
-						<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
-							<img src={{book.LinkImage}} class="img-fluid">
-						</a>
-
-						<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
-							<div class="desc">
-								<h3>{{book.Ten}}</h3>
+					<div class="form-group">
+						<label for="author-filter">Tác giả:</label>
+						<select id="price-filter" class="form-control">
+							<option value="">Tất cả</option>
+							<option value="Nhiều tác giả">Nhiều tác giả</option>
+							<option value="Guillaume Musso">Guillaume Musso</option>
+							<option value="Marc Levy">Marc Levy</option>
+							<option value="Băng Ba">Băng Ba</option>
+							<option value="Aleix Cabrera">Aleix Cabrera</option>
+							<option value="Hà Mã">Hà Mã</option>
+							<option value="Nicholas Sparks">Nicholas Sparks</option>
+							<option value="Sasbadi Group">Sasbadi Group</option>
+							<option value="Sasbadi.">Sasbadi.</option>
+							<option value="Nicoletta Codignola - Sophie Fatus">Nicoletta Codignola - Sophie Fatus</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="dichgia-filter">Dịch giả:</label>
+						<select id="dichgia-filter" class="form-control">
+							<option value="">Tất cả</option>
+							<option value="Bồ Câu">Bồ Câu</option>
+							<option value="Bảo Bình">Bảo Bình</option>
+							<option value="Hốp">Hốp</option>
+							<option value="Huyền Vũ">Huyền Vũ</option>
+							<option value="Lục Hương">Lục Hương</option>
+							<option value="Lê Minh Đức">Lê Minh Đức</option>
+							<option value="Thiên Nga">Thiên Nga</option>
+							<option value="Phương Thúy.">Phương Thúy.</option>
+							<option value="Thu Phương">Thu Phương</option>
+							<option value="Trang Hải">Trang Hải</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="danhmuc-filter">Danh mục:</label>
+						<select id="danhmuc-filter" class="form-control">
+							<option value="">Tất cả</option>
+							<option value="Văn học nước ngoài">Văn học nước ngoài</option>
+							<option value="Thiếu nhi">Thiếu nhi</option>
+							<option value="Văn học Việt Nam">Văn học Việt Nam</option>
+							<option value="Tham khảo">Tham khảo</option>
+							<option value="Khoa học tự nhiên - nhân văn">Khoa học tự nhiên - nhân văn</option>
+							<option value="Thời sự - Chính trị">Thời sự - Chính trị</option>
+							<option value="Giảm giá đặc biệt">Giảm giá đặc biệt</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="sotrang-filter">Số trang:</label>
+						<div class="range-slide">
+							<div class="slide">
+								<div class="line" id="line" style="left: 0%; right: 0%;"></div>
+								<span class="thumb" id="thumbMin" style="left: 0%;"></span>
+								<span class="thumb" id="thumbMax" style="left: 100%;"></span>
 							</div>
-						</a>
-					</div>s
-					{% endfor %}
-
-				</div>
-				{% comment %} <div class="row">
-					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
-						<h2>VĂN HỌC NƯỚC NGOÀI</h2>
-					</div>
-				</div>
-				<div class="row row-pb-md">
-
-					{% for hit in hits %}
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="desc">
-							<span class="price">295.200đ (Đã có VAT)</span>
+							<input id="rangeMin" type="range" max="100" min="10" step="5" value="0">
+							<input id="rangeMax" type="range" max="100" min="10" step="5" value="100">
+						</div>
+						<div class="display">
+							<span id="min">0</span>
+							<span id="max">400</span>
 						</div>
 
-						<a href="" class="prod-img">
-							<img src="http://static.nhanam.com.vn/thumb/0x320/crop/Books/Images/2023/1/30/K86N2QWU.jpg"
-								class="img-fluid">
-						</a>
 					</div>
-					{% endfor %}
+					<div class="form-group">
+						<label for="ngayphathanh-filter">Ngày phát hành:</label>
+						<div>
+							<input type="date" name="date" id="datepicker">
+						</div>
 
-				</div> {% endcomment %}
+					</div>
+					<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+				</form>
 			</div>
+			<div class="colorlib-product" style="margin-left: 100px;">
+				<div class="container">
+					<!-- <div class="row">
+						<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
+							<h2>SÁCH BÁN CHẠY</h2>
+						</div>
+					</div> -->
+					<div class="row row-pb-md">
+	
+						{% for book in Books %}
+						<div class="col-lg-3 mb-4 text-center">
+							<div class="desc">
+								<span class="price">{{book.GiaNhaNam}} (Đã có VAT)</span>
+							</div>
+	
+							<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
+								<img src={{book.LinkImage}} class="img-fluid">
+							</a>
+	
+							<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
+								<div class="desc">
+									<h3>{{book.Ten}}</h3>
+								</div>
+							</a>
+						</div>s
+						{% endfor %}
+	
+					</div>
+					{% comment %} <div class="row">
+						<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
+							<h2>VĂN HỌC NƯỚC NGOÀI</h2>
+						</div>
+					</div>
+					<div class="row row-pb-md">
+	
+						{% for hit in hits %}
+						<div class="col-lg-3 mb-4 text-center">
+							<div class="desc">
+								<span class="price">295.200đ (Đã có VAT)</span>
+							</div>
+	
+							<a href="" class="prod-img">
+								<img src="http://static.nhanam.com.vn/thumb/0x320/crop/Books/Images/2023/1/30/K86N2QWU.jpg"
+									class="img-fluid">
+							</a>
+						</div>
+						{% endfor %}
+	
+					</div> {% endcomment %}
+				</div>
+			</div>
+
 		</div>
 
 		<footer id="colorlib-footer" role="contentinfo">
@@ -252,6 +411,7 @@
 		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
 	</div>
 
+	
 	<!-- jQuery -->
 	<script src="{% static 'js/jquery.min.js' %}"></script>
 	<!-- popper -->
@@ -286,6 +446,38 @@
 			return true;
 		}
 	</script>
+
+	<script>
+		let min = 10;
+let max = 100;
+
+const calcLeftPosition = value => 100 / (100 - 10) *  (value - 10);
+
+$('#rangeMin').on('input', function(e) {
+	const newValue = parseInt(e.target.value);
+	if (newValue > max) return;
+	min = newValue;
+	$('#thumbMin').css('left', calcLeftPosition(newValue) + '%');
+	$('#min').html(newValue);
+	$('#line').css({
+		'left': calcLeftPosition(newValue) + '%',
+		'right': (100 - calcLeftPosition(max)) + '%'
+	});
+	});
+
+	$('#rangeMax').on('input', function(e) {
+	const newValue = parseInt(e.target.value);
+	if (newValue < min) return;
+	max = newValue;
+	$('#thumbMax').css('left', calcLeftPosition(newValue) + '%');
+	$('#max').html(newValue);
+	$('#line').css({
+		'left': calcLeftPosition(min) + '%',
+		'right': (100 - calcLeftPosition(newValue)) + '%'
+	});
+});
+	</script>
+
 
 </body>
 
