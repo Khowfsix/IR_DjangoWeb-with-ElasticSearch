@@ -39,82 +39,7 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
 
-	<style>
-		* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	}
-
-	.range-slide {
-	position: relative;
-	margin: 40px;
-	height: 4px;
-	width: 240px;
-	}
-
-	.slide {
-	position: absolute;
-	top: 0;
-	height: 4px;
-	background: #ccc;
-	left: 9px;
-	right: 9px;
-	}
-
-	.line {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	height: 4px;
-	background-color: red;
-	}
-
-	.thumb {
-	position: absolute;
-	z-index: 2;
-	text-align: left;
-	border: 1px solid red;
-	background-color: #4ee44e;
-	border-radius: 50%;
-	outline: none;
-	top: -7px;
-	height: 18px;
-	width: 18px;
-	margin-left: -9px;
-	}
-
-	input {
-	-webkit-appearance: none;
-	appearance: none;
-	position: absolute;
-	pointer-events: none;
-	z-index: 3;
-	height: 3px;
-	top: 0;
-	width: 100%;
-	opacity: 0;
-	margin: 0;
-	}
-
-	input::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	pointer-events: all;
-	border-radius: 50%;
-	cursor: pointer;
-	width: 18px;
-	height: 18px;
-	}
-
-	.display {
-	margin: 40px;
-	width: 240px;
-	display: flex;
-	justify-content: space-between;
-	}
-	</style>
+	
 </head>
 
 <body>
@@ -272,28 +197,15 @@
 					</div>
 					<div class="form-group">
 						<label for="sotrang-filter">Số trang:</label>
-						<div class="range-slide">
-							<div class="slide">
-								<div class="line" id="line" style="left: 0%; right: 0%;"></div>
-								<span class="thumb" id="thumbMin" style="left: 0%;"></span>
-								<span class="thumb" id="thumbMax" style="left: 100%;"></span>
-							</div>
-							<input id="rangeMin" type="range" max="100" min="10" step="5" value="0">
-							<input id="rangeMax" type="range" max="100" min="10" step="5" value="100">
-						</div>
-						<div class="display">
-							<span id="min">0</span>
-							<span id="max">400</span>
-						</div>
+						<input type="range" min="0" max="400" step="5" value="200" id="rangeInput">
+						<span id="rangeValue">200</span>
 
 					</div>
 					<div class="form-group">
-						<label for="ngayphathanh-filter">Ngày phát hành:</label>
-						<div>
-							<input type="date" name="date" id="datepicker">
-						</div>
-
+						<label for="datepicker">Chọn ngày:</label>
+						<input type="date" name="date" id="datepicker">
 					</div>
+
 					<button type="submit" class="btn btn-primary">Tìm kiếm</button>
 				</form>
 			</div>
@@ -448,36 +360,13 @@
 	</script>
 
 	<script>
-		let min = 10;
-let max = 100;
-
-const calcLeftPosition = value => 100 / (100 - 10) *  (value - 10);
-
-$('#rangeMin').on('input', function(e) {
-	const newValue = parseInt(e.target.value);
-	if (newValue > max) return;
-	min = newValue;
-	$('#thumbMin').css('left', calcLeftPosition(newValue) + '%');
-	$('#min').html(newValue);
-	$('#line').css({
-		'left': calcLeftPosition(newValue) + '%',
-		'right': (100 - calcLeftPosition(max)) + '%'
+		var rangeInput = document.getElementById('rangeInput');
+		var rangeValue = document.getElementById('rangeValue');
+  
+	rangeInput.addEventListener('input', function() {
+	  	rangeValue.textContent = rangeInput.value;
 	});
-	});
-
-	$('#rangeMax').on('input', function(e) {
-	const newValue = parseInt(e.target.value);
-	if (newValue < min) return;
-	max = newValue;
-	$('#thumbMax').css('left', calcLeftPosition(newValue) + '%');
-	$('#max').html(newValue);
-	$('#line').css({
-		'left': calcLeftPosition(min) + '%',
-		'right': (100 - calcLeftPosition(newValue)) + '%'
-	});
-});
-	</script>
-
+  	</script>
 
 </body>
 
