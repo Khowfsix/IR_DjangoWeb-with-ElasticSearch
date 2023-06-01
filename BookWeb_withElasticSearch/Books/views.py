@@ -104,8 +104,62 @@ def categoryFilter(request):
     for loai in DanhMuc:
         query.append({"match_phrase": {"Danh mục": loai}})
     return query
+
+def authorFilter(request):
+    """
+    Hiển thị tất cả các sách trong các tác giả được chọn 
+    Input: Request 
+    Output: Query thành phần trong query tổng
+    """
+    TacGia = []
+    if request.method == 'POST':
+        TacGia = request.POST.getlist('TacGia')
+    
+    if TacGia == []:
+        return [];
+    
+    query = []
+    for tacgia in TacGia:
+        query.append({"match_phrase": {"Tác giả": tacgia}})
+    return query
+
+def translatorFilter(request):
+    """
+    Hiển thị tất cả các sách trong các tác giả được chọn 
+    Input: Request 
+    Output: Query thành phần trong query tổng
+    """
+    DichGia = []
+    if request.method == 'POST':
+        DichGia = request.POST.getlist('DichGia')
+    
+    if DichGia == []:
+        return [];
+    
+    query = []
+    for dichgia in DichGia:
+        query.append({"match_phrase": {"Dịch giả": dichgia}})
+    return query
+
+def publisherFilter(request):
+    """
+    Hiển thị tất cả các sách trong các nhà xuất bản được chọn 
+    Input: Request 
+    Output: Query thành phần trong query tổng
+    """
+    NXB = []
+    if request.method == 'POST':
+        NXB = request.POST.getlist('NhaXuatBan')
+    
+    if NXB == []:
+        return [];
+    
+    query = []
+    for nxb in NXB:
+        query.append({"match_phrase": {"Nhà xuất bản": nxb}})
+    return query
   
-def getUniqueDanhMuc():
+def getUniqueCategory():
     """ Lấy danh sách danh mục
 
     Returns:
@@ -122,10 +176,73 @@ def getUniqueDanhMuc():
     search_result = aggregate(aggs)
 
     listDanhMuc = {}
-    # Lấy kết quả query sang object Books
+    # Lấy kết quả query 
     for bucket in search_result['aggregations']['bucket']['buckets']:
         listDanhMuc[bucket.get('key')] = bucket.get('doc_count')
     return listDanhMuc
+
+def getUniqueAuthor():
+    """ Lấy danh sách tác giả
+
+    Returns:
+        listTacGia: kiểu dict chứa key là tên tác giả, value là số lượng sách
+    """
+    aggs = {
+                'bucket': {
+                'terms': {
+                    'field': 'Tác giả.keyword'
+                    }
+                }
+            }
+    search_result = aggregate(aggs)
+
+    listTacGia = {}
+    # Lấy kết quả query 
+    for bucket in search_result['aggregations']['bucket']['buckets']:
+        listTacGia[bucket.get('key')] = bucket.get('doc_count')
+    return listTacGia
+
+def getUniqueTranslator():
+    """ Lấy danh sách dịch giả
+
+    Returns:
+        listDichGia: kiểu dict chứa key là tên dịch giả, value là số lượng sách
+    """
+    aggs = {
+                'bucket': {
+                'terms': {
+                    'field': 'Dịch giả.keyword'
+                    }
+                }
+            }
+    search_result = aggregate(aggs)
+
+    listDichGia = {}
+    # Lấy kết quả query 
+    for bucket in search_result['aggregations']['bucket']['buckets']:
+        listDichGia[bucket.get('key')] = bucket.get('doc_count')
+    return listDichGia
+
+def getUniquePublisher():
+    """ Lấy danh sách nhà xuất bản
+
+    Returns:
+        listNXB: kiểu dict chứa key là tên NXB, value là số lượng sách
+    """
+    aggs = {
+                'bucket': {
+                'terms': {
+                    'field': 'Nhà xuất bản.keyword'
+                    }
+                }
+            }
+    search_result = aggregate(aggs)
+
+    listNXB = {}
+    # Lấy kết quả query 
+    for bucket in search_result['aggregations']['bucket']['buckets']:
+        listNXB[bucket.get('key')] = bucket.get('doc_count')
+    return listNXB
 
 def filter(request):
     """
@@ -141,6 +258,21 @@ def filter(request):
                     {
                         "bool": {
                         "should": categoryFilter(request)
+                        }
+                    },
+                    {
+                        "bool": {
+                            "should": authorFilter(request)
+                        }
+                    },
+                    {
+                        "bool": {
+                            "should": translatorFilter(request)
+                        }
+                    },
+                    {
+                        "bool": {
+                            "should": publisherFilter(request)
                         }
                     }
                 ],
@@ -170,6 +302,21 @@ def filter(request):
                     {
                         "bool": {
                         "should": categoryFilter(request)
+                        }
+                    },
+                    {
+                        "bool": {
+                            "should": authorFilter(request)
+                        }
+                    },
+                    {
+                        "bool": {
+                            "should": translatorFilter(request)
+                        }
+                    },
+                    {
+                        "bool": {
+                            "should": publisherFilter(request)
                         }
                     }
                 ],
@@ -228,13 +375,27 @@ def filter(request):
         listBooks.append(ObBook)
 
     DanhMuc_Selected = []
+    TacGia_Selected = []
+    DichGia_Selected = []
+    NhaXuatBan_Selected = []
     if request.method == 'POST':
         DanhMuc_Selected = request.POST.getlist('DanhMuc')
+        TacGia_Selected = request.POST.getlist('TacGia')
+        DichGia_Selected = request.POST.getlist('DichGia')
+        NhaXuatBan_Selected = request.POST.getlist('NhaXuatBan')
+        # print("Dich gia")
+        # print(DichGia_Selected)
 
     searchContext = {
         "Books": listBooks,
-        "DanhMucs": getUniqueDanhMuc().keys(),
-        'DanhMuc_Selected': DanhMuc_Selected
+        "DanhMucs": getUniqueCategory().keys(),
+        "TacGias": getUniqueAuthor().keys(),
+        "DichGias": getUniqueTranslator().keys(),
+        "NhaXuatBans": getUniquePublisher().keys(),
+        'DanhMuc_Selected': DanhMuc_Selected,
+        'TacGia_Selected': TacGia_Selected,
+        'DichGia_Selected': DichGia_Selected,
+        'NhaXuatBan_Selected': NhaXuatBan_Selected
     }
     return render(request=request,
                   template_name='index.html',
@@ -302,7 +463,7 @@ def index_view(request):
         ObBook.GiaNhaNam = JSbook.get('Giá Nhã Nam')
         ObBook.GioiThieuSach = JSbook.get('Giới thiệu sách')
 
-        print(ObBook.Ten)
+        # print(ObBook.Ten)
         listBooks.append(ObBook)
 
     indexContext = {
@@ -324,6 +485,7 @@ def getBook_fromResults(search_result):
         ObBook.Ten = JSbook.get('Tên')
         ObBook.MaSanPham = JSbook.get('Mã sản phẩm')
         ObBook.TacGia = JSbook.get('Tác giả')
+        ObBook.DichGia = JSbook.get('Dịch giả')
         ObBook.NhaXuatBan = JSbook.get('Nhà xuất bản')
 
         if (JSbook.get('Số trang') is not None):
@@ -338,7 +500,7 @@ def getBook_fromResults(search_result):
         ObBook.GiaNhaNam = JSbook.get('Giá Nhã Nam')
         ObBook.GioiThieuSach = JSbook.get('Giới thiệu sách')
 
-        print(ObBook.Ten)
+        # print(ObBook.Ten)
         listBooks.append(ObBook)
 
     return listBooks
@@ -349,6 +511,8 @@ def detail_view(request, id):
         và top 20 quyển sách khác có liên quan
     Input: 1 quyển sách
     """
+    
+    print("Ma san pham neeeeeeeee: " + id)
 
     ## Lấy quyển hiện tại
     queryThisBook = {
@@ -484,7 +648,7 @@ def search_keyword_view(request):
         ObBook.GiaNhaNam = JSbook.get('Giá Nhã Nam')
         ObBook.GioiThieuSach = JSbook.get('Giới thiệu sách')
 
-        print(ObBook.Ten)
+        # print(ObBook.Ten)
         listBooks.append(ObBook)
 
     searchContext = {

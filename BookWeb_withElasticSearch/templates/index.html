@@ -39,6 +39,137 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
 
+	<style>
+		.dropdown-check-list {
+			display: inline-block;
+		  }
+		  
+		  .dropdown-check-list .anchor {
+			position: relative;
+			cursor: pointer;
+			display: inline-block;
+			padding: 5px 50px 5px 10px;
+			border: 1px solid #ccc;
+		  }
+		  
+		  .dropdown-check-list .anchor:after {
+			position: absolute;
+			content: "";
+			border-left: 2px solid black;
+			border-top: 2px solid black;
+			padding: 5px;
+			right: 10px;
+			top: 20%;
+			-moz-transform: rotate(-135deg);
+			-ms-transform: rotate(-135deg);
+			-o-transform: rotate(-135deg);
+			-webkit-transform: rotate(-135deg);
+			transform: rotate(-135deg);
+		  }
+		  
+		  .dropdown-check-list .anchor:active:after {
+			right: 8px;
+			top: 21%;
+		  }
+		  
+		  .dropdown-check-list ul.items {
+			padding: 2px;
+			display: none;
+			margin: 0;
+			border: 1px solid #ccc;
+			border-top: none;
+		  }
+		  
+		  .dropdown-check-list ul.items li {
+			list-style: none;
+		  }
+		  
+		  .dropdown-check-list.visible .anchor {
+			color: #0094ff;
+		  }
+		  
+		  .dropdown-check-list.visible .items {
+			display: block;
+		  }
+		  
+		.dropbtn {
+		  background-color: #04AA6D;
+		  color: white;
+		  padding: 16px;
+		  font-size: 16px;
+		  border: none;
+		  cursor: pointer;
+		}
+		
+		.dropbtn:hover, .dropbtn:focus {
+		  background-color: #3e8e41;
+		}
+		
+		#myInput {
+			box-sizing: border-box;
+			background-image: url('searchicon.png');
+			background-position: 14px 12px;
+			background-repeat: no-repeat;
+			font-size: 16px;
+			padding: 14px 20px 12px 45px;
+			border: none;
+			border-bottom: 1px solid #ddd;
+		  }
+		  
+		#myInput:focus {outline: 3px solid #ddd;}
+
+		#myInput2 {
+			box-sizing: border-box;
+			background-image: url('searchicon.png');
+			background-position: 14px 12px;
+			background-repeat: no-repeat;
+			font-size: 16px;
+			padding: 14px 20px 12px 45px;
+			border: none;
+			border-bottom: 1px solid #ddd;
+		  }
+		  
+		#myInput2:focus {outline: 3px solid #ddd;}
+		
+		#myInput3 {
+			box-sizing: border-box;
+			background-image: url('searchicon.png');
+			background-position: 14px 12px;
+			background-repeat: no-repeat;
+			font-size: 16px;
+			padding: 14px 20px 12px 45px;
+			border: none;
+			border-bottom: 1px solid #ddd;
+		  }
+		  
+		#myInput3:focus {outline: 3px solid #ddd;}
+
+		.dropdown {
+		  position: relative;
+		  display: inline-block;
+		}
+		
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  background-color: #f6f6f6;
+		  min-width: 230px;
+		  overflow: auto;
+		  border: 1px solid #ddd;
+		  z-index: 1;
+		}
+		
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		}
+		
+		.dropdown a:hover {background-color: #ddd;}
+		
+		.show {display: block;}
+	</style>
 </head>
 
 <body>
@@ -127,7 +258,6 @@
 				</div>
 			</div>
 		</nav>
-
 		<div class="colorlib-intro">
 			<div class="container">
 				<div class="row">
@@ -138,6 +268,51 @@
 						<h2>~Victor Hugo~</h2>
 					</div>
 					<form action="{% url 'filter'%}" method="post">
+						<div id="tacgia" class="dropdown-check-list" tabindex="100">
+							<span class="anchor" onclick="listAuthorsFuntion()">Filter Tác Giả</span>
+							<div id="myDropdown" class="dropdown-content">
+								<input type="text" placeholder="Search.." id="myInput" onkeyup="authorFilterFunction()"><br>
+								{% for tacgia in TacGias %}
+									{% if tacgia in TacGia_Selected %}
+										<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia" checked>
+										<label for="{{ tacgia }}">{{ tacgia }}</label><br>
+									{% else %}
+										<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia">
+										<label for="{{ tacgia }}">{{ tacgia }}</label><br>
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+						<div id="dichgia" class="dropdown-check-list" tabindex="100">
+							<span class="anchor" onclick="listTranslatorsFuntion()">Filter Dịch Giả</span>
+							<div id="myDropdown2" class="dropdown-content">
+								<input type="text" placeholder="Search.." id="myInput2" onkeyup="translatorFilterFunction()"><br>
+								{% for dichgia in DichGias %}
+									{% if dichgia in DichGia_Selected %}
+										<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia" checked>
+										<label for="{{ dichgia }}">{{ dichgia }}</label><br>
+									{% else %}
+										<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia">
+										<label for="{{ dichgia }}">{{ dichgia }}</label><br>
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+						<div id="nhaxuatban" class="dropdown-check-list" tabindex="100">
+							<span class="anchor" onclick="listPublishersFuntion()">Filter NXB</span>
+							<div id="myDropdown3" class="dropdown-content">
+								<input type="text" placeholder="Search.." id="myInput3" onkeyup="publisherFilterFunction()"><br>
+								{% for nxb in NhaXuatBans %}
+									{% if nxb in NhaXuatBan_Selected %}
+										<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan" checked>
+										<label for="{{ nxb }}">{{ nxb }}</label><br>
+									{% else %}
+										<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan">
+										<label for="{{ nxb }}">{{ nxb }}</label><br>
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
 						{% csrf_token %}
 						<div class="form-check">
 							{% for danhmuc in DanhMucs %}
@@ -292,6 +467,79 @@
 	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
 	<!-- Main -->
 	<script src="{% static 'js/main.js' %}"></script>
+
+	<script>
+		/* When the user clicks on the button,
+		toggle between hiding and showing the dropdown content */
+		function listPublishersFuntion() {
+			document.getElementById("myDropdown3").classList.toggle("show");
+		  }
+		  
+		  function publisherFilterFunction() {
+			var input, filter, ul, li, label, i, input;
+			input = document.getElementById("myInput3");
+			filter = input.value.toUpperCase();
+			div = document.getElementById("myDropdown3");
+			input = div.getElementsByTagName("input");
+			label = div.getElementsByTagName("label");
+			for (i = 0; i < label.length; i++) {
+			  txtValue = label[i].textContent || label[i].innerText;
+			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				  label[i].style.display = "";
+				  input[i+1].style.display = "";
+			  } else {
+				  label[i].style.display = "none";
+				  input[i+1].style.display = "none";
+			  }
+			}
+		  }
+
+		function listTranslatorsFuntion() {
+			document.getElementById("myDropdown2").classList.toggle("show");
+		  }
+		  
+		function translatorFilterFunction() {
+			var input, filter, ul, li, label, i, input;
+			input = document.getElementById("myInput2");
+			filter = input.value.toUpperCase();
+			div = document.getElementById("myDropdown2");
+			input = div.getElementsByTagName("input");
+			label = div.getElementsByTagName("label");
+			for (i = 0; i < label.length; i++) {
+			  txtValue = label[i].textContent || label[i].innerText;
+			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				  label[i].style.display = "";
+				  input[i+1].style.display = "";
+			  } else {
+				  label[i].style.display = "none";
+				  input[i+1].style.display = "none";
+			  }
+			}
+		  }
+
+		function listAuthorsFuntion() {
+		  document.getElementById("myDropdown").classList.toggle("show");
+		}
+		
+		function authorFilterFunction() {
+		  var input, filter, ul, li, label, i, input;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  div = document.getElementById("myDropdown");
+		  input = div.getElementsByTagName("input");
+		  label = div.getElementsByTagName("label");
+		  for (i = 0; i < label.length; i++) {
+			txtValue = label[i].textContent || label[i].innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				label[i].style.display = "";
+				input[i+1].style.display = "";
+			} else {
+				label[i].style.display = "none";
+				input[i+1].style.display = "none";
+			}
+		  }
+		}
+	</script>
 
 	<script>
 		function validateForm() {
