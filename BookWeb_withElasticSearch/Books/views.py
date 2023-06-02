@@ -553,10 +553,11 @@ def detail_view(request, id):
     print(queryThisBook)
     search_result = search(queryThisBook, 1)
     thisBook = getBook_fromResults(search_result=search_result)[0]
-
+    print("Sách:",thisBook.DanhMuc)
     ## Lấy 20 quyển sách co liên quan
     queryRelatedBook = {
         "bool": {
+            "minimum_should_match": 1,
             "should": [
                 {
                     "match": {
@@ -575,11 +576,6 @@ def detail_view(request, id):
                 },
                 {
                     "match": {
-                        "Dịch giả": thisBook.DichGia
-                    }
-                },
-                {
-                    "match": {
                         "Nhà xuất bản": thisBook.NhaXuatBan
                     }
                 },
@@ -588,16 +584,16 @@ def detail_view(request, id):
                         "Giới thiệu sách": thisBook.GioiThieuSach
                     }
                 }
-            ],
-            "minimum_should_match": 1
+            ]
+            
         }
     }
     search_result = search(queryRelatedBook, 9)
-    listRelatedBooks = getBook_fromResults(search_result=search_result)[1:]
+    # listRelatedBooks = getBook_fromResults(search_result=search_result)[1:]
 
     detailContext = {
         "ThisBook": thisBook,
-        "RelatedBooks": listRelatedBooks,
+        # "RelatedBooks": listRelatedBooks,
     }
 
     return render(request=request,
