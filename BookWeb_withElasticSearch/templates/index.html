@@ -4,7 +4,7 @@
 
 <head>
 	<title>
-		IRS Book Web - Index
+		IRS Book Web
 	</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,6 +39,11 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
 
+	
+</head>
+
+<body>
+	
 	<style>
 		input[type='range'] {
 			width: 210px;
@@ -281,9 +286,6 @@
 		
 		.show {display: block;}
 	</style>
-</head>
-
-<body>
 
 	<div class="colorlib-loader"></div>
 
@@ -291,27 +293,14 @@
 		<nav class="colorlib-nav" role="navigation">
 			<div class="top-menu">
 				<div class="container">
-
 					<div class="row">
 						<div class="col-sm-7 col-md-9">
 							<div id="colorlib-logo"><a href="{% url 'homepage' %}">Book Web - with Elastic Search</a>
 							</div>
-						</div>
-
-
+						</div>	
+						
 						<!-- Search bar -->
-						<div class="col-sm-5 col-md-10">
-							<form action="{% url 'filter'%}" class="search-wrap"
-								onsubmit="return validateForm()">
-								{% csrf_token %}
-								{% comment %} <div class="form-group">
-									<input type="search" name="keyword" class="form-control search"
-										placeholder="Tìm kiếm" id="searching bar">
-									<button class="btn btn-primary submit-search text-center" type="submit"><i
-											class="icon-search"></i></button>
-								</div> {% endcomment %}
-							</form>
-						</div>
+						
 					</div>
 
 
@@ -369,6 +358,7 @@
 				</div>
 			</div>
 		</nav>
+
 		<div class="colorlib-intro">
 			<div class="container">
 				<div class="row">
@@ -378,142 +368,142 @@
 						</h2>
 						<h2>~Victor Hugo~</h2>
 					</div>
-					<form action="{% url 'filter'%}" method="post">
-						<div class="form-group">
-							<input type="search" name="keyword" class="form-control search"
-								placeholder="Tìm kiếm" id="searching bar" value="{{keyword}}">
-						</div>
-						<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-						<div class="rangeslider">
-							<p>GIÁ TIỀN:</p>
-							<input class="minPrice" name="gtePrice" type="range" min="9600" max="560000" value="{{gtePrice}}" />
-							<input class="maxPrice" name="ltePrice" type="range" min="9600" max="560000" value="{{ltePrice}}" />
-							<span class="range_min_Price light left">{{gtePrice}}</span>
-							<span class="range_max_Price light right">{{ltePrice}}</span>
-						</div>
-						<br><br><br><br><br>
-						<div class="rangeslider">
-							<p>SỐ TRANG:</p>
-							<input class="minPageNumber" name="gtePageNumber" type="range" min="10" max="1600" value="{{gtePageNumber}}" />
-							<input class="maxPageNumber" name="ltePageNumber" type="range" min="10" max="1600" value="{{ltePageNumber}}" />
-							<span class="range_min_PageNumber light left">{{gtePageNumber}}</span>
-							<span class="range_max_PageNumber light right">{{ltePageNumber}}</span>
-						</div>
-						<br><br><br><br><br>
-						<div id="tacgia" class="dropdown-check-list" tabindex="100">
-							<span class="anchor" onclick="listAuthorsFuntion()">Filter Tác Giả</span>
-							<div id="myDropdown" class="dropdown-content">
-								<input type="text" placeholder="Search.." id="myInput" onkeyup="authorFilterFunction()"><br>
-								{% for tacgia in TacGias %}
-									{% if tacgia in TacGia_Selected %}
-										<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia" checked>
-										<label for="{{ tacgia }}">{{ tacgia }}</label><br>
-									{% else %}
-										<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia">
-										<label for="{{ tacgia }}">{{ tacgia }}</label><br>
-									{% endif %}
-								{% endfor %}
-							</div>
-						</div>
-						<div id="dichgia" class="dropdown-check-list" tabindex="100">
-							<span class="anchor" onclick="listTranslatorsFuntion()">Filter Dịch Giả</span>
-							<div id="myDropdown2" class="dropdown-content">
-								<input type="text" placeholder="Search.." id="myInput2" onkeyup="translatorFilterFunction()"><br>
-								{% for dichgia in DichGias %}
-									{% if dichgia in DichGia_Selected %}
-										<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia" checked>
-										<label for="{{ dichgia }}">{{ dichgia }}</label><br>
-									{% else %}
-										<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia">
-										<label for="{{ dichgia }}">{{ dichgia }}</label><br>
-									{% endif %}
-								{% endfor %}
-							</div>
-						</div>
-						<div id="nhaxuatban" class="dropdown-check-list" tabindex="100">
-							<span class="anchor" onclick="listPublishersFuntion()">Filter NXB</span>
-							<div id="myDropdown3" class="dropdown-content">
-								<input type="text" placeholder="Search.." id="myInput3" onkeyup="publisherFilterFunction()"><br>
-								{% for nxb in NhaXuatBans %}
-									{% if nxb in NhaXuatBan_Selected %}
-										<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan" checked>
-										<label for="{{ nxb }}">{{ nxb }}</label><br>
-									{% else %}
-										<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan">
-										<label for="{{ nxb }}">{{ nxb }}</label><br>
-									{% endif %}
-								{% endfor %}
-							</div>
-						</div>
-						{% csrf_token %}
-						<div class="form-check">
-							{% for danhmuc in DanhMucs %}
-								{% if danhmuc in DanhMuc_Selected %}
-									<input type="checkbox" value="{{ danhmuc }}" id="{{ danhmuc }}" name="DanhMuc" checked>
-									<label for="{{ danhmuc }}">{{ danhmuc }}</label>
-								{% else %}
-									<input type="checkbox" value="{{ danhmuc }}" id="{{ danhmuc }}" name="DanhMuc" >
-									<label for="{{ danhmuc }}">{{ danhmuc }}</label>
-								{% endif %} 
-							{% endfor %}
-						</div>
-						<button type="submit" class="btn">SUBMIT</button>
-					</form>
-					
 				</div>
 			</div>
 		</div>
-
-		<div class="colorlib-product">
-			<div class="container">
-				<!-- <div class="row">
-					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
-						<h2>SÁCH BÁN CHẠY</h2>
+		<div style="display: flex">
+			<div class="filter-container" style="margin-left: 100px;">
+				<form action="{% url 'filter'%}" id="filter-form" onsubmit="return validateForm()" method="post" >
+					{% csrf_token %}
+					<div class="form-group">
+						<input type="search" name="keyword" class="form-control search"
+							placeholder="Tìm kiếm" id="searching bar" value="{{keyword}}">
 					</div>
-				</div> -->
-				<div class="row row-pb-md">
-
-					{% for book in Books %}
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="desc">
-							<span class="price">{{book.GiaNhaNam}} (Đã có VAT)</span>
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+					<div class="rangeslider">
+						<p>GIÁ TIỀN:</p>
+						<input class="minPrice" name="gtePrice" type="range" min="9600" max="560000" value="{{gtePrice}}" />
+						<input class="maxPrice" name="ltePrice" type="range" min="9600" max="560000" value="{{ltePrice}}" />
+						<span class="range_min_Price light left">{{gtePrice}}</span>
+						<span class="range_max_Price light right">{{ltePrice}}</span>
+					</div>
+					<br><br><br><br><br>
+					<div class="rangeslider">
+						<p>SỐ TRANG:</p>
+						<input class="minPageNumber" name="gtePageNumber" type="range" min="10" max="1600" value="{{gtePageNumber}}" />
+						<input class="maxPageNumber" name="ltePageNumber" type="range" min="10" max="1600" value="{{ltePageNumber}}" />
+						<span class="range_min_PageNumber light left">{{gtePageNumber}}</span>
+						<span class="range_max_PageNumber light right">{{ltePageNumber}}</span>
+					</div>
+					<br><br><br><br><br>
+					<div id="tacgia" class="dropdown-check-list" tabindex="100">
+						<span class="anchor" onclick="listAuthorsFuntion()">Filter Tác Giả</span>
+						<div id="myDropdown" class="dropdown-content">
+							<input type="text" placeholder="Search.." id="myInput" onkeyup="authorFilterFunction()"><br>
+							{% for tacgia in TacGias %}
+								{% if tacgia in TacGia_Selected %}
+									<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia" checked>
+									<label for="{{ tacgia }}">{{ tacgia }}</label><br>
+								{% else %}
+									<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia">
+									<label for="{{ tacgia }}">{{ tacgia }}</label><br>
+								{% endif %}
+							{% endfor %}
 						</div>
-
-						<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
-							<img src={{book.LinkImage}} class="img-fluid">
-						</a>
-
-						<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
-							<div class="desc">
-								<h3>{{book.Ten}}</h3>
-							</div>
-						</a>
 					</div>
-					{% endfor %}
-
-				</div>
-				{% comment %} <div class="row">
-					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
-						<h2>VĂN HỌC NƯỚC NGOÀI</h2>
-					</div>
-				</div>
-				<div class="row row-pb-md">
-
-					{% for hit in hits %}
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="desc">
-							<span class="price">295.200đ (Đã có VAT)</span>
+					<br><br>
+					<div id="dichgia" class="dropdown-check-list" tabindex="100">
+						<span class="anchor" onclick="listTranslatorsFuntion()">Filter Dịch Giả</span>
+						<div id="myDropdown2" class="dropdown-content">
+							<input type="text" placeholder="Search.." id="myInput2" onkeyup="translatorFilterFunction()"><br>
+							{% for dichgia in DichGias %}
+								{% if dichgia in DichGia_Selected %}
+									<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia" checked>
+									<label for="{{ dichgia }}">{{ dichgia }}</label><br>
+								{% else %}
+									<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia">
+									<label for="{{ dichgia }}">{{ dichgia }}</label><br>
+								{% endif %}
+							{% endfor %}
 						</div>
-
-						<a href="" class="prod-img">
-							<img src="http://static.nhanam.com.vn/thumb/0x320/crop/Books/Images/2023/1/30/K86N2QWU.jpg"
-								class="img-fluid">
-						</a>
 					</div>
-					{% endfor %}
+					<br><br>
+					<div id="nhaxuatban" class="dropdown-check-list" tabindex="100">
+						<span class="anchor" onclick="listPublishersFuntion()">Filter NXB</span>
+						<div id="myDropdown3" class="dropdown-content">
+							<input type="text" placeholder="Search.." id="myInput3" onkeyup="publisherFilterFunction()"><br>
+							{% for nxb in NhaXuatBans %}
+								{% if nxb in NhaXuatBan_Selected %}
+									<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan" checked>
+									<label for="{{ nxb }}">{{ nxb }}</label><br>
+								{% else %}
+									<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan">
+									<label for="{{ nxb }}">{{ nxb }}</label><br>
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<br><br>
+					<div class="form-group">
+						<label for="datepicker">Chọn ngày:</label>
+						<input type="date" name="date" id="datepicker">
+					</div>
 
-				</div> {% endcomment %}
+					<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+				</form>
 			</div>
+			<div class="colorlib-product" style="margin-left: 100px;">
+				<div class="container">
+					<!-- <div class="row">
+						<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
+							<h2>SÁCH BÁN CHẠY</h2>
+						</div>
+					</div> -->
+					<div class="row row-pb-md">
+	
+						{% for book in Books %}
+						<div class="col-lg-3 mb-4 text-center">
+							<div class="desc">
+								<span class="price">{{book.GiaNhaNam}} (Đã có VAT)</span>
+							</div>
+	
+							<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
+								<img src={{book.LinkImage}} class="img-fluid">
+							</a>
+	
+							<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
+								<div class="desc">
+									<h3>{{book.Ten}}</h3>
+								</div>
+							</a>
+						</div>s
+						{% endfor %}
+	
+					</div>
+					{% comment %} <div class="row">
+						<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
+							<h2>VĂN HỌC NƯỚC NGOÀI</h2>
+						</div>
+					</div>
+					<div class="row row-pb-md">
+	
+						{% for hit in hits %}
+						<div class="col-lg-3 mb-4 text-center">
+							<div class="desc">
+								<span class="price">295.200đ (Đã có VAT)</span>
+							</div>
+	
+							<a href="" class="prod-img">
+								<img src="http://static.nhanam.com.vn/thumb/0x320/crop/Books/Images/2023/1/30/K86N2QWU.jpg"
+									class="img-fluid">
+							</a>
+						</div>
+						{% endfor %}
+	
+					</div> {% endcomment %}
+				</div>
+			</div>
+
 		</div>
 
 		<footer id="colorlib-footer" role="contentinfo">
@@ -576,6 +566,7 @@
 		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
 	</div>
 
+	
 	<!-- jQuery -->
 	<script src="{% static 'js/jquery.min.js' %}"></script>
 	<!-- popper -->
@@ -599,7 +590,6 @@
 	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
 	<!-- Main -->
 	<script src="{% static 'js/main.js' %}"></script>
-
 	<script>
 		(function() {
 
@@ -750,6 +740,16 @@
 			return true;
 		}
 	</script>
+	
+
+	<script>
+		var rangeInput = document.getElementById('rangeInput');
+		var rangeValue = document.getElementById('rangeValue');
+  
+	rangeInput.addEventListener('input', function() {
+	  	rangeValue.textContent = rangeInput.value;
+	});
+  	</script>
 
 </body>
 
