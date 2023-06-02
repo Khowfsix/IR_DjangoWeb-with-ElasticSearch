@@ -15,15 +15,7 @@ def filter(request):
     Input: Filter
     """
     keyword = request.POST.get('keyword')
-    print("ccccccccccccc")
-    print(keyword)
-    # Tạo query
-    query, keyword=setQueryByKeyword(keyword,request)
-    
-    search_result = search(query, 300)
-    listBooks = getBook_fromResults(search_result)
-
-    DanhMuc_Selected = getUniqueCategory()
+    DanhMuc_Selected = []
     TacGia_Selected = []
     DichGia_Selected = []
     NhaXuatBan_Selected = []
@@ -31,7 +23,14 @@ def filter(request):
     ltePageNumber = 1600
     gtePrice = 9600
     ltePrice = 560000
+    gteReleaseDate = None
+    lteReleaseDate = None
+    # Tạo query
+    query, keyword=setQueryByKeyword(keyword,request)
     
+    search_result = search(query, 300)
+    listBooks = getBook_fromResults(search_result)
+
     if request.method == 'POST':
         DanhMuc_Selected = request.POST.getlist('DanhMuc')
         TacGia_Selected = request.POST.getlist('TacGia')
@@ -49,6 +48,8 @@ def filter(request):
         ltePrice = request.POST.get('ltePrice')
         if ltePrice is None: 
             ltePrice = 560000
+        gteReleaseDate = request.POST.get('gteReleaseDate')
+        lteReleaseDate = request.POST.get('lteReleaseDate')
 
     searchContext = {
         "keyword": keyword,
@@ -64,7 +65,9 @@ def filter(request):
         'gtePageNumber': gtePageNumber,
         'ltePageNumber': ltePageNumber,
         'gtePrice': gtePrice,
-        'ltePrice': ltePrice
+        'ltePrice': ltePrice,
+        'gteReleaseDate': gteReleaseDate,
+        'lteReleaseDate': lteReleaseDate
     }
     return render(request=request,
                   template_name='index.html',

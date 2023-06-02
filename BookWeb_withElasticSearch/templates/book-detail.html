@@ -54,20 +54,11 @@
 							<div id="colorlib-logo"><a href="{% url 'homepage' %}">Book Web - with Elastic Search</a>
 							</div>
 						</div>
-						<div class="col-sm-5 col-md-10">
-							<form action="#" class="search-wrap">
-								<div class="form-group">
-									<input type="search" class="form-control search" placeholder="Tìm kiếm">
-									<button class="btn btn-primary submit-search text-center" type="submit"><i
-											class="icon-search"></i></button>
-								</div>
-							</form>
-						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12 text-left menu-1">
 							<ul>
-								<li class="has-dropdown">
+								{% comment %} <li class="has-dropdown">
 									<a href="#">Danh mục sách</a>
 									<ul class="dropdown">
 										<li><a href="#">VĂN HỌC VIỆT NAM</a></li>
@@ -79,10 +70,10 @@
 										<li><a href="#">SÁCH TÁI BẢN</a></li>
 									</ul>
 								</li>
-								<li class="active"><a href="#">Sách bán chạy</a></li>
-								<li><a href="#">Thông tin thêm</a></li>
+								<li><a href="#">Sách bán chạy</a></li> {% endcomment %}
+								{% comment %} <li><a href="#">Thông tin thêm</a></li> {% endcomment %}
 								<li><a href="#">Khuyến mãi</a></li>
-								<li class="cart"><a href="#"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a>
+								{% comment %} <li class="cart"><a href="#"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a> {% endcomment %}
 								</li>
 							</ul>
 						</div>

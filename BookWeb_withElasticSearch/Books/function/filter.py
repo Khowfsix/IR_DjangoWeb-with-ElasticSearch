@@ -1,6 +1,10 @@
+import datetime
+from dateutil.parser import parse
+
 def setQueryByKeyword(keyword,request):
-    if (keyword is None):
+    if keyword is None or keyword=='':
         keyword = ''
+        print('ko co key')
         query = {
             "bool": {
                 "must": [
@@ -45,6 +49,7 @@ def setQueryByKeyword(keyword,request):
             }
         }
     else:
+        print('co key')
         query = {
             "bool": {
                 "must": [
@@ -145,19 +150,21 @@ def releaseDateFilter(request):
     Input: Request 
     Output: Query thành phần trong phần range trong query tổng
     """
-    # Lấy giá trị ngày phát hành nhỏ nhất được nhập từ web
     gteReleaseDate = request.POST.get('gteReleaseDate')
-    # Lấy giá trị ngày phát hành lớn nhất được nhập từ web
     lteReleaseDate = request.POST.get('lteReleaseDate')
-    # Nếu không có giá trị trong 2 biến đó 
-    if gteReleaseDate is None and lteReleaseDate is None:
+    # Nếu không có giá trị 1 trong 2 biến đó 
+    if gteReleaseDate is None or lteReleaseDate is None or len(gteReleaseDate) != 10 or len(gteReleaseDate) != 10:
         # Thì trả về rỗng --> tìm trên tất cả khoảng ngày phát hành
-        return {}
-    else:
-        return {
-            "gte": gteReleaseDate,
-            "lte": lteReleaseDate
-            }
+        return {}   
+    # Lấy giá trị ngày phát hành nhỏ nhất được nhập từ web
+    gteReleaseDate = parse(gteReleaseDate).date().strftime("%d-%m-%Y")
+    # Lấy giá trị ngày phát hành lớn nhất được nhập từ web
+    lteReleaseDate = parse(lteReleaseDate).date().strftime("%d-%m-%Y")
+    
+    return {
+        "gte": gteReleaseDate,
+        "lte": lteReleaseDate
+        }
 
 def categoryFilter(request):
     """

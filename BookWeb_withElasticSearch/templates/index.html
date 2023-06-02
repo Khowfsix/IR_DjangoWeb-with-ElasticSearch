@@ -45,8 +45,13 @@
 <body>
 	
 	<style>
+
+		body {
+			background-color: #ede4ca78;
+		}
+
 		input[type='range'] {
-			width: 210px;
+			width: 170px;
 			height: 30px;
 			overflow: hidden;
 			cursor: pointer;
@@ -87,16 +92,15 @@
 		  .rangeslider{
 			  position: relative;
 			  height: 60px;
-			  width: 210px;
+			  width: 170px;
 			  display: inline-block;
-			  margin-top: -5px;
-			  margin-left: 20px;
+			  margin-top: 30px;
 		  }
 		  .rangeslider input{
 			  position: absolute;
 		  }
 		  .rangeslider{
-			  position: absolute;
+			  display: block;
 		  }
 		  
 		  .rangeslider span{
@@ -104,7 +108,7 @@
 			  margin-top: 30px;
 			  left: 0;
 		  }
-		  
+
 		  .rangeslider .right{
 			 position: relative;
 			 float: right;
@@ -157,7 +161,8 @@
 		  }
 		  
 		.dropdown-check-list {
-			display: inline-block;
+			display: block;
+			margin-top:10px
 		  }
 		  
 		  .dropdown-check-list .anchor {
@@ -166,6 +171,8 @@
 			display: inline-block;
 			padding: 5px 50px 5px 10px;
 			border: 1px solid #ccc;
+			width: 180px;
+			background-color: #fff;
 		  }
 		  
 		  .dropdown-check-list .anchor:after {
@@ -227,7 +234,7 @@
 			background-position: 14px 12px;
 			background-repeat: no-repeat;
 			font-size: 16px;
-			padding: 14px 20px 12px 45px;
+			padding: 14px 20px 12px 10px;
 			border: none;
 			border-bottom: 1px solid #ddd;
 		  }
@@ -240,7 +247,7 @@
 			background-position: 14px 12px;
 			background-repeat: no-repeat;
 			font-size: 16px;
-			padding: 14px 20px 12px 45px;
+			padding: 14px 20px 12px 10px;
 			border: none;
 			border-bottom: 1px solid #ddd;
 		  }
@@ -253,13 +260,26 @@
 			background-position: 14px 12px;
 			background-repeat: no-repeat;
 			font-size: 16px;
-			padding: 14px 20px 12px 45px;
+			padding: 14px 20px 12px 10px;
 			border: none;
 			border-bottom: 1px solid #ddd;
 		  }
 		  
 		#myInput3:focus {outline: 3px solid #ddd;}
-
+		
+		#myInput4 {
+			box-sizing: border-box;
+			background-image: url('searchicon.png');
+			background-position: 14px 12px;
+			background-repeat: no-repeat;
+			font-size: 16px;
+			padding: 14px 20px 12px 10px;
+			border: none;
+			border-bottom: 1px solid #ddd;
+		  }
+		  
+		#myInput4:focus {outline: 3px solid #ddd;}
+		
 		.dropdown {
 		  position: relative;
 		  display: inline-block;
@@ -308,7 +328,7 @@
 					<div class="row">
 						<div class="col-sm-12 text-left menu-1">
 							<ul>
-								<li class="has-dropdown">
+								{% comment %} <li class="has-dropdown">
 									<a href="#">Danh mục sách</a>
 									<ul class="dropdown">
 										<li><a href="#">VĂN HỌC VIỆT NAM</a></li>
@@ -319,11 +339,11 @@
 										<li><a href="#">THAM KHẢO</a></li>
 										<li><a href="#">SÁCH TÁI BẢN</a></li>
 									</ul>
-								</li>
-								<li><a href="#">Sách bán chạy</a></li>
-								<li><a href="#">Thông tin thêm</a></li>
+								</li> {% endcomment %}
+								{% comment %} <li><a href="#">Sách bán chạy</a></li> {% endcomment %}
+								{% comment %} <li><a href="#">Thông tin thêm</a></li> {% endcomment %}
 								<li><a href="#">Khuyến mãi</a></li>
-								<li class="cart"><a href="#"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a>
+								{% comment %} <li class="cart"><a href="#"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a> {% endcomment %}
 								</li>
 							</ul>
 						</div>
@@ -358,7 +378,16 @@
 				</div>
 			</div>
 		</nav>
-
+		<div class="breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<p class="bread"><span><a href="{% url 'homepage' %}">Trang chủ</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="colorlib-intro">
 			<div class="container">
 				<div class="row">
@@ -373,30 +402,47 @@
 		</div>
 		<div style="display: flex">
 			<div class="filter-container" style="margin-left: 100px;">
-				<form action="{% url 'filter'%}" onsubmit="return validateForm()" method="post" >
+				{% comment %} <form action="{% url 'filter'%}" onsubmit="return validateForm()" method="post" style="margin-top:140px"> {% endcomment %}
+				<form action="{% url 'filter'%}" method="post" style="margin-top:100px">
 					{% csrf_token %}
+					<p class="font-weight-bold" style="margin-bottom: 0px;">TỪ KHÓA:</p>
 					<div class="form-group">
 						<input type="search" name="keyword" class="form-control search"
-							placeholder="Tìm kiếm" id="searching bar" value="{{keyword}}">
+							 id="searching bar" size="20" value="{{keyword}}">
 					</div>
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-					<div class="rangeslider">
-						<p>GIÁ TIỀN:</p>
+					<div class="rangeslider" style="margin-top:25px">
+						<p class="font-weight-bold" style="margin-bottom: 0px">GIÁ TIỀN:</p>
 						<input class="minPrice" name="gtePrice" type="range" min="9600" max="560000" value="{{gtePrice}}" />
 						<input class="maxPrice" name="ltePrice" type="range" min="9600" max="560000" value="{{ltePrice}}" />
 						<span class="range_min_Price light left">{{gtePrice}}</span>
 						<span class="range_max_Price light right">{{ltePrice}}</span>
 					</div>
-					<br><br><br><br><br>
 					<div class="rangeslider">
-						<p>SỐ TRANG:</p>
+						<p class="font-weight-bold" style="margin-bottom: 0px">SỐ TRANG:</p>
 						<input class="minPageNumber" name="gtePageNumber" type="range" min="10" max="1600" value="{{gtePageNumber}}" />
 						<input class="maxPageNumber" name="ltePageNumber" type="range" min="10" max="1600" value="{{ltePageNumber}}" />
 						<span class="range_min_PageNumber light left">{{gtePageNumber}}</span>
 						<span class="range_max_PageNumber light right">{{ltePageNumber}}</span>
 					</div>
-					<br><br><br><br><br>
+					<div id="danhmuc" class="dropdown-check-list" tabindex="100">
+						<p class="font-weight-bold" style="margin-bottom: 0px; margin-top:30px">DANH MỤC:</p>
+						<span class="anchor" onclick="listCategoryFuntion()">Filter Danh Mục</span>
+						<div id="myDropdown4" class="dropdown-content">
+							<input type="text" placeholder="Search.." id="myInput4" onkeyup="categoryFilterFunction()"><br>
+							{% for danhmuc in DanhMucs %}
+								{% if danhmuc in DanhMuc_Selected %}
+									<input type="checkbox" value="{{ danhmuc }}" id="{{ danhmuc }}" name="DanhMuc" checked>
+									<label for="{{ danhmuc }}">{{ danhmuc }}</label><br>
+								{% else %}
+									<input type="checkbox" value="{{ danhmuc }}" id="{{ danhmuc }}" name="DanhMuc">
+									<label for="{{ danhmuc }}">{{ danhmuc }}</label><br>
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
 					<div id="tacgia" class="dropdown-check-list" tabindex="100">
+						<p class="font-weight-bold" style="margin-bottom: 0px">TÁC GIẢ:</p>
 						<span class="anchor" onclick="listAuthorsFuntion()">Filter Tác Giả</span>
 						<div id="myDropdown" class="dropdown-content">
 							<input type="text" placeholder="Search.." id="myInput" onkeyup="authorFilterFunction()"><br>
@@ -411,8 +457,8 @@
 							{% endfor %}
 						</div>
 					</div>
-					<br><br>
 					<div id="dichgia" class="dropdown-check-list" tabindex="100">
+						<p class="font-weight-bold" style="margin-bottom: 0px">DỊCH GIẢ:</p>
 						<span class="anchor" onclick="listTranslatorsFuntion()">Filter Dịch Giả</span>
 						<div id="myDropdown2" class="dropdown-content">
 							<input type="text" placeholder="Search.." id="myInput2" onkeyup="translatorFilterFunction()"><br>
@@ -427,8 +473,8 @@
 							{% endfor %}
 						</div>
 					</div>
-					<br><br>
 					<div id="nhaxuatban" class="dropdown-check-list" tabindex="100">
+						<p class="font-weight-bold" style="margin-bottom: 0px">NHÀ XUẤT BẢN:</p>
 						<span class="anchor" onclick="listPublishersFuntion()">Filter NXB</span>
 						<div id="myDropdown3" class="dropdown-content">
 							<input type="text" placeholder="Search.." id="myInput3" onkeyup="publisherFilterFunction()"><br>
@@ -443,13 +489,18 @@
 							{% endfor %}
 						</div>
 					</div>
-					<br><br>
-					<div class="form-group">
-						<label for="datepicker">Chọn ngày:</label>
-						<input type="date" name="date" id="datepicker">
+					<div class="form-group" style="margin-top:30px">
+						<p class="font-weight-bold" style="margin-bottom: 0px">NGÀY PHÁT HÀNH:</p>
+						<label for="datepicker">TỪ:</label>
+						<br>
+						<input type="date" style="width: 170px" name="gteReleaseDate" id="datepicker" value="{{gteReleaseDate}}">
+						<br>
+						<label for="datepicker">ĐẾN:</label>
+						<br>
+						<input type="date" style="width: 170px" name="lteReleaseDate" id="datepicker" value="{{lteReleaseDate}}">
 					</div>
 
-					<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+					<button type="submit" class="btn btn-primary" style="margin-left:25px">Tìm kiếm</button>
 				</form>
 			</div>
 			<div class="colorlib-product" style="margin-left: 100px;">
@@ -463,10 +514,6 @@
 	
 						{% for book in Books %}
 						<div class="col-lg-3 mb-4 text-center">
-							<div class="desc">
-								<span class="price">{{book.GiaNhaNam}} (Đã có VAT)</span>
-							</div>
-	
 							<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
 								<img src={{book.LinkImage}} class="img-fluid">
 							</a>
@@ -476,7 +523,10 @@
 									<h3>{{book.Ten}}</h3>
 								</div>
 							</a>
-						</div>s
+							<div class="desc">
+								<span class="price">{{book.GiaNhaNam}} (Đã có VAT)</span>
+							</div>
+						</div>
 						{% endfor %}
 	
 					</div>
@@ -728,6 +778,29 @@
 			}
 		  }
 		}
+
+		function listCategoryFuntion() {
+			document.getElementById("myDropdown4").classList.toggle("show");
+		  }
+		  
+		function categoryFilterFunction() {
+			var input, filter, ul, li, label, i, input;
+			input = document.getElementById("myInput4");
+			filter = input.value.toUpperCase();
+			div = document.getElementById("myDropdown4");
+			input = div.getElementsByTagName("input");
+			label = div.getElementsByTagName("label");
+			for (i = 0; i < label.length; i++) {
+			  txtValue = label[i].textContent || label[i].innerText;
+			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				  label[i].style.display = "";
+				  input[i+1].style.display = "";
+			  } else {
+				  label[i].style.display = "none";
+				  input[i+1].style.display = "none";
+			  }
+			}
+		  }
 	</script>
 
 	<script>
