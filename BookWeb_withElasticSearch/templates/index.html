@@ -39,7 +39,24 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
 
-	
+	<style>
+		@media screen and (max-width: 800px){
+
+			.filter-product-container{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.filter-container{
+				margin-left: 0 !important;
+			}
+
+			.colorlib-product{
+				margin-left: 0 !important;
+			}
+		}
+	</style>
 </head>
 
 <body>
@@ -138,17 +155,14 @@
 				</div>
 			</div>
 		</div>
-		<div style="display: flex">
+		<div style="display: flex" class="filter-product-container">
 			<div class="filter-container" style="margin-left: 100px;">
 				<form id="filter-form">
 					<div class="form-group">
 						<label for="price-filter">Giá:</label>
-						<select id="price-filter" class="form-control">
-							<option value="">Tất cả</option>
-							<option value="under-50000">Dưới 50.000</option>
-							<option value="50000-100000">50.000 - 100.000</option>
-							<option value="over-100000">Trên 100.000</option>
-						</select>
+						<div>
+							<span>Từ </span><input type="text" style="width: 100px; height: 30px !important; "/><span> đến </span><input type="text" style="width: 100px; height: 30px !important;">
+						</div>
 					</div>
 					<div class="form-group">
 						<label for="author-filter">Tác giả:</label>
@@ -197,13 +211,22 @@
 					</div>
 					<div class="form-group">
 						<label for="sotrang-filter">Số trang:</label>
-						<input type="range" min="0" max="400" step="5" value="200" id="rangeInput">
-						<span id="rangeValue">200</span>
-
+						<div>
+							<span>Từ </span>
+							<input type="text" style="width: 100px; height: 30px !important; "/>
+							<span> đến </span>
+							<input type="text" style="width: 100px; height: 30px !important;">
+						</div>
 					</div>
 					<div class="form-group">
-						<label for="datepicker">Chọn ngày:</label>
-						<input type="date" name="date" id="datepicker">
+						<label for="datepicker">Chọn ngày phát hành:</label>
+						<div>
+							<label for="start-date">Từ</label>
+							<input type="date" id="start-date">
+
+							<label for="end-date">đến</label>
+							<input type="date" id="end-date">
+						</div>
 					</div>
 
 					<button type="submit" class="btn btn-primary">Tìm kiếm</button>
