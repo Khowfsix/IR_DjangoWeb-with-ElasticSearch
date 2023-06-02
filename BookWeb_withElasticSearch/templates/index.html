@@ -43,6 +43,249 @@
 </head>
 
 <body>
+	
+	<style>
+		input[type='range'] {
+			width: 210px;
+			height: 30px;
+			overflow: hidden;
+			cursor: pointer;
+			  outline: none;
+		  }
+		  input[type='range'],
+		  input[type='range']::-webkit-slider-runnable-track,
+		  input[type='range']::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			  background: none;
+		  }
+		  input[type='range']::-webkit-slider-runnable-track {
+			width: 200px;
+			height: 1px;
+			background: #003D7C;
+		  }
+		  
+		  input[type='range']:nth-child(2)::-webkit-slider-runnable-track{
+			background: none;
+		  }
+		  
+		  input[type='range']::-webkit-slider-thumb {
+			position: relative;
+			height: 15px;
+			width: 15px;
+			margin-top: -7px;
+			background: #fff;
+			border: 1px solid #003D7C;
+			border-radius: 25px;
+			z-index: 1;
+		  }
+		  
+		  
+		  input[type='range']:nth-child(1)::-webkit-slider-thumb{
+			z-index: 2;
+		  }
+		  
+		  .rangeslider{
+			  position: relative;
+			  height: 60px;
+			  width: 210px;
+			  display: inline-block;
+			  margin-top: -5px;
+			  margin-left: 20px;
+		  }
+		  .rangeslider input{
+			  position: absolute;
+		  }
+		  .rangeslider{
+			  position: absolute;
+		  }
+		  
+		  .rangeslider span{
+			  position: absolute;
+			  margin-top: 30px;
+			  left: 0;
+		  }
+		  
+		  .rangeslider .right{
+			 position: relative;
+			 float: right;
+			 margin-right: -5px;
+		  }
+		  
+		  
+		  /* Proof of concept for Firefox */
+		  @-moz-document url-prefix() {
+			.rangeslider::before{
+			  content:'';
+			  width:100%;
+			  height:2px;
+			  background: #003D7C;
+			  display:block;
+			  position: relative;
+			  top:16px;
+			}
+		  
+			input[type='range']:nth-child(1){
+			  position:absolute;
+			  top:35px !important;
+			  overflow:visible !important;
+			  height:0;
+			}
+		  
+			input[type='range']:nth-child(2){
+			  position:absolute;
+			  top:35px !important;
+			  overflow:visible !important;
+			  height:0;
+			}
+		  input[type='range']::-moz-range-thumb {
+			position: relative;
+			height: 15px;
+			width: 15px;
+			margin-top: -7px;
+			background: #fff;
+			border: 1px solid #003D7C;
+			border-radius: 25px;
+			z-index: 1;
+		  }
+		  
+			input[type='range']:nth-child(1)::-moz-range-thumb {
+				transform: translateY(-20px);    
+			}
+			input[type='range']:nth-child(2)::-moz-range-thumb {
+				transform: translateY(-20px);    
+			}
+		  }
+		  
+		.dropdown-check-list {
+			display: inline-block;
+		  }
+		  
+		  .dropdown-check-list .anchor {
+			position: relative;
+			cursor: pointer;
+			display: inline-block;
+			padding: 5px 50px 5px 10px;
+			border: 1px solid #ccc;
+		  }
+		  
+		  .dropdown-check-list .anchor:after {
+			position: absolute;
+			content: "";
+			border-left: 2px solid black;
+			border-top: 2px solid black;
+			padding: 5px;
+			right: 10px;
+			top: 20%;
+			-moz-transform: rotate(-135deg);
+			-ms-transform: rotate(-135deg);
+			-o-transform: rotate(-135deg);
+			-webkit-transform: rotate(-135deg);
+			transform: rotate(-135deg);
+		  }
+		  
+		  .dropdown-check-list .anchor:active:after {
+			right: 8px;
+			top: 21%;
+		  }
+		  
+		  .dropdown-check-list ul.items {
+			padding: 2px;
+			display: none;
+			margin: 0;
+			border: 1px solid #ccc;
+			border-top: none;
+		  }
+		  
+		  .dropdown-check-list ul.items li {
+			list-style: none;
+		  }
+		  
+		  .dropdown-check-list.visible .anchor {
+			color: #0094ff;
+		  }
+		  
+		  .dropdown-check-list.visible .items {
+			display: block;
+		  }
+		  
+		.dropbtn {
+		  background-color: #04AA6D;
+		  color: white;
+		  padding: 16px;
+		  font-size: 16px;
+		  border: none;
+		  cursor: pointer;
+		}
+		
+		.dropbtn:hover, .dropbtn:focus {
+		  background-color: #3e8e41;
+		}
+		
+		#myInput {
+			box-sizing: border-box;
+			background-image: url('searchicon.png');
+			background-position: 14px 12px;
+			background-repeat: no-repeat;
+			font-size: 16px;
+			padding: 14px 20px 12px 45px;
+			border: none;
+			border-bottom: 1px solid #ddd;
+		  }
+		  
+		#myInput:focus {outline: 3px solid #ddd;}
+
+		#myInput2 {
+			box-sizing: border-box;
+			background-image: url('searchicon.png');
+			background-position: 14px 12px;
+			background-repeat: no-repeat;
+			font-size: 16px;
+			padding: 14px 20px 12px 45px;
+			border: none;
+			border-bottom: 1px solid #ddd;
+		  }
+		  
+		#myInput2:focus {outline: 3px solid #ddd;}
+		
+		#myInput3 {
+			box-sizing: border-box;
+			background-image: url('searchicon.png');
+			background-position: 14px 12px;
+			background-repeat: no-repeat;
+			font-size: 16px;
+			padding: 14px 20px 12px 45px;
+			border: none;
+			border-bottom: 1px solid #ddd;
+		  }
+		  
+		#myInput3:focus {outline: 3px solid #ddd;}
+
+		.dropdown {
+		  position: relative;
+		  display: inline-block;
+		}
+		
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  background-color: #f6f6f6;
+		  min-width: 230px;
+		  overflow: auto;
+		  border: 1px solid #ddd;
+		  z-index: 1;
+		}
+		
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		}
+		
+		.dropdown a:hover {background-color: #ddd;}
+		
+		.show {display: block;}
+	</style>
 
 	<div class="colorlib-loader"></div>
 
@@ -57,17 +300,7 @@
 						</div>	
 						
 						<!-- Search bar -->
-						<div class="col-sm-5 col-md-10">
-							<form action="{% url 'searching_with_keyword'%}" class="search-wrap"
-								onsubmit="return validateForm()">
-								<div class="form-group">
-									<input type="search" name="keyword" class="form-control search"
-										placeholder="Tìm kiếm" id="searching bar">
-									<button class="btn btn-primary submit-search text-center" type="submit"><i
-											class="icon-search"></i></button>
-								</div>
-							</form>
-						</div>
+						
 					</div>
 
 
@@ -87,7 +320,7 @@
 										<li><a href="#">SÁCH TÁI BẢN</a></li>
 									</ul>
 								</li>
-								<li class="active"><a href="#">Sách bán chạy</a></li>
+								<li><a href="#">Sách bán chạy</a></li>
 								<li><a href="#">Thông tin thêm</a></li>
 								<li><a href="#">Khuyến mãi</a></li>
 								<li class="cart"><a href="#"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a>
@@ -140,67 +373,77 @@
 		</div>
 		<div style="display: flex">
 			<div class="filter-container" style="margin-left: 100px;">
-				<form id="filter-form">
+				<form action="{% url 'filter'%}" onsubmit="return validateForm()" method="post" >
+					{% csrf_token %}
 					<div class="form-group">
-						<label for="price-filter">Giá:</label>
-						<select id="price-filter" class="form-control">
-							<option value="">Tất cả</option>
-							<option value="under-50000">Dưới 50.000</option>
-							<option value="50000-100000">50.000 - 100.000</option>
-							<option value="over-100000">Trên 100.000</option>
-						</select>
+						<input type="search" name="keyword" class="form-control search"
+							placeholder="Tìm kiếm" id="searching bar" value="{{keyword}}">
 					</div>
-					<div class="form-group">
-						<label for="author-filter">Tác giả:</label>
-						<select id="price-filter" class="form-control">
-							<option value="">Tất cả</option>
-							<option value="Nhiều tác giả">Nhiều tác giả</option>
-							<option value="Guillaume Musso">Guillaume Musso</option>
-							<option value="Marc Levy">Marc Levy</option>
-							<option value="Băng Ba">Băng Ba</option>
-							<option value="Aleix Cabrera">Aleix Cabrera</option>
-							<option value="Hà Mã">Hà Mã</option>
-							<option value="Nicholas Sparks">Nicholas Sparks</option>
-							<option value="Sasbadi Group">Sasbadi Group</option>
-							<option value="Sasbadi.">Sasbadi.</option>
-							<option value="Nicoletta Codignola - Sophie Fatus">Nicoletta Codignola - Sophie Fatus</option>
-						</select>
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+					<div class="rangeslider">
+						<p>GIÁ TIỀN:</p>
+						<input class="minPrice" name="gtePrice" type="range" min="9600" max="560000" value="{{gtePrice}}" />
+						<input class="maxPrice" name="ltePrice" type="range" min="9600" max="560000" value="{{ltePrice}}" />
+						<span class="range_min_Price light left">{{gtePrice}}</span>
+						<span class="range_max_Price light right">{{ltePrice}}</span>
 					</div>
-					<div class="form-group">
-						<label for="dichgia-filter">Dịch giả:</label>
-						<select id="dichgia-filter" class="form-control">
-							<option value="">Tất cả</option>
-							<option value="Bồ Câu">Bồ Câu</option>
-							<option value="Bảo Bình">Bảo Bình</option>
-							<option value="Hốp">Hốp</option>
-							<option value="Huyền Vũ">Huyền Vũ</option>
-							<option value="Lục Hương">Lục Hương</option>
-							<option value="Lê Minh Đức">Lê Minh Đức</option>
-							<option value="Thiên Nga">Thiên Nga</option>
-							<option value="Phương Thúy.">Phương Thúy.</option>
-							<option value="Thu Phương">Thu Phương</option>
-							<option value="Trang Hải">Trang Hải</option>
-						</select>
+					<br><br><br><br><br>
+					<div class="rangeslider">
+						<p>SỐ TRANG:</p>
+						<input class="minPageNumber" name="gtePageNumber" type="range" min="10" max="1600" value="{{gtePageNumber}}" />
+						<input class="maxPageNumber" name="ltePageNumber" type="range" min="10" max="1600" value="{{ltePageNumber}}" />
+						<span class="range_min_PageNumber light left">{{gtePageNumber}}</span>
+						<span class="range_max_PageNumber light right">{{ltePageNumber}}</span>
 					</div>
-					<div class="form-group">
-						<label for="danhmuc-filter">Danh mục:</label>
-						<select id="danhmuc-filter" class="form-control">
-							<option value="">Tất cả</option>
-							<option value="Văn học nước ngoài">Văn học nước ngoài</option>
-							<option value="Thiếu nhi">Thiếu nhi</option>
-							<option value="Văn học Việt Nam">Văn học Việt Nam</option>
-							<option value="Tham khảo">Tham khảo</option>
-							<option value="Khoa học tự nhiên - nhân văn">Khoa học tự nhiên - nhân văn</option>
-							<option value="Thời sự - Chính trị">Thời sự - Chính trị</option>
-							<option value="Giảm giá đặc biệt">Giảm giá đặc biệt</option>
-						</select>
+					<br><br><br><br><br>
+					<div id="tacgia" class="dropdown-check-list" tabindex="100">
+						<span class="anchor" onclick="listAuthorsFuntion()">Filter Tác Giả</span>
+						<div id="myDropdown" class="dropdown-content">
+							<input type="text" placeholder="Search.." id="myInput" onkeyup="authorFilterFunction()"><br>
+							{% for tacgia in TacGias %}
+								{% if tacgia in TacGia_Selected %}
+									<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia" checked>
+									<label for="{{ tacgia }}">{{ tacgia }}</label><br>
+								{% else %}
+									<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia">
+									<label for="{{ tacgia }}">{{ tacgia }}</label><br>
+								{% endif %}
+							{% endfor %}
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="sotrang-filter">Số trang:</label>
-						<input type="range" min="0" max="400" step="5" value="200" id="rangeInput">
-						<span id="rangeValue">200</span>
-
+					<br><br>
+					<div id="dichgia" class="dropdown-check-list" tabindex="100">
+						<span class="anchor" onclick="listTranslatorsFuntion()">Filter Dịch Giả</span>
+						<div id="myDropdown2" class="dropdown-content">
+							<input type="text" placeholder="Search.." id="myInput2" onkeyup="translatorFilterFunction()"><br>
+							{% for dichgia in DichGias %}
+								{% if dichgia in DichGia_Selected %}
+									<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia" checked>
+									<label for="{{ dichgia }}">{{ dichgia }}</label><br>
+								{% else %}
+									<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia">
+									<label for="{{ dichgia }}">{{ dichgia }}</label><br>
+								{% endif %}
+							{% endfor %}
+						</div>
 					</div>
+					<br><br>
+					<div id="nhaxuatban" class="dropdown-check-list" tabindex="100">
+						<span class="anchor" onclick="listPublishersFuntion()">Filter NXB</span>
+						<div id="myDropdown3" class="dropdown-content">
+							<input type="text" placeholder="Search.." id="myInput3" onkeyup="publisherFilterFunction()"><br>
+							{% for nxb in NhaXuatBans %}
+								{% if nxb in NhaXuatBan_Selected %}
+									<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan" checked>
+									<label for="{{ nxb }}">{{ nxb }}</label><br>
+								{% else %}
+									<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan">
+									<label for="{{ nxb }}">{{ nxb }}</label><br>
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+					<br><br>
 					<div class="form-group">
 						<label for="datepicker">Chọn ngày:</label>
 						<input type="date" name="date" id="datepicker">
@@ -347,6 +590,145 @@
 	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
 	<!-- Main -->
 	<script src="{% static 'js/main.js' %}"></script>
+	<script>
+		(function() {
+
+			function addSeparator(nStr) {
+				nStr += '';
+				var x = nStr.split('.');
+				var x1 = x[0];
+				var x2 = x.length > 1 ? '.' + x[1] : '';
+				var rgx = /(\d+)(\d{3})/;
+				while (rgx.test(x1)) {
+					x1 = x1.replace(rgx, '$1' + '.' + '$2');
+				}
+				return x1 + x2;
+			}
+	
+			function rangeInputChangeEventHandler(e){
+				var rangeGroup = $(this).attr('name'),
+					minBtn_PageNumber = $(this).parent().children('.minPageNumber'),
+					maxBtn_PageNumber = $(this).parent().children('.maxPageNumber'),
+					range_min_PageNumber = $(this).parent().children('.range_min_PageNumber'),
+					range_max_PageNumber = $(this).parent().children('.range_max_PageNumber'),
+					minVal_PageNumber = parseInt($(minBtn_PageNumber).val()),
+					maxVal_PageNumber = parseInt($(maxBtn_PageNumber).val()),
+
+					minBtn_Price = $(this).parent().children('.minPrice'),
+					maxBtn_Price = $(this).parent().children('.maxPrice'),
+					range_min_Price = $(this).parent().children('.range_min_Price'),
+					range_max_Price = $(this).parent().children('.range_max_Price'),
+					minVal_Price = parseInt($(minBtn_Price).val()),
+					maxVal_Price = parseInt($(maxBtn_Price).val()),
+
+					origin = $(this).context.className;
+	
+				if(origin === 'minPageNumber' && minVal_PageNumber > maxVal_PageNumber-5){
+					$(minBtn_PageNumber).val(maxVal_PageNumberl-5);
+				}
+				var minVal = parseInt($(minBtn_PageNumber).val());
+				$(range_min_PageNumber).html(minVal_PageNumber);
+				$(minBtn_PageNumber).html(minVal_PageNumber);
+	
+	
+				if(origin === 'maxPageNumber' && maxVal_PageNumber-5 < minVal_PageNumber){
+					$(maxBtn_PageNumber).val(5+ minVal_PageNumber);
+				}
+				var maxVal = parseInt($(maxBtn_PageNumber).val());
+				$(range_max_PageNumber).html(maxVal_PageNumber);
+				$(maxBtn_PageNumber).html(maxVal_PageNumber);
+
+				if(origin === 'minPrice' && minVal_Price > maxVal_Price-5){
+					$(minBtn_Price).val(maxVal_Price-5);
+				}
+				var minVal = parseInt($(minBtn_Price).val());
+				$(range_min_Price).html(addSeparator(minVal_Price) + " VND");
+				$(minBtn_Price).html(minVal_Price);
+	
+	
+				if(origin === 'maxPrice' && maxVal_Price-5 < minVal_Price){
+					$(maxBtn_Price).val(5+ minVal_Price);
+				}
+				var maxVal = parseInt($(maxBtn_Price).val());
+				$(range_max_Price).html(addSeparator(maxVal_Price) + " VND");
+				$(maxBtn_Price).html(maxVal_Price);
+			}
+		 $('input[type="range"]').on( 'input', rangeInputChangeEventHandler);
+	})();
+	</script>
+
+	<script>
+		/* When the user clicks on the button,
+		toggle between hiding and showing the dropdown content */
+		function listPublishersFuntion() {
+			document.getElementById("myDropdown3").classList.toggle("show");
+		  }
+		  
+		  function publisherFilterFunction() {
+			var input, filter, ul, li, label, i, input;
+			input = document.getElementById("myInput3");
+			filter = input.value.toUpperCase();
+			div = document.getElementById("myDropdown3");
+			input = div.getElementsByTagName("input");
+			label = div.getElementsByTagName("label");
+			for (i = 0; i < label.length; i++) {
+			  txtValue = label[i].textContent || label[i].innerText;
+			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				  label[i].style.display = "";
+				  input[i+1].style.display = "";
+			  } else {
+				  label[i].style.display = "none";
+				  input[i+1].style.display = "none";
+			  }
+			}
+		  }
+
+		function listTranslatorsFuntion() {
+			document.getElementById("myDropdown2").classList.toggle("show");
+		  }
+		  
+		function translatorFilterFunction() {
+			var input, filter, ul, li, label, i, input;
+			input = document.getElementById("myInput2");
+			filter = input.value.toUpperCase();
+			div = document.getElementById("myDropdown2");
+			input = div.getElementsByTagName("input");
+			label = div.getElementsByTagName("label");
+			for (i = 0; i < label.length; i++) {
+			  txtValue = label[i].textContent || label[i].innerText;
+			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				  label[i].style.display = "";
+				  input[i+1].style.display = "";
+			  } else {
+				  label[i].style.display = "none";
+				  input[i+1].style.display = "none";
+			  }
+			}
+		  }
+
+		function listAuthorsFuntion() {
+		  document.getElementById("myDropdown").classList.toggle("show");
+		}
+		
+		function authorFilterFunction() {
+		  var input, filter, ul, li, label, i, input;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  div = document.getElementById("myDropdown");
+		  input = div.getElementsByTagName("input");
+		  label = div.getElementsByTagName("label");
+		  for (i = 0; i < label.length; i++) {
+			txtValue = label[i].textContent || label[i].innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				label[i].style.display = "";
+				input[i+1].style.display = "";
+			} else {
+				label[i].style.display = "none";
+				input[i+1].style.display = "none";
+			}
+		  }
+		}
+	</script>
 
 	<script>
 		function validateForm() {
@@ -358,6 +740,7 @@
 			return true;
 		}
 	</script>
+	
 
 	<script>
 		var rangeInput = document.getElementById('rangeInput');

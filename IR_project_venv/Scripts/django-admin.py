@@ -1,4 +1,4 @@
-#!C:\Users\ad\IR_DjangoWeb-with-ElasticSearch\IR_project_venv\Scripts\python.exe
+#!D:\UTE\Year_3\HK_2\Truy tim thong tin\project\IR_DjangoWeb-with-ElasticSearch\IR_project_venv\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

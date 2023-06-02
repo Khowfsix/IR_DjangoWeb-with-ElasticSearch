@@ -1,0 +1,756 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>
+		IRS Book Web - Index
+	</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" type='text/css' href="{% static 'css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" type='text/css' href="{% static 'css/icomoon.css' %}">
+	<!-- Ion Icon Fonts-->
+	<link rel="stylesheet" type='text/css' href="{% static 'css/ionicons.min.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" type='text/css' href="{% static 'css/bootstrap.min.css' %}">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" type='text/css' href="{% static 'css/magnific-popup.css' %}">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" type='text/css' href="{% static 'css/flexslider.css' %}">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" type='text/css' href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" type='text/css' href="{% static 'css/owl.theme.default.min.css' %}">
+
+	<!-- Date Picker -->
+	<link rel="stylesheet" type='text/css' href="{% static 'css/bootstrap-datepicker.css' %}">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" type='text/css' href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
+
+	<style>
+		input[type='range'] {
+			width: 210px;
+			height: 30px;
+			overflow: hidden;
+			cursor: pointer;
+			  outline: none;
+		  }
+		  input[type='range'],
+		  input[type='range']::-webkit-slider-runnable-track,
+		  input[type='range']::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			  background: none;
+		  }
+		  input[type='range']::-webkit-slider-runnable-track {
+			width: 200px;
+			height: 1px;
+			background: #003D7C;
+		  }
+		  
+		  input[type='range']:nth-child(2)::-webkit-slider-runnable-track{
+			background: none;
+		  }
+		  
+		  input[type='range']::-webkit-slider-thumb {
+			position: relative;
+			height: 15px;
+			width: 15px;
+			margin-top: -7px;
+			background: #fff;
+			border: 1px solid #003D7C;
+			border-radius: 25px;
+			z-index: 1;
+		  }
+		  
+		  
+		  input[type='range']:nth-child(1)::-webkit-slider-thumb{
+			z-index: 2;
+		  }
+		  
+		  .rangeslider{
+			  position: relative;
+			  height: 60px;
+			  width: 210px;
+			  display: inline-block;
+			  margin-top: -5px;
+			  margin-left: 20px;
+		  }
+		  .rangeslider input{
+			  position: absolute;
+		  }
+		  .rangeslider{
+			  position: absolute;
+		  }
+		  
+		  .rangeslider span{
+			  position: absolute;
+			  margin-top: 30px;
+			  left: 0;
+		  }
+		  
+		  .rangeslider .right{
+			 position: relative;
+			 float: right;
+			 margin-right: -5px;
+		  }
+		  
+		  
+		  /* Proof of concept for Firefox */
+		  @-moz-document url-prefix() {
+			.rangeslider::before{
+			  content:'';
+			  width:100%;
+			  height:2px;
+			  background: #003D7C;
+			  display:block;
+			  position: relative;
+			  top:16px;
+			}
+		  
+			input[type='range']:nth-child(1){
+			  position:absolute;
+			  top:35px !important;
+			  overflow:visible !important;
+			  height:0;
+			}
+		  
+			input[type='range']:nth-child(2){
+			  position:absolute;
+			  top:35px !important;
+			  overflow:visible !important;
+			  height:0;
+			}
+		  input[type='range']::-moz-range-thumb {
+			position: relative;
+			height: 15px;
+			width: 15px;
+			margin-top: -7px;
+			background: #fff;
+			border: 1px solid #003D7C;
+			border-radius: 25px;
+			z-index: 1;
+		  }
+		  
+			input[type='range']:nth-child(1)::-moz-range-thumb {
+				transform: translateY(-20px);    
+			}
+			input[type='range']:nth-child(2)::-moz-range-thumb {
+				transform: translateY(-20px);    
+			}
+		  }
+		  
+		.dropdown-check-list {
+			display: inline-block;
+		  }
+		  
+		  .dropdown-check-list .anchor {
+			position: relative;
+			cursor: pointer;
+			display: inline-block;
+			padding: 5px 50px 5px 10px;
+			border: 1px solid #ccc;
+		  }
+		  
+		  .dropdown-check-list .anchor:after {
+			position: absolute;
+			content: "";
+			border-left: 2px solid black;
+			border-top: 2px solid black;
+			padding: 5px;
+			right: 10px;
+			top: 20%;
+			-moz-transform: rotate(-135deg);
+			-ms-transform: rotate(-135deg);
+			-o-transform: rotate(-135deg);
+			-webkit-transform: rotate(-135deg);
+			transform: rotate(-135deg);
+		  }
+		  
+		  .dropdown-check-list .anchor:active:after {
+			right: 8px;
+			top: 21%;
+		  }
+		  
+		  .dropdown-check-list ul.items {
+			padding: 2px;
+			display: none;
+			margin: 0;
+			border: 1px solid #ccc;
+			border-top: none;
+		  }
+		  
+		  .dropdown-check-list ul.items li {
+			list-style: none;
+		  }
+		  
+		  .dropdown-check-list.visible .anchor {
+			color: #0094ff;
+		  }
+		  
+		  .dropdown-check-list.visible .items {
+			display: block;
+		  }
+		  
+		.dropbtn {
+		  background-color: #04AA6D;
+		  color: white;
+		  padding: 16px;
+		  font-size: 16px;
+		  border: none;
+		  cursor: pointer;
+		}
+		
+		.dropbtn:hover, .dropbtn:focus {
+		  background-color: #3e8e41;
+		}
+		
+		#myInput {
+			box-sizing: border-box;
+			background-image: url('searchicon.png');
+			background-position: 14px 12px;
+			background-repeat: no-repeat;
+			font-size: 16px;
+			padding: 14px 20px 12px 45px;
+			border: none;
+			border-bottom: 1px solid #ddd;
+		  }
+		  
+		#myInput:focus {outline: 3px solid #ddd;}
+
+		#myInput2 {
+			box-sizing: border-box;
+			background-image: url('searchicon.png');
+			background-position: 14px 12px;
+			background-repeat: no-repeat;
+			font-size: 16px;
+			padding: 14px 20px 12px 45px;
+			border: none;
+			border-bottom: 1px solid #ddd;
+		  }
+		  
+		#myInput2:focus {outline: 3px solid #ddd;}
+		
+		#myInput3 {
+			box-sizing: border-box;
+			background-image: url('searchicon.png');
+			background-position: 14px 12px;
+			background-repeat: no-repeat;
+			font-size: 16px;
+			padding: 14px 20px 12px 45px;
+			border: none;
+			border-bottom: 1px solid #ddd;
+		  }
+		  
+		#myInput3:focus {outline: 3px solid #ddd;}
+
+		.dropdown {
+		  position: relative;
+		  display: inline-block;
+		}
+		
+		.dropdown-content {
+		  display: none;
+		  position: absolute;
+		  background-color: #f6f6f6;
+		  min-width: 230px;
+		  overflow: auto;
+		  border: 1px solid #ddd;
+		  z-index: 1;
+		}
+		
+		.dropdown-content a {
+		  color: black;
+		  padding: 12px 16px;
+		  text-decoration: none;
+		  display: block;
+		}
+		
+		.dropdown a:hover {background-color: #ddd;}
+		
+		.show {display: block;}
+	</style>
+</head>
+
+<body>
+
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-sm-7 col-md-9">
+							<div id="colorlib-logo"><a href="{% url 'homepage' %}">Book Web - with Elastic Search</a>
+							</div>
+						</div>
+
+
+						<!-- Search bar -->
+						<div class="col-sm-5 col-md-10">
+							<form action="{% url 'filter'%}" class="search-wrap"
+								onsubmit="return validateForm()">
+								{% csrf_token %}
+								{% comment %} <div class="form-group">
+									<input type="search" name="keyword" class="form-control search"
+										placeholder="Tìm kiếm" id="searching bar">
+									<button class="btn btn-primary submit-search text-center" type="submit"><i
+											class="icon-search"></i></button>
+								</div> {% endcomment %}
+							</form>
+						</div>
+					</div>
+
+
+
+					<div class="row">
+						<div class="col-sm-12 text-left menu-1">
+							<ul>
+								<li class="has-dropdown">
+									<a href="#">Danh mục sách</a>
+									<ul class="dropdown">
+										<li><a href="#">VĂN HỌC VIỆT NAM</a></li>
+										<li><a href="#">VĂN HỌC NƯỚC NGOÀI</a></li>
+										<li><a href="#">THIẾU NHI</a></li>
+										<li><a href="#">THỜI SỨ - CHÍNH TRỊ</a></li>
+										<li><a href="#">KHOA HỌC TỰ NHIÊN - NHÂN VĂN</a></li>
+										<li><a href="#">THAM KHẢO</a></li>
+										<li><a href="#">SÁCH TÁI BẢN</a></li>
+									</ul>
+								</li>
+								<li class="active"><a href="#">Sách bán chạy</a></li>
+								<li><a href="#">Thông tin thêm</a></li>
+								<li><a href="#">Khuyến mãi</a></li>
+								<li class="cart"><a href="#"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sale">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 offset-sm-2 text-center">
+							<div class="row">
+								<div class="owl-carousel2">
+									<div class="item">
+										<div class="col">
+											<h3><a href="#">Đọc nhiều vào thì mới nên người được</a></h3>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col">
+											<h3><a href="#">Mày nhìn thằng Tèo con nhà bà 2 kìa</a></h3>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col">
+											<h3><a href="#">Sao mày không giỏi như con người ta zậy con</a></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="colorlib-intro">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<h2 class="intro">
+							"Chính từ sách mà những người khôn ngoan tìm được sự an ủi khỏi những rắc rối của cuộc đời"
+						</h2>
+						<h2>~Victor Hugo~</h2>
+					</div>
+					<form action="{% url 'filter'%}" method="post">
+						<div class="form-group">
+							<input type="search" name="keyword" class="form-control search"
+								placeholder="Tìm kiếm" id="searching bar" value="{{keyword}}">
+						</div>
+						<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+						<div class="rangeslider">
+							<p>GIÁ TIỀN:</p>
+							<input class="minPrice" name="gtePrice" type="range" min="9600" max="560000" value="{{gtePrice}}" />
+							<input class="maxPrice" name="ltePrice" type="range" min="9600" max="560000" value="{{ltePrice}}" />
+							<span class="range_min_Price light left">{{gtePrice}}</span>
+							<span class="range_max_Price light right">{{ltePrice}}</span>
+						</div>
+						<br><br><br><br><br>
+						<div class="rangeslider">
+							<p>SỐ TRANG:</p>
+							<input class="minPageNumber" name="gtePageNumber" type="range" min="10" max="1600" value="{{gtePageNumber}}" />
+							<input class="maxPageNumber" name="ltePageNumber" type="range" min="10" max="1600" value="{{ltePageNumber}}" />
+							<span class="range_min_PageNumber light left">{{gtePageNumber}}</span>
+							<span class="range_max_PageNumber light right">{{ltePageNumber}}</span>
+						</div>
+						<br><br><br><br><br>
+						<div id="tacgia" class="dropdown-check-list" tabindex="100">
+							<span class="anchor" onclick="listAuthorsFuntion()">Filter Tác Giả</span>
+							<div id="myDropdown" class="dropdown-content">
+								<input type="text" placeholder="Search.." id="myInput" onkeyup="authorFilterFunction()"><br>
+								{% for tacgia in TacGias %}
+									{% if tacgia in TacGia_Selected %}
+										<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia" checked>
+										<label for="{{ tacgia }}">{{ tacgia }}</label><br>
+									{% else %}
+										<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia">
+										<label for="{{ tacgia }}">{{ tacgia }}</label><br>
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+						<div id="dichgia" class="dropdown-check-list" tabindex="100">
+							<span class="anchor" onclick="listTranslatorsFuntion()">Filter Dịch Giả</span>
+							<div id="myDropdown2" class="dropdown-content">
+								<input type="text" placeholder="Search.." id="myInput2" onkeyup="translatorFilterFunction()"><br>
+								{% for dichgia in DichGias %}
+									{% if dichgia in DichGia_Selected %}
+										<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia" checked>
+										<label for="{{ dichgia }}">{{ dichgia }}</label><br>
+									{% else %}
+										<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia">
+										<label for="{{ dichgia }}">{{ dichgia }}</label><br>
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+						<div id="nhaxuatban" class="dropdown-check-list" tabindex="100">
+							<span class="anchor" onclick="listPublishersFuntion()">Filter NXB</span>
+							<div id="myDropdown3" class="dropdown-content">
+								<input type="text" placeholder="Search.." id="myInput3" onkeyup="publisherFilterFunction()"><br>
+								{% for nxb in NhaXuatBans %}
+									{% if nxb in NhaXuatBan_Selected %}
+										<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan" checked>
+										<label for="{{ nxb }}">{{ nxb }}</label><br>
+									{% else %}
+										<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan">
+										<label for="{{ nxb }}">{{ nxb }}</label><br>
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+						{% csrf_token %}
+						<div class="form-check">
+							{% for danhmuc in DanhMucs %}
+								{% if danhmuc in DanhMuc_Selected %}
+									<input type="checkbox" value="{{ danhmuc }}" id="{{ danhmuc }}" name="DanhMuc" checked>
+									<label for="{{ danhmuc }}">{{ danhmuc }}</label>
+								{% else %}
+									<input type="checkbox" value="{{ danhmuc }}" id="{{ danhmuc }}" name="DanhMuc" >
+									<label for="{{ danhmuc }}">{{ danhmuc }}</label>
+								{% endif %} 
+							{% endfor %}
+						</div>
+						<button type="submit" class="btn">SUBMIT</button>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="colorlib-product">
+			<div class="container">
+				<!-- <div class="row">
+					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
+						<h2>SÁCH BÁN CHẠY</h2>
+					</div>
+				</div> -->
+				<div class="row row-pb-md">
+
+					{% for book in Books %}
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="desc">
+							<span class="price">{{book.GiaNhaNam}} (Đã có VAT)</span>
+						</div>
+
+						<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
+							<img src={{book.LinkImage}} class="img-fluid">
+						</a>
+
+						<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
+							<div class="desc">
+								<h3>{{book.Ten}}</h3>
+							</div>
+						</a>
+					</div>
+					{% endfor %}
+
+				</div>
+				{% comment %} <div class="row">
+					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
+						<h2>VĂN HỌC NƯỚC NGOÀI</h2>
+					</div>
+				</div>
+				<div class="row row-pb-md">
+
+					{% for hit in hits %}
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="desc">
+							<span class="price">295.200đ (Đã có VAT)</span>
+						</div>
+
+						<a href="" class="prod-img">
+							<img src="http://static.nhanam.com.vn/thumb/0x320/crop/Books/Images/2023/1/30/K86N2QWU.jpg"
+								class="img-fluid">
+						</a>
+					</div>
+					{% endfor %}
+
+				</div> {% endcomment %}
+			</div>
+		</div>
+
+		<footer id="colorlib-footer" role="contentinfo">
+			<div class="container">
+				<div class="row row-pb-md">
+					<div class="col footer-col colorlib-widget">
+						<h4>About Us</h4>
+						<p>Những tên ất ơ sinh viên năm 3</p>
+						<p>
+						<ul class="colorlib-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li><a href="#"><i class="icon-dribbble"></i></a></li>
+						</ul>
+						</p>
+					</div>
+
+					<div class="col footer-col">
+						<h4>Contact Information</h4>
+						<ul class="colorlib-footer-links">
+							<li>Số 1, Võ Văn Ngân, phường Linh Chiểu, thành phố Thủ Đức, Thành phố Hồ Chí Minh</li>
+							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
+							<li><a href="mailto:lyhongphat261202@gmail.com">lyhongphat261202@gmail.com</a></li>
+							<li><a href="#">yoursite.com</a></li>
+						</ul>
+					</div>
+
+					<div class="col footer-col">
+						<h4>Sinh viên thực hiện</h4>
+						<ul class="colorlib-footer-links">
+							<li>Hồ Đức Pháp</li>
+							<li>Lý Hồng Phát</li>
+							<li>Nguyễn Ngọc Phát</li>
+							<li>Nguyễn Phong Phú</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="copy">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<p>
+							<span>
+								Copyright &copy;
+								<script>document.write(new Date().getFullYear());</script> All rights reserved | This
+								template is made with <i class="icon-heart" aria-hidden="true"></i> by <a
+									href="https://colorlib.com" target="_blank">Colorlib</a>
+							</span>
+							<span class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>
+								, <a href="http://pexels.com/" target="_blank">Pexels.com</a></span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
+	</div>
+
+	<!-- jQuery -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<!-- popper -->
+	<script src="{% static 'js/popper.min.js' %}"></script>
+	<!-- bootstrap 4.1 -->
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!-- jQuery easing -->
+	<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+	<!-- Waypoints -->
+	<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<!-- Flexslider -->
+	<script src="{% static 'js/jquery.flexslider-min.js' %}"></script>
+	<!-- Owl carousel -->
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<!-- Magnific Popup -->
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/magnific-popup-options.js' %}"></script>
+	<!-- Date Picker -->
+	<script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+	<!-- Stellar Parallax -->
+	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+	<!-- Main -->
+	<script src="{% static 'js/main.js' %}"></script>
+
+	<script>
+		(function() {
+
+			function addSeparator(nStr) {
+				nStr += '';
+				var x = nStr.split('.');
+				var x1 = x[0];
+				var x2 = x.length > 1 ? '.' + x[1] : '';
+				var rgx = /(\d+)(\d{3})/;
+				while (rgx.test(x1)) {
+					x1 = x1.replace(rgx, '$1' + '.' + '$2');
+				}
+				return x1 + x2;
+			}
+	
+			function rangeInputChangeEventHandler(e){
+				var rangeGroup = $(this).attr('name'),
+					minBtn_PageNumber = $(this).parent().children('.minPageNumber'),
+					maxBtn_PageNumber = $(this).parent().children('.maxPageNumber'),
+					range_min_PageNumber = $(this).parent().children('.range_min_PageNumber'),
+					range_max_PageNumber = $(this).parent().children('.range_max_PageNumber'),
+					minVal_PageNumber = parseInt($(minBtn_PageNumber).val()),
+					maxVal_PageNumber = parseInt($(maxBtn_PageNumber).val()),
+
+					minBtn_Price = $(this).parent().children('.minPrice'),
+					maxBtn_Price = $(this).parent().children('.maxPrice'),
+					range_min_Price = $(this).parent().children('.range_min_Price'),
+					range_max_Price = $(this).parent().children('.range_max_Price'),
+					minVal_Price = parseInt($(minBtn_Price).val()),
+					maxVal_Price = parseInt($(maxBtn_Price).val()),
+
+					origin = $(this).context.className;
+	
+				if(origin === 'minPageNumber' && minVal_PageNumber > maxVal_PageNumber-5){
+					$(minBtn_PageNumber).val(maxVal_PageNumberl-5);
+				}
+				var minVal = parseInt($(minBtn_PageNumber).val());
+				$(range_min_PageNumber).html(minVal_PageNumber);
+				$(minBtn_PageNumber).html(minVal_PageNumber);
+	
+	
+				if(origin === 'maxPageNumber' && maxVal_PageNumber-5 < minVal_PageNumber){
+					$(maxBtn_PageNumber).val(5+ minVal_PageNumber);
+				}
+				var maxVal = parseInt($(maxBtn_PageNumber).val());
+				$(range_max_PageNumber).html(maxVal_PageNumber);
+				$(maxBtn_PageNumber).html(maxVal_PageNumber);
+
+				if(origin === 'minPrice' && minVal_Price > maxVal_Price-5){
+					$(minBtn_Price).val(maxVal_Price-5);
+				}
+				var minVal = parseInt($(minBtn_Price).val());
+				$(range_min_Price).html(addSeparator(minVal_Price) + " VND");
+				$(minBtn_Price).html(minVal_Price);
+	
+	
+				if(origin === 'maxPrice' && maxVal_Price-5 < minVal_Price){
+					$(maxBtn_Price).val(5+ minVal_Price);
+				}
+				var maxVal = parseInt($(maxBtn_Price).val());
+				$(range_max_Price).html(addSeparator(maxVal_Price) + " VND");
+				$(maxBtn_Price).html(maxVal_Price);
+			}
+		 $('input[type="range"]').on( 'input', rangeInputChangeEventHandler);
+	})();
+	</script>
+
+	<script>
+		/* When the user clicks on the button,
+		toggle between hiding and showing the dropdown content */
+		function listPublishersFuntion() {
+			document.getElementById("myDropdown3").classList.toggle("show");
+		  }
+		  
+		  function publisherFilterFunction() {
+			var input, filter, ul, li, label, i, input;
+			input = document.getElementById("myInput3");
+			filter = input.value.toUpperCase();
+			div = document.getElementById("myDropdown3");
+			input = div.getElementsByTagName("input");
+			label = div.getElementsByTagName("label");
+			for (i = 0; i < label.length; i++) {
+			  txtValue = label[i].textContent || label[i].innerText;
+			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				  label[i].style.display = "";
+				  input[i+1].style.display = "";
+			  } else {
+				  label[i].style.display = "none";
+				  input[i+1].style.display = "none";
+			  }
+			}
+		  }
+
+		function listTranslatorsFuntion() {
+			document.getElementById("myDropdown2").classList.toggle("show");
+		  }
+		  
+		function translatorFilterFunction() {
+			var input, filter, ul, li, label, i, input;
+			input = document.getElementById("myInput2");
+			filter = input.value.toUpperCase();
+			div = document.getElementById("myDropdown2");
+			input = div.getElementsByTagName("input");
+			label = div.getElementsByTagName("label");
+			for (i = 0; i < label.length; i++) {
+			  txtValue = label[i].textContent || label[i].innerText;
+			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				  label[i].style.display = "";
+				  input[i+1].style.display = "";
+			  } else {
+				  label[i].style.display = "none";
+				  input[i+1].style.display = "none";
+			  }
+			}
+		  }
+
+		function listAuthorsFuntion() {
+		  document.getElementById("myDropdown").classList.toggle("show");
+		}
+		
+		function authorFilterFunction() {
+		  var input, filter, ul, li, label, i, input;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  div = document.getElementById("myDropdown");
+		  input = div.getElementsByTagName("input");
+		  label = div.getElementsByTagName("label");
+		  for (i = 0; i < label.length; i++) {
+			txtValue = label[i].textContent || label[i].innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				label[i].style.display = "";
+				input[i+1].style.display = "";
+			} else {
+				label[i].style.display = "none";
+				input[i+1].style.display = "none";
+			}
+		  }
+		}
+	</script>
+
+	<script>
+		function validateForm() {
+			var inputField = document.getElementById("searching bar");
+			if (inputField.value == "") {
+				alert("Đừng tìm kiếm thứ gì đó vô định chứ\nNhập từ khóa vào!");
+				return false;
+			}
+			return true;
+		}
+	</script>
+
+</body>
+
+</html>
