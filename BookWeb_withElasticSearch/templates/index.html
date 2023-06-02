@@ -40,6 +40,117 @@
 	<link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
 
 	<style>
+		input[type='range'] {
+			width: 210px;
+			height: 30px;
+			overflow: hidden;
+			cursor: pointer;
+			  outline: none;
+		  }
+		  input[type='range'],
+		  input[type='range']::-webkit-slider-runnable-track,
+		  input[type='range']::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			  background: none;
+		  }
+		  input[type='range']::-webkit-slider-runnable-track {
+			width: 200px;
+			height: 1px;
+			background: #003D7C;
+		  }
+		  
+		  input[type='range']:nth-child(2)::-webkit-slider-runnable-track{
+			background: none;
+		  }
+		  
+		  input[type='range']::-webkit-slider-thumb {
+			position: relative;
+			height: 15px;
+			width: 15px;
+			margin-top: -7px;
+			background: #fff;
+			border: 1px solid #003D7C;
+			border-radius: 25px;
+			z-index: 1;
+		  }
+		  
+		  
+		  input[type='range']:nth-child(1)::-webkit-slider-thumb{
+			z-index: 2;
+		  }
+		  
+		  .rangeslider{
+			  position: relative;
+			  height: 60px;
+			  width: 210px;
+			  display: inline-block;
+			  margin-top: -5px;
+			  margin-left: 20px;
+		  }
+		  .rangeslider input{
+			  position: absolute;
+		  }
+		  .rangeslider{
+			  position: absolute;
+		  }
+		  
+		  .rangeslider span{
+			  position: absolute;
+			  margin-top: 30px;
+			  left: 0;
+		  }
+		  
+		  .rangeslider .right{
+			 position: relative;
+			 float: right;
+			 margin-right: -5px;
+		  }
+		  
+		  
+		  /* Proof of concept for Firefox */
+		  @-moz-document url-prefix() {
+			.rangeslider::before{
+			  content:'';
+			  width:100%;
+			  height:2px;
+			  background: #003D7C;
+			  display:block;
+			  position: relative;
+			  top:16px;
+			}
+		  
+			input[type='range']:nth-child(1){
+			  position:absolute;
+			  top:35px !important;
+			  overflow:visible !important;
+			  height:0;
+			}
+		  
+			input[type='range']:nth-child(2){
+			  position:absolute;
+			  top:35px !important;
+			  overflow:visible !important;
+			  height:0;
+			}
+		  input[type='range']::-moz-range-thumb {
+			position: relative;
+			height: 15px;
+			width: 15px;
+			margin-top: -7px;
+			background: #fff;
+			border: 1px solid #003D7C;
+			border-radius: 25px;
+			z-index: 1;
+		  }
+		  
+			input[type='range']:nth-child(1)::-moz-range-thumb {
+				transform: translateY(-20px);    
+			}
+			input[type='range']:nth-child(2)::-moz-range-thumb {
+				transform: translateY(-20px);    
+			}
+		  }
+		  
 		.dropdown-check-list {
 			display: inline-block;
 		  }
@@ -190,15 +301,15 @@
 
 						<!-- Search bar -->
 						<div class="col-sm-5 col-md-10">
-							<form action="{% url 'searching_with_keyword'%}" class="search-wrap"
+							<form action="{% url 'filter'%}" class="search-wrap"
 								onsubmit="return validateForm()">
 								{% csrf_token %}
-								<div class="form-group">
+								{% comment %} <div class="form-group">
 									<input type="search" name="keyword" class="form-control search"
 										placeholder="Tìm kiếm" id="searching bar">
 									<button class="btn btn-primary submit-search text-center" type="submit"><i
 											class="icon-search"></i></button>
-								</div>
+								</div> {% endcomment %}
 							</form>
 						</div>
 					</div>
@@ -268,6 +379,27 @@
 						<h2>~Victor Hugo~</h2>
 					</div>
 					<form action="{% url 'filter'%}" method="post">
+						<div class="form-group">
+							<input type="search" name="keyword" class="form-control search"
+								placeholder="Tìm kiếm" id="searching bar" value="{{keyword}}">
+						</div>
+						<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+						<div class="rangeslider">
+							<p>GIÁ TIỀN:</p>
+							<input class="minPrice" name="gtePrice" type="range" min="9600" max="560000" value="{{gtePrice}}" />
+							<input class="maxPrice" name="ltePrice" type="range" min="9600" max="560000" value="{{ltePrice}}" />
+							<span class="range_min_Price light left">{{gtePrice}}</span>
+							<span class="range_max_Price light right">{{ltePrice}}</span>
+						</div>
+						<br><br><br><br><br>
+						<div class="rangeslider">
+							<p>SỐ TRANG:</p>
+							<input class="minPageNumber" name="gtePageNumber" type="range" min="10" max="1600" value="{{gtePageNumber}}" />
+							<input class="maxPageNumber" name="ltePageNumber" type="range" min="10" max="1600" value="{{ltePageNumber}}" />
+							<span class="range_min_PageNumber light left">{{gtePageNumber}}</span>
+							<span class="range_max_PageNumber light right">{{ltePageNumber}}</span>
+						</div>
+						<br><br><br><br><br>
 						<div id="tacgia" class="dropdown-check-list" tabindex="100">
 							<span class="anchor" onclick="listAuthorsFuntion()">Filter Tác Giả</span>
 							<div id="myDropdown" class="dropdown-content">
@@ -467,6 +599,73 @@
 	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
 	<!-- Main -->
 	<script src="{% static 'js/main.js' %}"></script>
+
+	<script>
+		(function() {
+
+			function addSeparator(nStr) {
+				nStr += '';
+				var x = nStr.split('.');
+				var x1 = x[0];
+				var x2 = x.length > 1 ? '.' + x[1] : '';
+				var rgx = /(\d+)(\d{3})/;
+				while (rgx.test(x1)) {
+					x1 = x1.replace(rgx, '$1' + '.' + '$2');
+				}
+				return x1 + x2;
+			}
+	
+			function rangeInputChangeEventHandler(e){
+				var rangeGroup = $(this).attr('name'),
+					minBtn_PageNumber = $(this).parent().children('.minPageNumber'),
+					maxBtn_PageNumber = $(this).parent().children('.maxPageNumber'),
+					range_min_PageNumber = $(this).parent().children('.range_min_PageNumber'),
+					range_max_PageNumber = $(this).parent().children('.range_max_PageNumber'),
+					minVal_PageNumber = parseInt($(minBtn_PageNumber).val()),
+					maxVal_PageNumber = parseInt($(maxBtn_PageNumber).val()),
+
+					minBtn_Price = $(this).parent().children('.minPrice'),
+					maxBtn_Price = $(this).parent().children('.maxPrice'),
+					range_min_Price = $(this).parent().children('.range_min_Price'),
+					range_max_Price = $(this).parent().children('.range_max_Price'),
+					minVal_Price = parseInt($(minBtn_Price).val()),
+					maxVal_Price = parseInt($(maxBtn_Price).val()),
+
+					origin = $(this).context.className;
+	
+				if(origin === 'minPageNumber' && minVal_PageNumber > maxVal_PageNumber-5){
+					$(minBtn_PageNumber).val(maxVal_PageNumberl-5);
+				}
+				var minVal = parseInt($(minBtn_PageNumber).val());
+				$(range_min_PageNumber).html(minVal_PageNumber);
+				$(minBtn_PageNumber).html(minVal_PageNumber);
+	
+	
+				if(origin === 'maxPageNumber' && maxVal_PageNumber-5 < minVal_PageNumber){
+					$(maxBtn_PageNumber).val(5+ minVal_PageNumber);
+				}
+				var maxVal = parseInt($(maxBtn_PageNumber).val());
+				$(range_max_PageNumber).html(maxVal_PageNumber);
+				$(maxBtn_PageNumber).html(maxVal_PageNumber);
+
+				if(origin === 'minPrice' && minVal_Price > maxVal_Price-5){
+					$(minBtn_Price).val(maxVal_Price-5);
+				}
+				var minVal = parseInt($(minBtn_Price).val());
+				$(range_min_Price).html(addSeparator(minVal_Price) + " VND");
+				$(minBtn_Price).html(minVal_Price);
+	
+	
+				if(origin === 'maxPrice' && maxVal_Price-5 < minVal_Price){
+					$(maxBtn_Price).val(5+ minVal_Price);
+				}
+				var maxVal = parseInt($(maxBtn_Price).val());
+				$(range_max_Price).html(addSeparator(maxVal_Price) + " VND");
+				$(maxBtn_Price).html(maxVal_Price);
+			}
+		 $('input[type="range"]').on( 'input', rangeInputChangeEventHandler);
+	})();
+	</script>
 
 	<script>
 		/* When the user clicks on the button,

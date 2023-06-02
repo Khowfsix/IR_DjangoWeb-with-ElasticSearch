@@ -34,9 +34,9 @@ def priceFilter(request):
     Output: Query thành phần trong phần range trong query tổng
     """
     # Lấy giá trị giá nhỏ nhất được nhập từ web
-    gtePrice = request.GET.get('gtePrice')
+    gtePrice = request.POST.get('gtePrice')
     # Lấy giá trị giá lớn nhất được nhập từ web
-    ltePrice = request.GET.get('ltePrice')
+    ltePrice = request.POST.get('ltePrice')
     # Nếu không có giá trị trong 2 biến đó 
     if gtePrice is None and ltePrice is None:
         # Thì trả về rỗng --> tìm trên tất cả khoảng giá
@@ -54,9 +54,9 @@ def pageNumberFilter(request):
     Output: Query thành phần trong phần range trong query tổng
     """
     # Lấy giá trị số trang nhỏ nhất được nhập từ web
-    gtePageNumber = request.GET.get('gtePageNumber')
+    gtePageNumber = request.POST.get('gtePageNumber')
     # Lấy giá trị số trang lớn nhất được nhập từ web
-    ltePageNumber = request.GET.get('ltePageNumber')
+    ltePageNumber = request.POST.get('ltePageNumber')
     # Nếu không có giá trị trong 2 biến đó 
     if gtePageNumber is None and ltePageNumber is None:
         # Thì trả về rỗng --> tìm trên tất cả khoảng số trang
@@ -74,9 +74,9 @@ def releaseDateFilter(request):
     Output: Query thành phần trong phần range trong query tổng
     """
     # Lấy giá trị ngày phát hành nhỏ nhất được nhập từ web
-    gteReleaseDate = request.GET.get('gteReleaseDate')
+    gteReleaseDate = request.POST.get('gteReleaseDate')
     # Lấy giá trị ngày phát hành lớn nhất được nhập từ web
-    lteReleaseDate = request.GET.get('lteReleaseDate')
+    lteReleaseDate = request.POST.get('lteReleaseDate')
     # Nếu không có giá trị trong 2 biến đó 
     if gteReleaseDate is None and lteReleaseDate is None:
         # Thì trả về rỗng --> tìm trên tất cả khoảng ngày phát hành
@@ -249,9 +249,11 @@ def filter(request):
     Hiển thị danh sách các quyển sách được lọc qua filter
     Input: Filter
     """
-    keyword = request.GET.get('keyword')
+    keyword = request.POST.get('keyword')
+    print(keyword)
     # Khi keyword là None thì chỉnh sửa query thành filter không có keyword
     if (keyword is None):
+        keyword = ''
         query = {
             "bool": {
                 "must": [
@@ -295,7 +297,8 @@ def filter(request):
                 ]
             }
         }
-    else: 
+    else:
+        print("have keyword") 
         query = {
             "bool": {
                 "must": [
@@ -318,15 +321,19 @@ def filter(request):
                         "bool": {
                             "should": publisherFilter(request)
                         }
+                    },
+                    {
+                        "bool": {
+                            "should": {
+                                "multi_match" : {
+                                "query":    keyword, 
+                                "fields": [ "Giới thiệu sách", "Tên^5" ] 
+                                }
+                            },
+                        }
                     }
                 ],
                 "filter": [
-                    {
-                        "multi_match" : {
-                        "query":    keyword, 
-                        "fields": [ "Giới thiệu sách", "Tên" ] 
-                        }
-                    },
                     {
                         "range": {
                             "Giá Nhã Nam": priceFilter(request=request)
@@ -370,23 +377,37 @@ def filter(request):
         ObBook.GiaBia = JSbook.get('Giá bìa')
         ObBook.GiaNhaNam = JSbook.get('Giá Nhã Nam')
         ObBook.GioiThieuSach = JSbook.get('Giới thiệu sách')
-
-        # print(ObBook.Ten)
         listBooks.append(ObBook)
 
-    DanhMuc_Selected = []
+    DanhMuc_Selected = getUniqueCategory()
     TacGia_Selected = []
     DichGia_Selected = []
     NhaXuatBan_Selected = []
+    gtePageNumber = 10
+    ltePageNumber = 1600
+    gtePrice = 9600
+    ltePrice = 560000
+    
     if request.method == 'POST':
         DanhMuc_Selected = request.POST.getlist('DanhMuc')
         TacGia_Selected = request.POST.getlist('TacGia')
         DichGia_Selected = request.POST.getlist('DichGia')
         NhaXuatBan_Selected = request.POST.getlist('NhaXuatBan')
-        # print("Dich gia")
-        # print(DichGia_Selected)
+        gtePageNumber = request.POST.get('gtePageNumber')
+        if gtePageNumber is None: 
+            gtePageNumber = 10
+        ltePageNumber = request.POST.get('ltePageNumber')
+        if ltePageNumber is None: 
+            ltePageNumber = 1600
+        gtePrice = request.POST.get('gtePrice')
+        if gtePrice is None: 
+            gtePrice = 9600
+        ltePrice = request.POST.get('ltePrice')
+        if ltePrice is None: 
+            ltePrice = 560000
 
     searchContext = {
+        "keyword": keyword,
         "Books": listBooks,
         "DanhMucs": getUniqueCategory().keys(),
         "TacGias": getUniqueAuthor().keys(),
@@ -395,7 +416,11 @@ def filter(request):
         'DanhMuc_Selected': DanhMuc_Selected,
         'TacGia_Selected': TacGia_Selected,
         'DichGia_Selected': DichGia_Selected,
-        'NhaXuatBan_Selected': NhaXuatBan_Selected
+        'NhaXuatBan_Selected': NhaXuatBan_Selected,
+        'gtePageNumber': gtePageNumber,
+        'ltePageNumber': ltePageNumber,
+        'gtePrice': gtePrice,
+        'ltePrice': ltePrice
     }
     return render(request=request,
                   template_name='index.html',
@@ -511,8 +536,6 @@ def detail_view(request, id):
         và top 20 quyển sách khác có liên quan
     Input: 1 quyển sách
     """
-    
-    print("Ma san pham neeeeeeeee: " + id)
 
     ## Lấy quyển hiện tại
     queryThisBook = {
@@ -520,6 +543,7 @@ def detail_view(request, id):
             "Mã sản phẩm": id
         }
     }
+    print(queryThisBook)
     search_result = search(queryThisBook, 1)
     thisBook = getBook_fromResults(search_result=search_result)[0]
 
