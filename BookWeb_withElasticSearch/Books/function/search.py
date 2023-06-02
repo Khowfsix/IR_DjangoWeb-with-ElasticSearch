@@ -99,32 +99,7 @@ def search_keyword(keyword):
         }
     }
     search_result = search(query, 300)
-    listBooks=[]
-    # Lấy kết quả query sang object Books
-    for hit in search_result['hits']['hits']:
-        JSbook = hit.get('_source')
-        ObBook = Book()
-        ObBook.DanhMuc = JSbook.get('Danh mục')
-        ObBook.LinkImage = JSbook.get('LinkImage')
-        ObBook.Ten = JSbook.get('Tên')
-        ObBook.MaSanPham = JSbook.get('Mã sản phẩm')
-        ObBook.TacGia = JSbook.get('Tác giả')
-        ObBook.NhaXuatBan = JSbook.get('Nhà xuất bản')
-
-        if (JSbook.get('Số trang') is not None):
-            ObBook.SoTrang = int(JSbook.get('Số trang'))
-
-        ObBook.KichThuoc = JSbook.get('Kích thước')
-
-        if (JSbook.get('Ngày phát hành') is not None):
-            ObBook.NgayPhatHanh = datetime.strptime(JSbook.get('Ngày phát hành'), '%d-%m-%Y')
-
-        ObBook.GiaBia = JSbook.get('Giá bìa')
-        ObBook.GiaNhaNam = JSbook.get('Giá Nhã Nam')
-        ObBook.GioiThieuSach = JSbook.get('Giới thiệu sách')
-
-        # print(ObBook.Ten)
-        listBooks.append(ObBook)
+    return getBook_fromResults(search_result)
 
 def searchOneBook(id):
     queryThisBook = {
