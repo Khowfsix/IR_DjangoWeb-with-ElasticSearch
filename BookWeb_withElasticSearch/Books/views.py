@@ -9,11 +9,13 @@ from Books.function import *
 from Books.common import *
 # Sửa password lại theo từng server
 
+
 def filter(request):
     """
     Hiển thị danh sách các quyển sách được lọc qua filter
     Input: Filter
     """
+    global MYQUERY, MYKEYWORD
     keyword = request.POST.get('keyword')
     DanhMuc_Selected = []
     TacGia_Selected = []
@@ -26,11 +28,11 @@ def filter(request):
     gteReleaseDate = None
     lteReleaseDate = None
     # Tạo query
-    query, keyword=setQueryByKeyword(keyword,request)
+    if request.GET.get('page') is None or MYQUERY is None:
+        MYQUERY, MYKEYWORD=setQueryByKeyword(keyword,request)
     
-    search_result = search(query, 300)
+    search_result = search(MYQUERY, 300)
     listBooks = getBook_fromResults(search_result)
-
     if request.method == 'POST':
         DanhMuc_Selected = request.POST.getlist('DanhMuc')
         TacGia_Selected = request.POST.getlist('TacGia')
@@ -50,9 +52,16 @@ def filter(request):
             ltePrice = 560000
         gteReleaseDate = request.POST.get('gteReleaseDate')
         lteReleaseDate = request.POST.get('lteReleaseDate')
+    
+    if MYKEYWORD is not None and MYKEYWORD!='':
+        header=f"Kết quả tìm kiếm cho '{MYKEYWORD}'"
+    else:
+        header='300 quyển sách đầu tiên'
 
-    searchContext = {
-        "keyword": keyword,
+    searchContext =paging(request, {
+        
+        'Header':header,
+        "keyword": MYKEYWORD,
         "Books": listBooks,
         "DanhMucs": getUniqueCategory().keys(),
         "TacGias": getUniqueAuthor().keys(),
@@ -67,8 +76,9 @@ def filter(request):
         'gtePrice': gtePrice,
         'ltePrice': ltePrice,
         'gteReleaseDate': gteReleaseDate,
-        'lteReleaseDate': lteReleaseDate
-    }
+        'lteReleaseDate': lteReleaseDate,
+    })
+    
     return render(request=request,
                   template_name='index.html',
                   context=searchContext)
@@ -81,12 +91,12 @@ def index_view(request):
     """
     Hiển thị tất cả các sách trong dataset
     """
-
     listBooks=searchAll()
-
-    indexContext = {
-        "Books": listBooks
+    temp={
+        'Header':'300 quyển sách đầu tiên',
+        "Books": listBooks,
     }
+    indexContext =paging(request,temp)
     return render(request=request,
                   template_name='index.html',
                   context=indexContext)
@@ -109,7 +119,7 @@ def detail_view(request, id):
         "ThisBook": thisBook,
         "RelatedBooks": listRelatedBooks,
     }
-
+    
     return render(request=request,
                   template_name='book-detail.html',
                   context=detailContext)
@@ -123,15 +133,32 @@ def search_keyword_view(request):
     keyword = request.GET.get('keyword')
     if (keyword is None):
         return index_view(request)
-
     listBooks = []
 
     # Truy vấn dữ liệu
     listBooks=search_keyword(keyword)
 
-    searchContext = {
-        "Books": listBooks
-    }
+    searchContext = paging(request,{
+        'Header':f"Kết quả tìm kiếm cho '{keyword}'",
+        "Books": listBooks,
+        
+    })
+    
     return render(request=request,
                   template_name='index.html',
                   context=searchContext)
+def paging(request,preView):
+
+    try:
+        page=request.GET.get('page')
+    except:
+        pass
+    if page is None:
+        page=1
+    else:
+        page=int(page)
+    
+    preView['Pages']=list(range(1,math.ceil(len(preView['Books'])/BPP)+1))
+    preView['Page']=page
+    preView['Books']=preView['Books'][(page-1)*BPP:page*BPP]
+    return preView

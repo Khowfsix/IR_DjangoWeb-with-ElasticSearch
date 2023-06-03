@@ -8,7 +8,7 @@ ELASTIC_PASSWORD = "-JpPuDA43hk+xp*OYAPq"
 CA_CERTS = "C:/UTEXLMS/Nam3_2022_2023/HK2/TruyTimThongTin/elasticsearch-8.6.2/config/certs/http_ca.crt"
 
 # Điều chỉnh để phù hợp với từng máy
-DEV="PHONGPHU"
+DEV="NGOCPHAT"
 
 if DEV=="NGOCPHAT":
     ELASTIC_PASSWORD = "AO_Xpp=erLN89MGxutL7"
@@ -24,7 +24,6 @@ elif DEV=="HONGPHAT":
     CA_CERTS = "C:/elasticsearch/config/certs/http_ca.crt"
 
 
-
 # Create the client instance
 es = Elasticsearch(
     hosts=HOST,
@@ -35,3 +34,7 @@ es = Elasticsearch(
 # Define index name of project
 index_name = 'finalproject_index'
 type_name = "_search"
+
+BPP=20 # books per page
+MYQUERY=None
+MYKEYWORD=''

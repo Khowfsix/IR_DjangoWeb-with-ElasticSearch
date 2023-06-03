@@ -1,7 +1,9 @@
 from datetime import datetime
 from ..models import Book
 from ..common import *
+import math
 def search(query, size):
+    
     global index_name, es
     return es.search(index=index_name,
                      body={

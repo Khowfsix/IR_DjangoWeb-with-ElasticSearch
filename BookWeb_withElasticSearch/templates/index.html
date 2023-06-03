@@ -45,6 +45,27 @@
 <body>
 	
 	<style>
+		.pagination {
+			display: contents;
+		}
+
+		.pagination a {
+		color: black;
+		float: left;
+		padding: 8px 16px;
+		text-decoration: none;
+		transition: background-color .3s;
+		border: 1px solid #ddd;
+		padding: 5px 10px;
+	
+		}
+
+		.pagination a.active {
+		background-color: #41f2ec;
+		color: rgb(255, 255, 255);
+		border: 1px solid #41f2ec;
+		
+		}
 
 		body {
 			background-color: #ede4ca78;
@@ -92,7 +113,7 @@
 		  .rangeslider{
 			  position: relative;
 			  height: 60px;
-			  width: 170px;
+			  width: 200px;
 			  display: inline-block;
 			  margin-top: 30px;
 		  }
@@ -396,12 +417,13 @@
 							"Chính từ sách mà những người khôn ngoan tìm được sự an ủi khỏi những rắc rối của cuộc đời"
 						</h2>
 						<h2>~Victor Hugo~</h2>
+					
 					</div>
 				</div>
 			</div>
 		</div>
 		<div style="display: flex">
-			<div class="filter-container" style="margin-left: 100px;">
+			<div class="filter-container" style="margin-left: 70px;">
 				{% comment %} <form action="{% url 'filter'%}" onsubmit="return validateForm()" method="post" style="margin-top:140px"> {% endcomment %}
 				<form action="{% url 'filter'%}" method="post" style="margin-top:100px">
 					{% csrf_token %}
@@ -502,6 +524,23 @@
 
 					<button type="submit" class="btn btn-primary" style="margin-left:25px">Tìm kiếm</button>
 				</form>
+				<div class="rangeslider" style="margin-top:30px">
+					<p class="font-weight-bold" style="margin-bottom: 0px">Chọn trang</p>
+					<div class="pagination">
+						{% for p in Pages %}
+							{% if p == Page %}
+								<a href="#" class="active">{{p}}</a>
+							{% else %}
+								<a href="/?page={{p}}">{{p}}</a>
+							{% endif %}
+							{% if p|divisibleby:5 %}
+								<br></br>
+							{% endif %}
+						{% endfor %}
+
+					</div>
+				</div>
+			
 			</div>
 			<div class="colorlib-product" style="margin-left: 100px;">
 				<div class="container">
@@ -510,9 +549,14 @@
 							<h2>SÁCH BÁN CHẠY</h2>
 						</div>
 					</div> -->
+					<div class="col-sm-12 text-center">
+						<h2 class="intro">
+							{{Header}}
+						</h2>
+					</div>
+
 					<div class="row row-pb-md">
-	
-						{% for book in Books %}
+						{% for book in Books%}
 						<div class="col-lg-3 mb-4 text-center">
 							<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
 								<img src={{book.LinkImage}} class="img-fluid">
