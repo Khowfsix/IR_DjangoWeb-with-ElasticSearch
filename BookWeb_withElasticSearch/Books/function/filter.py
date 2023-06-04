@@ -4,7 +4,6 @@ from dateutil.parser import parse
 def setQueryByKeyword(keyword,request):
     if keyword is None or keyword=='':
         keyword = ''
-        print('ko co key')
         query = {
             "bool": {
                 "must": [
@@ -104,6 +103,7 @@ def setQueryByKeyword(keyword,request):
             }
         }
     return query, keyword
+
 def priceFilter(request):
     """
     Hiển thị tất cả các sách trong khoảng giá được nhập vào 

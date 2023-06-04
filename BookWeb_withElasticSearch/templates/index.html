@@ -38,14 +38,15 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
-
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	
 </head>
 
 <body>
 	
 	<style>
-		.pagination {
+		pagination {
 			display: contents;
 		}
 
@@ -57,14 +58,22 @@
 		transition: background-color .3s;
 		border: 1px solid #ddd;
 		padding: 5px 10px;
-	
+
 		}
 
 		.pagination a.active {
 		background-color: #41f2ec;
 		color: rgb(255, 255, 255);
 		border: 1px solid #41f2ec;
-		
+
+		}
+		div.scroll {
+			margin: 4px, 4px;
+			padding: 4px;
+			background-color: #fff;
+			width: 200px;
+			overflow: auto;
+			white-space: nowrap;
 		}
 
 		body {
@@ -72,7 +81,7 @@
 		}
 
 		input[type='range'] {
-			width: 170px;
+			width: 200px;
 			height: 30px;
 			overflow: hidden;
 			cursor: pointer;
@@ -192,7 +201,7 @@
 			display: inline-block;
 			padding: 5px 50px 5px 10px;
 			border: 1px solid #ccc;
-			width: 180px;
+			width: 200px;
 			background-color: #fff;
 		  }
 		  
@@ -363,7 +372,7 @@
 								</li> {% endcomment %}
 								{% comment %} <li><a href="#">Sách bán chạy</a></li> {% endcomment %}
 								{% comment %} <li><a href="#">Thông tin thêm</a></li> {% endcomment %}
-								<li><a href="#">Khuyến mãi</a></li>
+								{% comment %} <li><a href="#">Khuyến mãi</a></li> {% endcomment %}
 								{% comment %} <li class="cart"><a href="#"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a> {% endcomment %}
 								</li>
 							</ul>
@@ -379,17 +388,17 @@
 								<div class="owl-carousel2">
 									<div class="item">
 										<div class="col">
-											<h3><a href="#">Đọc nhiều vào thì mới nên người được</a></h3>
+											<h3><a >Đọc nhiều vào thì mới nên người được</a></h3>
 										</div>
 									</div>
 									<div class="item">
 										<div class="col">
-											<h3><a href="#">Mày nhìn thằng Tèo con nhà bà 2 kìa</a></h3>
+											<h3><a >Mày nhìn thằng Tèo con nhà bà 2 kìa</a></h3>
 										</div>
 									</div>
 									<div class="item">
 										<div class="col">
-											<h3><a href="#">Sao mày không giỏi như con người ta zậy con</a></h3>
+											<h3><a >Sao mày không giỏi như con người ta zậy con</a></h3>
 										</div>
 									</div>
 								</div>
@@ -413,11 +422,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h2 class="intro">
+						<h2 class="intro" >
 							"Chính từ sách mà những người khôn ngoan tìm được sự an ủi khỏi những rắc rối của cuộc đời"
 						</h2>
 						<h2>~Victor Hugo~</h2>
-					
 					</div>
 				</div>
 			</div>
@@ -425,30 +433,32 @@
 		<div style="display: flex">
 			<div class="filter-container" style="margin-left: 70px;">
 				{% comment %} <form action="{% url 'filter'%}" onsubmit="return validateForm()" method="post" style="margin-top:140px"> {% endcomment %}
-				<form action="{% url 'filter'%}" method="post" style="margin-top:100px">
+				<form action="{% url 'filter'%}" method="post" style="margin-top:120px" onsubmit="return validateForm()">
 					{% csrf_token %}
-					<p class="font-weight-bold" style="margin-bottom: 0px;">TỪ KHÓA:</p>
-					<div class="form-group">
-						<input type="search" name="keyword" class="form-control search"
-							 id="searching bar" size="20" value="{{keyword}}">
-					</div>
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 					<div class="rangeslider" style="margin-top:25px">
-						<p class="font-weight-bold" style="margin-bottom: 0px">GIÁ TIỀN:</p>
+						<p class="font-weight-bold" style="margin-bottom: 0px; font-size:20px;">GIÁ TIỀN:</p>
 						<input class="minPrice" name="gtePrice" type="range" min="9600" max="560000" value="{{gtePrice}}" />
 						<input class="maxPrice" name="ltePrice" type="range" min="9600" max="560000" value="{{ltePrice}}" />
 						<span class="range_min_Price light left">{{gtePrice}}</span>
 						<span class="range_max_Price light right">{{ltePrice}}</span>
 					</div>
 					<div class="rangeslider">
-						<p class="font-weight-bold" style="margin-bottom: 0px">SỐ TRANG:</p>
+						<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">SỐ TRANG:</p>
 						<input class="minPageNumber" name="gtePageNumber" type="range" min="10" max="1600" value="{{gtePageNumber}}" />
 						<input class="maxPageNumber" name="ltePageNumber" type="range" min="10" max="1600" value="{{ltePageNumber}}" />
 						<span class="range_min_PageNumber light left">{{gtePageNumber}}</span>
 						<span class="range_max_PageNumber light right">{{ltePageNumber}}</span>
 					</div>
+					<p class="font-weight-bold" style="margin-bottom: 0px; margin-top:30px;  font-size:20px;">TỪ KHÓA:</p>
+					<div class="form-group">
+						<input list="results"  type="search" name="keyword" class="form-control search "
+							 id="searchingbar" size="20" value="{{keyword}}" style="width:200px">
+						<datalist id="results" style="min-width:200px">
+						</datalist>
+					</div>
 					<div id="danhmuc" class="dropdown-check-list" tabindex="100">
-						<p class="font-weight-bold" style="margin-bottom: 0px; margin-top:30px">DANH MỤC:</p>
+						<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">DANH MỤC:</p>
 						<span class="anchor" onclick="listCategoryFuntion()">Filter Danh Mục</span>
 						<div id="myDropdown4" class="dropdown-content">
 							<input type="text" placeholder="Search.." id="myInput4" onkeyup="categoryFilterFunction()"><br>
@@ -464,7 +474,7 @@
 						</div>
 					</div>
 					<div id="tacgia" class="dropdown-check-list" tabindex="100">
-						<p class="font-weight-bold" style="margin-bottom: 0px">TÁC GIẢ:</p>
+						<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">TÁC GIẢ:</p>
 						<span class="anchor" onclick="listAuthorsFuntion()">Filter Tác Giả</span>
 						<div id="myDropdown" class="dropdown-content">
 							<input type="text" placeholder="Search.." id="myInput" onkeyup="authorFilterFunction()"><br>
@@ -480,7 +490,7 @@
 						</div>
 					</div>
 					<div id="dichgia" class="dropdown-check-list" tabindex="100">
-						<p class="font-weight-bold" style="margin-bottom: 0px">DỊCH GIẢ:</p>
+						<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">DỊCH GIẢ:</p>
 						<span class="anchor" onclick="listTranslatorsFuntion()">Filter Dịch Giả</span>
 						<div id="myDropdown2" class="dropdown-content">
 							<input type="text" placeholder="Search.." id="myInput2" onkeyup="translatorFilterFunction()"><br>
@@ -496,7 +506,7 @@
 						</div>
 					</div>
 					<div id="nhaxuatban" class="dropdown-check-list" tabindex="100">
-						<p class="font-weight-bold" style="margin-bottom: 0px">NHÀ XUẤT BẢN:</p>
+						<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">NHÀ XUẤT BẢN:</p>
 						<span class="anchor" onclick="listPublishersFuntion()">Filter NXB</span>
 						<div id="myDropdown3" class="dropdown-content">
 							<input type="text" placeholder="Search.." id="myInput3" onkeyup="publisherFilterFunction()"><br>
@@ -511,20 +521,20 @@
 							{% endfor %}
 						</div>
 					</div>
-					<div class="form-group" style="margin-top:30px">
-						<p class="font-weight-bold" style="margin-bottom: 0px">NGÀY PHÁT HÀNH:</p>
+					<div id="ngayphathanh" class="form-group" style="margin-top:30px">
+						<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">NGÀY PHÁT HÀNH:</p>
 						<label for="datepicker">TỪ:</label>
 						<br>
-						<input type="date" style="width: 170px" name="gteReleaseDate" id="datepicker" value="{{gteReleaseDate}}">
+						<input type="date" style="width: 200px" name="gteReleaseDate" id="datepicker" value="{{gteReleaseDate}}">
 						<br>
 						<label for="datepicker">ĐẾN:</label>
 						<br>
-						<input type="date" style="width: 170px" name="lteReleaseDate" id="datepicker" value="{{lteReleaseDate}}">
+						<input type="date" style="width: 200px" name="lteReleaseDate" id="datepicker" value="{{lteReleaseDate}}">
 					</div>
 
 					<button type="submit" class="btn btn-primary" style="margin-left:25px">Tìm kiếm</button>
 				</form>
-				<div class="rangeslider" style="margin-top:30px">
+				<div class="rangeslider" style="margin-top:200px">
 					<p class="font-weight-bold" style="margin-bottom: 0px">Chọn trang</p>
 					<div class="pagination">
 						{% for p in Pages %}
@@ -534,15 +544,14 @@
 								<a href="/?page={{p}}">{{p}}</a>
 							{% endif %}
 							{% if p|divisibleby:5 %}
-								<br></br>
+								<br>
 							{% endif %}
 						{% endfor %}
 
 					</div>
 				</div>
-			
 			</div>
-			<div class="colorlib-product" style="margin-left: 100px;">
+			<div class="colorlib-product" style="padding: 10px 0;margin-left: 40px;">
 				<div class="container">
 					<!-- <div class="row">
 						<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
@@ -550,13 +559,13 @@
 						</div>
 					</div> -->
 					<div class="col-sm-12 text-center">
-						<h2 class="intro">
+						<h2 class="intro" style="margin-bottom: 10px">
 							{{Header}}
 						</h2>
 					</div>
-
 					<div class="row row-pb-md">
-						{% for book in Books%}
+	
+						{% for book in Books %}
 						<div class="col-lg-3 mb-4 text-center">
 							<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
 								<img src={{book.LinkImage}} class="img-fluid">
@@ -608,10 +617,10 @@
 						<p>Những tên ất ơ sinh viên năm 3</p>
 						<p>
 						<ul class="colorlib-social-icons">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
+							<li><a><i class="icon-twitter"></i></a></li>
+							<li><a><i class="icon-facebook"></i></a></li>
+							<li><a><i class="icon-linkedin"></i></a></li>
+							<li><a><i class="icon-dribbble"></i></a></li>
 						</ul>
 						</p>
 					</div>
@@ -622,7 +631,7 @@
 							<li>Số 1, Võ Văn Ngân, phường Linh Chiểu, thành phố Thủ Đức, Thành phố Hồ Chí Minh</li>
 							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
 							<li><a href="mailto:lyhongphat261202@gmail.com">lyhongphat261202@gmail.com</a></li>
-							<li><a href="#">yoursite.com</a></li>
+							<li><a >yoursite.com</a></li>
 						</ul>
 					</div>
 
@@ -657,7 +666,7 @@
 	</div>
 
 	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
+		<a  class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
 	</div>
 
 	
@@ -684,6 +693,32 @@
 	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
 	<!-- Main -->
 	<script src="{% static 'js/main.js' %}"></script>
+	<script>
+		$(document).ready(function () {
+			let debounce;
+			$("#searchingbar").on("keydown", function (e) {
+			  clearTimeout(debounce);
+			  debounce = setTimeout(() => {
+				getAutoComplete();
+			  }, 300);
+			});
+		  });
+	
+		  function getAutoComplete() {
+			const query = $("#searchingbar").val();
+			fetch(
+			  `http://localhost:8000/auto?keyword=${query.trim()}`
+			)
+			  .then((resp) => resp.json())
+			  .then((data) => {
+				$("#results").empty()
+				if (data != []){
+				for (let i = 0; i < data['books'].length; i++) {
+				  $("#results").append(`<option style="width:200px;" value="${data['books'][i]}">`);
+				}}
+			  });
+		  }
+	</script>
 	<script>
 		(function() {
 
@@ -849,10 +884,28 @@
 
 	<script>
 		function validateForm() {
-			var inputField = document.getElementById("searching bar");
-			if (inputField.value == "") {
-				alert("Đừng tìm kiếm thứ gì đó vô định chứ\nNhập từ khóa vào!");
+			var inputField = document.getElementById("ngayphathanh");
+			var dateVal = inputField.getElementsByTagName("input");
+			alert(dateVal[0].value)
+			alert(dateVal[1].value)
+			if ((dateVal[0].value=='' && dateVal[1].value!='') || (dateVal[1].value=='' && dateVal[0].value!='')){
+				alert('Error: Chọn thiếu 1 mốc ngày phát hành...')
 				return false;
+			}
+			else {
+				let date1 = new Date(dateVal[0].value);
+				let date2 = new Date(dateVal[1].value);
+				let today = new Date();
+				if (date1.getTime() > date2.getTime()) {
+					alert('Error: Ngày bắt đầu lớn hơn ngày kết thúc')
+					return false;
+				}
+				else {
+					if (date1 > today || date2 > today){
+						alert('Error: Ngày bắt đầu (hoặc kết thúc) lớn hơn hiện tại')
+						return false;
+					}
+				}
 			}
 			return true;
 		}

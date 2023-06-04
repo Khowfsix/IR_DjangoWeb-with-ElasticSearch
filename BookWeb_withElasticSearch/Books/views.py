@@ -2,12 +2,52 @@
 import json
 from datetime import datetime
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from .models import Book
 from Books.function import *
 from Books.common import *
-# Sửa password lại theo từng server
+from django.core.cache import caches
+
+def autocompleSearch(request):
+    if request.method == "GET":
+        word = request.GET.get('keyword').lower()
+        print("keyyyyyyyyy")
+        print(word)
+        query = {
+            "multi_match": {
+
+      "query": word,
+
+      "type": "bool_prefix",
+      
+      "operator": "or",
+
+      "fields": [
+
+        "Tên.search_as_you_type",
+
+        "Tên.search_as_you_type._2gram",
+
+        "Tên.search_as_you_type._3gram"
+      ]
+
+    }
+        }
+        
+        listBooks = []
+        search_result = search(query, 5)
+        # Lấy kết quả query sang object Books
+        for hit in search_result['hits']['hits']:
+            JSbook = hit.get('_source')
+            JSbook.get('Tên')
+            # print(ObBook.Ten)
+            if JSbook.get('Mã sản phẩm').strip() != "hết sách":
+                listBooks.append(JSbook.get('Tên'))
+        print('KQTK')
+        print(listBooks)
+        return JsonResponse({'books': listBooks})
+    return render(request=request, template_name="index.html")
 
 
 def filter(request):
@@ -28,11 +68,13 @@ def filter(request):
     gteReleaseDate = None
     lteReleaseDate = None
     # Tạo query
+    # query, keyword=setQueryByKeyword(keyword,request)
     if request.GET.get('page') is None or MYQUERY is None:
         MYQUERY, MYKEYWORD=setQueryByKeyword(keyword,request)
     
     search_result = search(MYQUERY, 300)
     listBooks = getBook_fromResults(search_result)
+
     if request.method == 'POST':
         DanhMuc_Selected = request.POST.getlist('DanhMuc')
         TacGia_Selected = request.POST.getlist('TacGia')
@@ -52,14 +94,13 @@ def filter(request):
             ltePrice = 560000
         gteReleaseDate = request.POST.get('gteReleaseDate')
         lteReleaseDate = request.POST.get('lteReleaseDate')
-    
+
     if MYKEYWORD is not None and MYKEYWORD!='':
         header=f"Kết quả tìm kiếm cho '{MYKEYWORD}'"
     else:
         header='300 quyển sách đầu tiên'
 
-    searchContext =paging(request, {
-        
+    searchContext = paging(request, {
         'Header':header,
         "keyword": MYKEYWORD,
         "Books": listBooks,
@@ -76,9 +117,8 @@ def filter(request):
         'gtePrice': gtePrice,
         'ltePrice': ltePrice,
         'gteReleaseDate': gteReleaseDate,
-        'lteReleaseDate': lteReleaseDate,
+        'lteReleaseDate': lteReleaseDate
     })
-    
     return render(request=request,
                   template_name='index.html',
                   context=searchContext)
@@ -91,12 +131,15 @@ def index_view(request):
     """
     Hiển thị tất cả các sách trong dataset
     """
+
     listBooks=searchAll()
+
     temp={
         'Header':'300 quyển sách đầu tiên',
         "Books": listBooks,
     }
     indexContext =paging(request,temp)
+    
     return render(request=request,
                   template_name='index.html',
                   context=indexContext)
@@ -119,7 +162,7 @@ def detail_view(request, id):
         "ThisBook": thisBook,
         "RelatedBooks": listRelatedBooks,
     }
-    
+
     return render(request=request,
                   template_name='book-detail.html',
                   context=detailContext)
@@ -133,6 +176,7 @@ def search_keyword_view(request):
     keyword = request.GET.get('keyword')
     if (keyword is None):
         return index_view(request)
+
     listBooks = []
 
     # Truy vấn dữ liệu
@@ -141,14 +185,13 @@ def search_keyword_view(request):
     searchContext = paging(request,{
         'Header':f"Kết quả tìm kiếm cho '{keyword}'",
         "Books": listBooks,
-        
     })
-    
     return render(request=request,
                   template_name='index.html',
                   context=searchContext)
-def paging(request,preView):
 
+def paging(request,preView):
+    
     try:
         page=request.GET.get('page')
     except:
@@ -157,7 +200,7 @@ def paging(request,preView):
         page=1
     else:
         page=int(page)
-    
+
     preView['Pages']=list(range(1,math.ceil(len(preView['Books'])/BPP)+1))
     preView['Page']=page
     preView['Books']=preView['Books'][(page-1)*BPP:page*BPP]

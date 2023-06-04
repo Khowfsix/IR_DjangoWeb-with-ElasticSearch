@@ -21,7 +21,8 @@ from Books import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.filter, name='homepage'),
-    path('searching/', views.search_keyword_view, name='searching_with_keyword'),
+    # path('searching/', views.search_keyword_view, name='searching_with_keyword'),
     path('detail/<str:id>', views.detail_view, name='detail'),
-    path('filter/', views.filter, name='filter')
+    path('filter/', views.filter, name='filter'),
+    path('auto/', views.autocompleSearch, name='auto'),
 ]
