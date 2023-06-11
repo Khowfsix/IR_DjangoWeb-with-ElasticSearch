@@ -67,13 +67,15 @@ def filter(request):
     ltePrice = 560000
     gteReleaseDate = None
     lteReleaseDate = None
+    sortype = request.POST.get('sort-type')
+    print(sortype)
     # Tạo query
     # query, keyword=setQueryByKeyword(keyword,request)
     if request.GET.get('page') is None or MYQUERY is None:
         MYQUERY, MYKEYWORD=setQueryByKeyword(keyword,request)
     
     search_result = search(MYQUERY, 300)
-    listBooks = getBook_fromResults(search_result)
+    listBooks = getBook_fromResults(search_result, sortype=sortype)
 
     if request.method == 'POST':
         DanhMuc_Selected = request.POST.getlist('DanhMuc')
@@ -96,7 +98,9 @@ def filter(request):
         lteReleaseDate = request.POST.get('lteReleaseDate')
 
     if MYKEYWORD is not None and MYKEYWORD!='':
-        header=f"Kết quả tìm kiếm cho '{MYKEYWORD}'"
+        header=f"Kết quả tìm kiếm cho '{MYKEYWORD}': {len(listBooks)}"
+    elif request.method == 'POST':
+        header=f"Kết quả lọc: {len(listBooks)}"
     else:
         header='300 quyển sách đầu tiên'
 
@@ -117,7 +121,8 @@ def filter(request):
         'gtePrice': gtePrice,
         'ltePrice': ltePrice,
         'gteReleaseDate': gteReleaseDate,
-        'lteReleaseDate': lteReleaseDate
+        'lteReleaseDate': lteReleaseDate,
+        'sort': sortype,
     })
     return render(request=request,
                   template_name='index.html',
@@ -138,7 +143,7 @@ def index_view(request):
         'Header':'300 quyển sách đầu tiên',
         "Books": listBooks,
     }
-    indexContext =paging(request,temp)
+    indexContext = paging(request,temp)
     
     return render(request=request,
                   template_name='index.html',
@@ -183,7 +188,7 @@ def search_keyword_view(request):
     listBooks=search_keyword(keyword)
 
     searchContext = paging(request,{
-        'Header':f"Kết quả tìm kiếm cho '{keyword}'",
+        'Header':f"Kết quả tìm kiếm cho '{keyword}': {len(listBooks)}",
         "Books": listBooks,
     })
     return render(request=request,
@@ -191,7 +196,6 @@ def search_keyword_view(request):
                   context=searchContext)
 
 def paging(request,preView):
-    
     try:
         page=request.GET.get('page')
     except:

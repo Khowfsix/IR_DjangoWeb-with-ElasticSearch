@@ -38,35 +38,38 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" type='text/css' href="{% static 'css/style.css' %}">
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+		integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body>
-	
+
 	<style>
 		pagination {
 			display: contents;
 		}
 
 		.pagination a {
-		color: black;
-		float: left;
-		padding: 8px 16px;
-		text-decoration: none;
-		transition: background-color .3s;
-		border: 1px solid #ddd;
-		padding: 5px 10px;
+			color: black;
+			float: left;
+			padding: 8px 16px;
+			text-decoration: none;
+			transition: background-color .3s;
+			border: 1px solid #ddd;
+			padding: 5px 10px;
 
 		}
 
 		.pagination a.active {
-		background-color: #41f2ec;
-		color: rgb(255, 255, 255);
-		border: 1px solid #41f2ec;
+			background-color: #41f2ec;
+			color: rgb(255, 255, 255);
+			border: 1px solid #41f2ec;
 
 		}
+
 		div.scroll {
 			margin: 4px, 4px;
 			padding: 4px;
@@ -85,93 +88,27 @@
 			height: 30px;
 			overflow: hidden;
 			cursor: pointer;
-			  outline: none;
-		  }
-		  input[type='range'],
-		  input[type='range']::-webkit-slider-runnable-track,
-		  input[type='range']::-webkit-slider-thumb {
+			outline: none;
+		}
+
+		input[type='range'],
+		input[type='range']::-webkit-slider-runnable-track,
+		input[type='range']::-webkit-slider-thumb {
 			-webkit-appearance: none;
-			  background: none;
-		  }
-		  input[type='range']::-webkit-slider-runnable-track {
+			background: none;
+		}
+
+		input[type='range']::-webkit-slider-runnable-track {
 			width: 200px;
 			height: 1px;
 			background: #003D7C;
-		  }
-		  
-		  input[type='range']:nth-child(2)::-webkit-slider-runnable-track{
-			background: none;
-		  }
-		  
-		  input[type='range']::-webkit-slider-thumb {
-			position: relative;
-			height: 15px;
-			width: 15px;
-			margin-top: -7px;
-			background: #fff;
-			border: 1px solid #003D7C;
-			border-radius: 25px;
-			z-index: 1;
-		  }
-		  
-		  
-		  input[type='range']:nth-child(1)::-webkit-slider-thumb{
-			z-index: 2;
-		  }
-		  
-		  .rangeslider{
-			  position: relative;
-			  height: 60px;
-			  width: 200px;
-			  display: inline-block;
-			  margin-top: 30px;
-		  }
-		  .rangeslider input{
-			  position: absolute;
-		  }
-		  .rangeslider{
-			  display: block;
-		  }
-		  
-		  .rangeslider span{
-			  position: absolute;
-			  margin-top: 30px;
-			  left: 0;
-		  }
+		}
 
-		  .rangeslider .right{
-			 position: relative;
-			 float: right;
-			 margin-right: -5px;
-		  }
-		  
-		  
-		  /* Proof of concept for Firefox */
-		  @-moz-document url-prefix() {
-			.rangeslider::before{
-			  content:'';
-			  width:100%;
-			  height:2px;
-			  background: #003D7C;
-			  display:block;
-			  position: relative;
-			  top:16px;
-			}
-		  
-			input[type='range']:nth-child(1){
-			  position:absolute;
-			  top:35px !important;
-			  overflow:visible !important;
-			  height:0;
-			}
-		  
-			input[type='range']:nth-child(2){
-			  position:absolute;
-			  top:35px !important;
-			  overflow:visible !important;
-			  height:0;
-			}
-		  input[type='range']::-moz-range-thumb {
+		input[type='range']:nth-child(2)::-webkit-slider-runnable-track {
+			background: none;
+		}
+
+		input[type='range']::-webkit-slider-thumb {
 			position: relative;
 			height: 15px;
 			width: 15px;
@@ -180,22 +117,94 @@
 			border: 1px solid #003D7C;
 			border-radius: 25px;
 			z-index: 1;
-		  }
-		  
+		}
+
+
+		input[type='range']:nth-child(1)::-webkit-slider-thumb {
+			z-index: 2;
+		}
+
+		.rangeslider {
+			position: relative;
+			height: 60px;
+			width: 200px;
+			display: inline-block;
+			margin-top: 30px;
+		}
+
+		.rangeslider input {
+			position: absolute;
+		}
+
+		.rangeslider {
+			display: block;
+		}
+
+		.rangeslider span {
+			position: absolute;
+			margin-top: 30px;
+			left: 0;
+		}
+
+		.rangeslider .right {
+			position: relative;
+			float: right;
+			margin-right: -5px;
+		}
+
+
+		/* Proof of concept for Firefox */
+		@-moz-document url-prefix() {
+			.rangeslider::before {
+				content: '';
+				width: 100%;
+				height: 2px;
+				background: #003D7C;
+				display: block;
+				position: relative;
+				top: 16px;
+			}
+
+			input[type='range']:nth-child(1) {
+				position: absolute;
+				top: 35px !important;
+				overflow: visible !important;
+				height: 0;
+			}
+
+			input[type='range']:nth-child(2) {
+				position: absolute;
+				top: 35px !important;
+				overflow: visible !important;
+				height: 0;
+			}
+
+			input[type='range']::-moz-range-thumb {
+				position: relative;
+				height: 15px;
+				width: 15px;
+				margin-top: -7px;
+				background: #fff;
+				border: 1px solid #003D7C;
+				border-radius: 25px;
+				z-index: 1;
+			}
+
 			input[type='range']:nth-child(1)::-moz-range-thumb {
-				transform: translateY(-20px);    
+				transform: translateY(-20px);
 			}
+
 			input[type='range']:nth-child(2)::-moz-range-thumb {
-				transform: translateY(-20px);    
+				transform: translateY(-20px);
 			}
-		  }
-		  
+		}
+
 		.dropdown-check-list {
 			display: block;
-			margin-top:10px
-		  }
-		  
-		  .dropdown-check-list .anchor {
+			margin-top: 10px
+		}
+
+		.dropdown-check-list .anchor {
 			position: relative;
 			cursor: pointer;
 			display: inline-block;
@@ -203,9 +212,9 @@
 			border: 1px solid #ccc;
 			width: 200px;
 			background-color: #fff;
-		  }
-		  
-		  .dropdown-check-list .anchor:after {
+		}
+
+		.dropdown-check-list .anchor:after {
 			position: absolute;
 			content: "";
 			border-left: 2px solid black;
@@ -218,46 +227,47 @@
 			-o-transform: rotate(-135deg);
 			-webkit-transform: rotate(-135deg);
 			transform: rotate(-135deg);
-		  }
-		  
-		  .dropdown-check-list .anchor:active:after {
+		}
+
+		.dropdown-check-list .anchor:active:after {
 			right: 8px;
 			top: 21%;
-		  }
-		  
-		  .dropdown-check-list ul.items {
+		}
+
+		.dropdown-check-list ul.items {
 			padding: 2px;
 			display: none;
 			margin: 0;
 			border: 1px solid #ccc;
 			border-top: none;
-		  }
-		  
-		  .dropdown-check-list ul.items li {
+		}
+
+		.dropdown-check-list ul.items li {
 			list-style: none;
-		  }
-		  
-		  .dropdown-check-list.visible .anchor {
+		}
+
+		.dropdown-check-list.visible .anchor {
 			color: #0094ff;
-		  }
-		  
-		  .dropdown-check-list.visible .items {
+		}
+
+		.dropdown-check-list.visible .items {
 			display: block;
-		  }
-		  
+		}
+
 		.dropbtn {
-		  background-color: #04AA6D;
-		  color: white;
-		  padding: 16px;
-		  font-size: 16px;
-		  border: none;
-		  cursor: pointer;
+			background-color: #04AA6D;
+			color: white;
+			padding: 16px;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
 		}
-		
-		.dropbtn:hover, .dropbtn:focus {
-		  background-color: #3e8e41;
+
+		.dropbtn:hover,
+		.dropbtn:focus {
+			background-color: #3e8e41;
 		}
-		
+
 		#myInput {
 			box-sizing: border-box;
 			background-image: url('searchicon.png');
@@ -267,9 +277,11 @@
 			padding: 14px 20px 12px 10px;
 			border: none;
 			border-bottom: 1px solid #ddd;
-		  }
-		  
-		#myInput:focus {outline: 3px solid #ddd;}
+		}
+
+		#myInput:focus {
+			outline: 3px solid #ddd;
+		}
 
 		#myInput2 {
 			box-sizing: border-box;
@@ -280,10 +292,12 @@
 			padding: 14px 20px 12px 10px;
 			border: none;
 			border-bottom: 1px solid #ddd;
-		  }
-		  
-		#myInput2:focus {outline: 3px solid #ddd;}
-		
+		}
+
+		#myInput2:focus {
+			outline: 3px solid #ddd;
+		}
+
 		#myInput3 {
 			box-sizing: border-box;
 			background-image: url('searchicon.png');
@@ -293,10 +307,12 @@
 			padding: 14px 20px 12px 10px;
 			border: none;
 			border-bottom: 1px solid #ddd;
-		  }
-		  
-		#myInput3:focus {outline: 3px solid #ddd;}
-		
+		}
+
+		#myInput3:focus {
+			outline: 3px solid #ddd;
+		}
+
 		#myInput4 {
 			box-sizing: border-box;
 			background-image: url('searchicon.png');
@@ -306,35 +322,41 @@
 			padding: 14px 20px 12px 10px;
 			border: none;
 			border-bottom: 1px solid #ddd;
-		  }
-		  
-		#myInput4:focus {outline: 3px solid #ddd;}
-		
+		}
+
+		#myInput4:focus {
+			outline: 3px solid #ddd;
+		}
+
 		.dropdown {
-		  position: relative;
-		  display: inline-block;
+			position: relative;
+			display: inline-block;
 		}
-		
+
 		.dropdown-content {
-		  display: none;
-		  position: absolute;
-		  background-color: #f6f6f6;
-		  min-width: 230px;
-		  overflow: auto;
-		  border: 1px solid #ddd;
-		  z-index: 1;
+			display: none;
+			position: absolute;
+			background-color: #f6f6f6;
+			min-width: 230px;
+			overflow: auto;
+			border: 1px solid #ddd;
+			z-index: 1;
 		}
-		
+
 		.dropdown-content a {
-		  color: black;
-		  padding: 12px 16px;
-		  text-decoration: none;
-		  display: block;
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
 		}
-		
-		.dropdown a:hover {background-color: #ddd;}
-		
-		.show {display: block;}
+
+		.dropdown a:hover {
+			background-color: #ddd;
+		}
+
+		.show {
+			display: block;
+		}
 	</style>
 
 	<div class="colorlib-loader"></div>
@@ -347,18 +369,17 @@
 						<div class="col-sm-7 col-md-9">
 							<div id="colorlib-logo"><a href="{% url 'homepage' %}">Book Web - with Elastic Search</a>
 							</div>
-						</div>	
-						
+						</div>
+
 						<!-- Search bar -->
-						
+
 					</div>
-
-
 
 					<div class="row">
 						<div class="col-sm-12 text-left menu-1">
 							<ul>
-								{% comment %} <li class="has-dropdown">
+								{% comment %}
+								<li class="has-dropdown">
 									<a href="#">Danh mục sách</a>
 									<ul class="dropdown">
 										<li><a href="#">VĂN HỌC VIỆT NAM</a></li>
@@ -369,11 +390,20 @@
 										<li><a href="#">THAM KHẢO</a></li>
 										<li><a href="#">SÁCH TÁI BẢN</a></li>
 									</ul>
-								</li> {% endcomment %}
-								{% comment %} <li><a href="#">Sách bán chạy</a></li> {% endcomment %}
-								{% comment %} <li><a href="#">Thông tin thêm</a></li> {% endcomment %}
-								{% comment %} <li><a href="#">Khuyến mãi</a></li> {% endcomment %}
-								{% comment %} <li class="cart"><a href="#"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a> {% endcomment %}
+								</li>
+								{% endcomment %}
+								{% comment %}
+								<li><a href="#">Sách bán chạy</a></li>
+								{% endcomment %}
+								{% comment %}
+								<li><a href="#">Thông tin thêm</a></li>
+								{% endcomment %}
+								{% comment %}
+								<li><a href="#">Khuyến mãi</a></li>
+								{% endcomment %}
+								{% comment %}
+								<li class="cart"><a href="#"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a>
+									{% endcomment %}
 								</li>
 							</ul>
 						</div>
@@ -388,17 +418,17 @@
 								<div class="owl-carousel2">
 									<div class="item">
 										<div class="col">
-											<h3><a >Đọc nhiều vào thì mới nên người được</a></h3>
+											<h3><a>Đọc nhiều vào thì mới nên người được</a></h3>
 										</div>
 									</div>
 									<div class="item">
 										<div class="col">
-											<h3><a >Mày nhìn thằng Tèo con nhà bà 2 kìa</a></h3>
+											<h3><a>Mày nhìn thằng Tèo con nhà bà 2 kìa</a></h3>
 										</div>
 									</div>
 									<div class="item">
 										<div class="col">
-											<h3><a >Sao mày không giỏi như con người ta zậy con</a></h3>
+											<h3><a>Sao mày không giỏi như con người ta zậy con</a></h3>
 										</div>
 									</div>
 								</div>
@@ -412,8 +442,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<p class="bread"><span><a href="{% url 'homepage' %}">Trang chủ</a>
-						</p>
+						<span><a href="{% url 'homepage' %}">Trang chủ</a></span>
 					</div>
 				</div>
 			</div>
@@ -422,7 +451,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h2 class="intro" >
+						<h2 class="intro">
 							"Chính từ sách mà những người khôn ngoan tìm được sự an ủi khỏi những rắc rối của cuộc đời"
 						</h2>
 						<h2>~Victor Hugo~</h2>
@@ -432,145 +461,178 @@
 		</div>
 		<div style="display: flex">
 			<div class="filter-container" style="margin-left: 70px;">
-				{% comment %} <form action="{% url 'filter'%}" onsubmit="return validateForm()" method="post" style="margin-top:140px"> {% endcomment %}
-				<form action="{% url 'filter'%}" method="post" style="margin-top:120px" onsubmit="return validateForm()">
-					{% csrf_token %}
-					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-					<div class="rangeslider" style="margin-top:25px">
-						<p class="font-weight-bold" style="margin-bottom: 0px; font-size:20px;">GIÁ TIỀN:</p>
-						<input class="minPrice" name="gtePrice" type="range" min="9600" max="560000" value="{{gtePrice}}" />
-						<input class="maxPrice" name="ltePrice" type="range" min="9600" max="560000" value="{{ltePrice}}" />
-						<span class="range_min_Price light left">{{gtePrice}}</span>
-						<span class="range_max_Price light right">{{ltePrice}}</span>
-					</div>
-					<div class="rangeslider">
-						<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">SỐ TRANG:</p>
-						<input class="minPageNumber" name="gtePageNumber" type="range" min="10" max="1600" value="{{gtePageNumber}}" />
-						<input class="maxPageNumber" name="ltePageNumber" type="range" min="10" max="1600" value="{{ltePageNumber}}" />
-						<span class="range_min_PageNumber light left">{{gtePageNumber}}</span>
-						<span class="range_max_PageNumber light right">{{ltePageNumber}}</span>
-					</div>
-					<p class="font-weight-bold" style="margin-bottom: 0px; margin-top:30px;  font-size:20px;">TỪ KHÓA:</p>
-					<div class="form-group">
-						<input list="results"  type="search" name="keyword" class="form-control search "
-							 id="searchingbar" size="20" value="{{keyword}}" style="width:200px">
-						<datalist id="results" style="min-width:200px">
-						</datalist>
-					</div>
-					<div id="danhmuc" class="dropdown-check-list" tabindex="100">
-						<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">DANH MỤC:</p>
-						<span class="anchor" onclick="listCategoryFuntion()">Filter Danh Mục</span>
-						<div id="myDropdown4" class="dropdown-content">
-							<input type="text" placeholder="Search.." id="myInput4" onkeyup="categoryFilterFunction()"><br>
-							{% for danhmuc in DanhMucs %}
+				{% comment %}
+				<form action="{% url 'filter'%}" onsubmit="return validateForm()" method="post"
+					style="margin-top:140px">
+					{%endcomment %}
+					<form action="{% url 'filter'%}" method="post" style="margin-top:120px"
+						onsubmit="return validateForm()">
+						{% csrf_token %}
+						<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+						<div id="sort" class="dropdown-list" tabindex="100">
+							<label for="form-select" class="font-weight-bold">Kiểu sắp xếp: </label>
+							<select name="sort-type" id="select-sort">
+								<option value="default">-- Sắp xếp --</option>
+								<optgroup label="Theo tên">
+									<option value="incName">Từ A - Z</option>
+									<option value="desName">Từ Z - A</option>
+								</optgroup>
+								<optgroup label="Theo giá">
+									<option value="incPrice">Tăng dần</option>
+									<option value="desPrice">Giảm dần</option>
+								</optgroup>
+								<optgroup label="Ngày xuất bản">
+									<option value="nearDay">Gần đây</option>
+									<option value="farDay">Xa đây</option>
+								</optgroup>
+							</select>
+						</div>
+						<div class="rangeslider" style="margin-top:25px">
+							<p class="font-weight-bold" style="margin-bottom: 0px; font-size:20px;">GIÁ TIỀN:</p>
+							<input class="minPrice" name="gtePrice" type="range" min="9600" max="560000"
+								value="{{gtePrice}}" />
+							<input class="maxPrice" name="ltePrice" type="range" min="9600" max="560000"
+								value="{{ltePrice}}" />
+							<span class="range_min_Price light left">{{gtePrice}}</span>
+							<span class="range_max_Price light right">{{ltePrice}}</span>
+						</div>
+						<div class="rangeslider">
+							<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">SỐ TRANG:</p>
+							<input class="minPageNumber" name="gtePageNumber" type="range" min="10" max="1600"
+								value="{{gtePageNumber}}" />
+							<input class="maxPageNumber" name="ltePageNumber" type="range" min="10" max="1600"
+								value="{{ltePageNumber}}" />
+							<span class="range_min_PageNumber light left">{{gtePageNumber}}</span>
+							<span class="range_max_PageNumber light right">{{ltePageNumber}}</span>
+						</div>
+						<p class="font-weight-bold" style="margin-bottom: 0px; margin-top:30px;  font-size:20px;">TỪ
+							KHÓA:</p>
+						<div class="form-group">
+							<input list="results" type="search" name="keyword" class="form-control search "
+								id="searchingbar" size="20" value="{{keyword}}" style="width:200px">
+							<datalist id="results" style="min-width:200px">
+							</datalist>
+						</div>
+						<div id="danhmuc" class="dropdown-check-list" tabindex="100">
+							<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">DANH MỤC:</p>
+							<span class="anchor" onclick="listCategoryFuntion()">Filter Danh Mục</span>
+							<div id="myDropdown4" class="dropdown-content">
+								<input type="text" placeholder="Search.." id="myInput4"
+									onkeyup="categoryFilterFunction()"><br>
+								{% for danhmuc in DanhMucs %}
 								{% if danhmuc in DanhMuc_Selected %}
-									<input type="checkbox" value="{{ danhmuc }}" id="{{ danhmuc }}" name="DanhMuc" checked>
-									<label for="{{ danhmuc }}">{{ danhmuc }}</label><br>
+								<input type="checkbox" value="{{ danhmuc }}" id="{{ danhmuc }}" name="DanhMuc" checked>
+								<label for="{{ danhmuc }}">{{ danhmuc }}</label><br>
 								{% else %}
-									<input type="checkbox" value="{{ danhmuc }}" id="{{ danhmuc }}" name="DanhMuc">
-									<label for="{{ danhmuc }}">{{ danhmuc }}</label><br>
+								<input type="checkbox" value="{{ danhmuc }}" id="{{ danhmuc }}" name="DanhMuc">
+								<label for="{{ danhmuc }}">{{ danhmuc }}</label><br>
 								{% endif %}
-							{% endfor %}
+								{% endfor %}
+							</div>
 						</div>
-					</div>
-					<div id="tacgia" class="dropdown-check-list" tabindex="100">
-						<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">TÁC GIẢ:</p>
-						<span class="anchor" onclick="listAuthorsFuntion()">Filter Tác Giả</span>
-						<div id="myDropdown" class="dropdown-content">
-							<input type="text" placeholder="Search.." id="myInput" onkeyup="authorFilterFunction()"><br>
-							{% for tacgia in TacGias %}
+						<div id="tacgia" class="dropdown-check-list" tabindex="100">
+							<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">TÁC GIẢ:</p>
+							<span class="anchor" onclick="listAuthorsFuntion()">Filter Tác Giả</span>
+							<div id="myDropdown" class="dropdown-content">
+								<input type="text" placeholder="Search.." id="myInput"
+									onkeyup="authorFilterFunction()"><br>
+								{% for tacgia in TacGias %}
 								{% if tacgia in TacGia_Selected %}
-									<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia" checked>
-									<label for="{{ tacgia }}">{{ tacgia }}</label><br>
+								<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia" checked>
+								<label for="{{ tacgia }}">{{ tacgia }}</label><br>
 								{% else %}
-									<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia">
-									<label for="{{ tacgia }}">{{ tacgia }}</label><br>
+								<input type="checkbox" value="{{ tacgia }}" id="{{ tacgia }}" name="TacGia">
+								<label for="{{ tacgia }}">{{ tacgia }}</label><br>
 								{% endif %}
-							{% endfor %}
+								{% endfor %}
+							</div>
 						</div>
-					</div>
-					<div id="dichgia" class="dropdown-check-list" tabindex="100">
-						<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">DỊCH GIẢ:</p>
-						<span class="anchor" onclick="listTranslatorsFuntion()">Filter Dịch Giả</span>
-						<div id="myDropdown2" class="dropdown-content">
-							<input type="text" placeholder="Search.." id="myInput2" onkeyup="translatorFilterFunction()"><br>
-							{% for dichgia in DichGias %}
+						<div id="dichgia" class="dropdown-check-list" tabindex="100">
+							<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">DỊCH GIẢ:</p>
+							<span class="anchor" onclick="listTranslatorsFuntion()">Filter Dịch Giả</span>
+							<div id="myDropdown2" class="dropdown-content">
+								<input type="text" placeholder="Search.." id="myInput2"
+									onkeyup="translatorFilterFunction()"><br>
+								{% for dichgia in DichGias %}
 								{% if dichgia in DichGia_Selected %}
-									<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia" checked>
-									<label for="{{ dichgia }}">{{ dichgia }}</label><br>
+								<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia" checked>
+								<label for="{{ dichgia }}">{{ dichgia }}</label><br>
 								{% else %}
-									<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia">
-									<label for="{{ dichgia }}">{{ dichgia }}</label><br>
+								<input type="checkbox" value="{{ dichgia }}" id="{{ dichgia }}" name="DichGia">
+								<label for="{{ dichgia }}">{{ dichgia }}</label><br>
 								{% endif %}
-							{% endfor %}
+								{% endfor %}
+							</div>
 						</div>
-					</div>
-					<div id="nhaxuatban" class="dropdown-check-list" tabindex="100">
-						<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">NHÀ XUẤT BẢN:</p>
-						<span class="anchor" onclick="listPublishersFuntion()">Filter NXB</span>
-						<div id="myDropdown3" class="dropdown-content">
-							<input type="text" placeholder="Search.." id="myInput3" onkeyup="publisherFilterFunction()"><br>
-							{% for nxb in NhaXuatBans %}
+						<div id="nhaxuatban" class="dropdown-check-list" tabindex="100">
+							<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">NHÀ XUẤT BẢN:</p>
+							<span class="anchor" onclick="listPublishersFuntion()">Filter NXB</span>
+							<div id="myDropdown3" class="dropdown-content">
+								<input type="text" placeholder="Search.." id="myInput3"
+									onkeyup="publisherFilterFunction()"><br>
+								{% for nxb in NhaXuatBans %}
 								{% if nxb in NhaXuatBan_Selected %}
-									<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan" checked>
-									<label for="{{ nxb }}">{{ nxb }}</label><br>
+								<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan" checked>
+								<label for="{{ nxb }}">{{ nxb }}</label><br>
 								{% else %}
-									<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan">
-									<label for="{{ nxb }}">{{ nxb }}</label><br>
+								<input type="checkbox" value="{{ nxb }}" id="{{ nxb }}" name="NhaXuatBan">
+								<label for="{{ nxb }}">{{ nxb }}</label><br>
 								{% endif %}
-							{% endfor %}
+								{% endfor %}
+							</div>
 						</div>
-					</div>
-					<div id="ngayphathanh" class="form-group" style="margin-top:30px">
-						<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">NGÀY PHÁT HÀNH:</p>
-						<label for="datepicker">TỪ:</label>
-						<br>
-						<input type="date" style="width: 200px" name="gteReleaseDate" id="datepicker" value="{{gteReleaseDate}}">
-						<br>
-						<label for="datepicker">ĐẾN:</label>
-						<br>
-						<input type="date" style="width: 200px" name="lteReleaseDate" id="datepicker" value="{{lteReleaseDate}}">
-					</div>
+						<div id="ngayphathanh" class="form-group" style="margin-top:30px">
+							<p class="font-weight-bold" style="margin-bottom: 0px;  font-size:20px;">NGÀY PHÁT HÀNH:</p>
+							<label for="datepicker">TỪ:</label>
+							<br>
+							<input type="date" style="width: 200px" name="gteReleaseDate" id="datepicker"
+								value="{{gteReleaseDate}}">
+							<br>
+							<label for="datepicker">ĐẾN:</label>
+							<br>
+							<input type="date" style="width: 200px" name="lteReleaseDate" id="datepicker"
+								value="{{lteReleaseDate}}">
+						</div>
 
-					<button type="submit" class="btn btn-primary" style="margin-left:25px">Tìm kiếm</button>
-				</form>
-				<div class="rangeslider" style="margin-top:200px">
-					<p class="font-weight-bold" style="margin-bottom: 0px">Chọn trang</p>
-					<div class="pagination">
-						{% for p in Pages %}
+						<button type="submit" class="btn btn-primary" style="margin-left:25px">Tìm kiếm</button>
+					</form>
+					<div class="rangeslider" style="margin-top:200px">
+						<p class="font-weight-bold" style="margin-bottom: 0px">Chọn trang</p>
+						<div class="pagination">
+							{% for p in Pages %}
 							{% if p == Page %}
-								<a href="#" class="active">{{p}}</a>
+							<a href="#" class="active">{{p}}</a>
 							{% else %}
-								<a href="/?page={{p}}">{{p}}</a>
+							<a href="/?page={{p}}">{{p}}</a>
 							{% endif %}
 							{% if p|divisibleby:5 %}
-								<br>
+							<br>
 							{% endif %}
-						{% endfor %}
+							{% endfor %}
 
+						</div>
 					</div>
-				</div>
 			</div>
 			<div class="colorlib-product" style="padding: 10px 0;margin-left: 40px;">
 				<div class="container">
 					<!-- <div class="row">
-						<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
-							<h2>SÁCH BÁN CHẠY</h2>
-						</div>
-					</div> -->
+                    <div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
+                        <h2>SÁCH BÁN CHẠY</h2>
+                    </div>
+                </div> -->
 					<div class="col-sm-12 text-center">
 						<h2 class="intro" style="margin-bottom: 10px">
 							{{Header}}
 						</h2>
 					</div>
 					<div class="row row-pb-md">
-	
+
 						{% for book in Books %}
 						<div class="col-lg-3 mb-4 text-center">
 							<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
 								<img src={{book.LinkImage}} class="img-fluid">
 							</a>
-	
+
 							<a href="{% url 'detail' id=book.MaSanPham %}" class="prod-img">
 								<div class="desc">
 									<h3>{{book.Ten}}</h3>
@@ -581,29 +643,8 @@
 							</div>
 						</div>
 						{% endfor %}
-	
+
 					</div>
-					{% comment %} <div class="row">
-						<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
-							<h2>VĂN HỌC NƯỚC NGOÀI</h2>
-						</div>
-					</div>
-					<div class="row row-pb-md">
-	
-						{% for hit in hits %}
-						<div class="col-lg-3 mb-4 text-center">
-							<div class="desc">
-								<span class="price">295.200đ (Đã có VAT)</span>
-							</div>
-	
-							<a href="" class="prod-img">
-								<img src="http://static.nhanam.com.vn/thumb/0x320/crop/Books/Images/2023/1/30/K86N2QWU.jpg"
-									class="img-fluid">
-							</a>
-						</div>
-						{% endfor %}
-	
-					</div> {% endcomment %}
 				</div>
 			</div>
 
@@ -631,7 +672,7 @@
 							<li>Số 1, Võ Văn Ngân, phường Linh Chiểu, thành phố Thủ Đức, Thành phố Hồ Chí Minh</li>
 							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
 							<li><a href="mailto:lyhongphat261202@gmail.com">lyhongphat261202@gmail.com</a></li>
-							<li><a >yoursite.com</a></li>
+							<li><a>yoursite.com</a></li>
 						</ul>
 					</div>
 
@@ -666,10 +707,10 @@
 	</div>
 
 	<div class="gototop js-top">
-		<a  class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
+		<a class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
 	</div>
 
-	
+
 	<!-- jQuery -->
 	<script src="{% static 'js/jquery.min.js' %}"></script>
 	<!-- popper -->
@@ -697,30 +738,32 @@
 		$(document).ready(function () {
 			let debounce;
 			$("#searchingbar").on("keydown", function (e) {
-			  clearTimeout(debounce);
-			  debounce = setTimeout(() => {
-				getAutoComplete();
-			  }, 300);
+				clearTimeout(debounce);
+				debounce = setTimeout(() => {
+					getAutoComplete();
+				}, 300);
 			});
-		  });
-	
-		  function getAutoComplete() {
+		});
+
+		function getAutoComplete() {
 			const query = $("#searchingbar").val();
 			fetch(
-			  `http://localhost:8000/auto?keyword=${query.trim()}`
+				`http://localhost:8000/auto?keyword=${query.trim()}`
 			)
-			  .then((resp) => resp.json())
-			  .then((data) => {
-				$("#results").empty()
-				if (data != []){
-				for (let i = 0; i < data['books'].length; i++) {
-				  $("#results").append(`<option style="width:200px;" value="${data['books'][i]}">`);
-				}}
-			  });
-		  }
+				.then((resp) => resp.json())
+				.then((data) => {
+					$("#results").empty()
+					if (data != []) {
+						for (let i = 0; i < data['books'].length; i++) {
+							$("#results").append(`<option style="width:200px;" value="${data['books'][i]}">`);
+						}
+					}
+				});
+		}
+
 	</script>
 	<script>
-		(function() {
+		(function () {
 
 			function addSeparator(nStr) {
 				nStr += '';
@@ -733,8 +776,8 @@
 				}
 				return x1 + x2;
 			}
-	
-			function rangeInputChangeEventHandler(e){
+
+			function rangeInputChangeEventHandler(e) {
 				var rangeGroup = $(this).attr('name'),
 					minBtn_PageNumber = $(this).parent().children('.minPageNumber'),
 					maxBtn_PageNumber = $(this).parent().children('.maxPageNumber'),
@@ -751,39 +794,40 @@
 					maxVal_Price = parseInt($(maxBtn_Price).val()),
 
 					origin = $(this).context.className;
-	
-				if(origin === 'minPageNumber' && minVal_PageNumber > maxVal_PageNumber-5){
-					$(minBtn_PageNumber).val(maxVal_PageNumberl-5);
+
+				if (origin === 'minPageNumber' && minVal_PageNumber > maxVal_PageNumber - 5) {
+					$(minBtn_PageNumber).val(maxVal_PageNumberl - 5);
 				}
 				var minVal = parseInt($(minBtn_PageNumber).val());
 				$(range_min_PageNumber).html(minVal_PageNumber);
 				$(minBtn_PageNumber).html(minVal_PageNumber);
-	
-	
-				if(origin === 'maxPageNumber' && maxVal_PageNumber-5 < minVal_PageNumber){
-					$(maxBtn_PageNumber).val(5+ minVal_PageNumber);
+
+
+				if (origin === 'maxPageNumber' && maxVal_PageNumber - 5 < minVal_PageNumber) {
+					$(maxBtn_PageNumber).val(5 + minVal_PageNumber);
 				}
 				var maxVal = parseInt($(maxBtn_PageNumber).val());
 				$(range_max_PageNumber).html(maxVal_PageNumber);
 				$(maxBtn_PageNumber).html(maxVal_PageNumber);
 
-				if(origin === 'minPrice' && minVal_Price > maxVal_Price-5){
-					$(minBtn_Price).val(maxVal_Price-5);
+				if (origin === 'minPrice' && minVal_Price > maxVal_Price - 5) {
+					$(minBtn_Price).val(maxVal_Price - 5);
 				}
 				var minVal = parseInt($(minBtn_Price).val());
 				$(range_min_Price).html(addSeparator(minVal_Price) + " VND");
 				$(minBtn_Price).html(minVal_Price);
-	
-	
-				if(origin === 'maxPrice' && maxVal_Price-5 < minVal_Price){
-					$(maxBtn_Price).val(5+ minVal_Price);
+
+
+				if (origin === 'maxPrice' && maxVal_Price - 5 < minVal_Price) {
+					$(maxBtn_Price).val(5 + minVal_Price);
 				}
 				var maxVal = parseInt($(maxBtn_Price).val());
 				$(range_max_Price).html(addSeparator(maxVal_Price) + " VND");
 				$(maxBtn_Price).html(maxVal_Price);
 			}
-		 $('input[type="range"]').on( 'input', rangeInputChangeEventHandler);
-	})();
+			$('input[type="range"]').on('input', rangeInputChangeEventHandler);
+		})();
+
 	</script>
 
 	<script>
@@ -791,9 +835,9 @@
 		toggle between hiding and showing the dropdown content */
 		function listPublishersFuntion() {
 			document.getElementById("myDropdown3").classList.toggle("show");
-		  }
-		  
-		  function publisherFilterFunction() {
+		}
+
+		function publisherFilterFunction() {
 			var input, filter, ul, li, label, i, input;
 			input = document.getElementById("myInput3");
 			filter = input.value.toUpperCase();
@@ -801,21 +845,21 @@
 			input = div.getElementsByTagName("input");
 			label = div.getElementsByTagName("label");
 			for (i = 0; i < label.length; i++) {
-			  txtValue = label[i].textContent || label[i].innerText;
-			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				  label[i].style.display = "";
-				  input[i+1].style.display = "";
-			  } else {
-				  label[i].style.display = "none";
-				  input[i+1].style.display = "none";
-			  }
+				txtValue = label[i].textContent || label[i].innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					label[i].style.display = "";
+					input[i + 1].style.display = "";
+				} else {
+					label[i].style.display = "none";
+					input[i + 1].style.display = "none";
+				}
 			}
-		  }
+		}
 
 		function listTranslatorsFuntion() {
 			document.getElementById("myDropdown2").classList.toggle("show");
-		  }
-		  
+		}
+
 		function translatorFilterFunction() {
 			var input, filter, ul, li, label, i, input;
 			input = document.getElementById("myInput2");
@@ -824,44 +868,44 @@
 			input = div.getElementsByTagName("input");
 			label = div.getElementsByTagName("label");
 			for (i = 0; i < label.length; i++) {
-			  txtValue = label[i].textContent || label[i].innerText;
-			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				  label[i].style.display = "";
-				  input[i+1].style.display = "";
-			  } else {
-				  label[i].style.display = "none";
-				  input[i+1].style.display = "none";
-			  }
+				txtValue = label[i].textContent || label[i].innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					label[i].style.display = "";
+					input[i + 1].style.display = "";
+				} else {
+					label[i].style.display = "none";
+					input[i + 1].style.display = "none";
+				}
 			}
-		  }
+		}
 
 		function listAuthorsFuntion() {
-		  document.getElementById("myDropdown").classList.toggle("show");
+			document.getElementById("myDropdown").classList.toggle("show");
 		}
-		
+
 		function authorFilterFunction() {
-		  var input, filter, ul, li, label, i, input;
-		  input = document.getElementById("myInput");
-		  filter = input.value.toUpperCase();
-		  div = document.getElementById("myDropdown");
-		  input = div.getElementsByTagName("input");
-		  label = div.getElementsByTagName("label");
-		  for (i = 0; i < label.length; i++) {
-			txtValue = label[i].textContent || label[i].innerText;
-			if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				label[i].style.display = "";
-				input[i+1].style.display = "";
-			} else {
-				label[i].style.display = "none";
-				input[i+1].style.display = "none";
+			var input, filter, ul, li, label, i, input;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			div = document.getElementById("myDropdown");
+			input = div.getElementsByTagName("input");
+			label = div.getElementsByTagName("label");
+			for (i = 0; i < label.length; i++) {
+				txtValue = label[i].textContent || label[i].innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					label[i].style.display = "";
+					input[i + 1].style.display = "";
+				} else {
+					label[i].style.display = "none";
+					input[i + 1].style.display = "none";
+				}
 			}
-		  }
 		}
 
 		function listCategoryFuntion() {
 			document.getElementById("myDropdown4").classList.toggle("show");
-		  }
-		  
+		}
+
 		function categoryFilterFunction() {
 			var input, filter, ul, li, label, i, input;
 			input = document.getElementById("myInput4");
@@ -870,25 +914,24 @@
 			input = div.getElementsByTagName("input");
 			label = div.getElementsByTagName("label");
 			for (i = 0; i < label.length; i++) {
-			  txtValue = label[i].textContent || label[i].innerText;
-			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				  label[i].style.display = "";
-				  input[i+1].style.display = "";
-			  } else {
-				  label[i].style.display = "none";
-				  input[i+1].style.display = "none";
-			  }
+				txtValue = label[i].textContent || label[i].innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					label[i].style.display = "";
+					input[i + 1].style.display = "";
+				} else {
+					label[i].style.display = "none";
+					input[i + 1].style.display = "none";
+				}
 			}
-		  }
+		}
+
 	</script>
 
 	<script>
 		function validateForm() {
 			var inputField = document.getElementById("ngayphathanh");
 			var dateVal = inputField.getElementsByTagName("input");
-			alert(dateVal[0].value)
-			alert(dateVal[1].value)
-			if ((dateVal[0].value=='' && dateVal[1].value!='') || (dateVal[1].value=='' && dateVal[0].value!='')){
+			if ((dateVal[0].value == '' && dateVal[1].value != '') || (dateVal[1].value == '' && dateVal[0].value != '')) {
 				alert('Error: Chọn thiếu 1 mốc ngày phát hành...')
 				return false;
 			}
@@ -901,7 +944,7 @@
 					return false;
 				}
 				else {
-					if (date1 > today || date2 > today){
+					if (date1 > today || date2 > today) {
 						alert('Error: Ngày bắt đầu (hoặc kết thúc) lớn hơn hiện tại')
 						return false;
 					}
@@ -909,17 +952,20 @@
 			}
 			return true;
 		}
+
 	</script>
-	
+
 
 	<script>
 		var rangeInput = document.getElementById('rangeInput');
 		var rangeValue = document.getElementById('rangeValue');
-  
-	rangeInput.addEventListener('input', function() {
-	  	rangeValue.textContent = rangeInput.value;
-	});
-  	</script>
+
+		rangeInput.addEventListener('input', function () {
+			rangeValue.textContent = rangeInput.value;
+		});
+	</script>
+
+	<script src="{% static 'js/sort.js' %}"></script>
 
 </body>
 

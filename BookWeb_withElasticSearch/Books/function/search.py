@@ -2,6 +2,7 @@ from datetime import datetime
 from ..models import Book
 from ..common import *
 import math
+
 def search(query, size):
     global index_name, es
     return es.search(index=index_name,
@@ -18,7 +19,7 @@ def search(query, size):
                              }
                      })
 
-def getBook_fromResults(search_result):
+def getBook_fromResults(search_result, sortype=None):
     listBooks = []
 
     # Lấy kết quả query sang object Books
@@ -48,21 +49,40 @@ def getBook_fromResults(search_result):
         # print(ObBook.Ten)
         if ObBook.MaSanPham.strip() != "hết sách":
             listBooks.append(ObBook)
-
+    if sortype is not None and sortype != 'default':
+        sortedListBooks = []
+        if sortype == 'incName':
+            sortedListBooks = sorted(listBooks, key=lambda x: x.Ten)
+        elif sortype == 'desName':
+            sortedListBooks = sorted(listBooks, key=lambda x: x.Ten, reverse=True)
+        elif sortype == 'incPrice':
+            sortedListBooks = sorted(listBooks, key=lambda x: x.GiaNhaNam)
+        elif sortype == 'desPrice':
+            sortedListBooks = sorted(listBooks, key=lambda x: x.GiaNhaNam, reverse=True)
+        elif sortype == 'nearDay':
+            sortedListBooks = sorted(listBooks, key=lambda x: x.NgayPhatHanh, reverse=True)
+        elif sortype == 'farDay':
+            sortedListBooks = sorted(listBooks, key=lambda x: x.NgayPhatHanh)
+        else:
+            # Do nothing
+            pass    
+        # print(sortedListBooks)
+        return sortedListBooks
+    
     return listBooks
-def searchAll():
 
+def searchAll(sortype=None):
     # Truy vấn tất cả dữ liệu trong index bằng match_all()
     ## query all
     query = {
         "match_all": {},
     }
-    search_result = search(query, 300)
+    search_result = search(query, 3000)
 
     # Lấy kết quả query sang object Books
-    return getBook_fromResults(search_result)
+    return getBook_fromResults(search_result,sortype)
 
-def search_keyword(keyword):
+def search_keyword(keyword, sortype=None):
     query = {
         "bool": {
             "should": [
@@ -100,10 +120,10 @@ def search_keyword(keyword):
             "minimum_should_match": 1
         }
     }
-    search_result = search(query, 300)
-    return getBook_fromResults(search_result)
+    search_result = search(query, 3000)
+    return getBook_fromResults(search_result, sortype=sortype)
 
-def searchOneBook(id):
+def searchOneBook(id,sortype=None):
     queryThisBook = {
         "match": {
             "Mã sản phẩm": id
@@ -111,8 +131,9 @@ def searchOneBook(id):
     }
     print(queryThisBook)
     search_result = search(queryThisBook, 1)
-    return getBook_fromResults(search_result=search_result)[0]
-def searchRelatedBook(myBook,number):
+    return getBook_fromResults(search_result=search_result, sortype=sortype)[0]
+
+def searchRelatedBook(myBook,number,sortype=None):
     queryRelatedBook = {
         "bool": {
             "minimum_should_match": 1,
@@ -147,4 +168,4 @@ def searchRelatedBook(myBook,number):
         }
     }
     search_result = search(queryRelatedBook, number)
-    return getBook_fromResults(search_result=search_result)[1:]
+    return getBook_fromResults(search_result=search_result, sortype=sortype)[1:]

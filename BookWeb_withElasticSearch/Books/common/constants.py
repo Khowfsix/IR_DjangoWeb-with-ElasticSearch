@@ -8,7 +8,7 @@ ELASTIC_PASSWORD = "-JpPuDA43hk+xp*OYAPq"
 CA_CERTS = "C:/UTEXLMS/Nam3_2022_2023/HK2/TruyTimThongTin/elasticsearch-8.6.2/config/certs/http_ca.crt"
 
 # Điều chỉnh để phù hợp với từng máy
-DEV="PHONGPHU"
+DEV="HONGPHAT"
 
 if DEV=="NGOCPHAT":
     ELASTIC_PASSWORD = "AO_Xpp=erLN89MGxutL7"
@@ -20,7 +20,7 @@ elif DEV=="DUCPHAP":
     ELASTIC_PASSWORD = "YNhxANqPGqbMGF3ZzH0c"
     CA_CERTS = "C:/Users/ad/elasticsearch-8.6.2/config/certs/http_ca.crt"
 elif DEV=="HONGPHAT":
-    ELASTIC_PASSWORD = "FnvOknKJE59pVtzA2_9e"
+    ELASTIC_PASSWORD = "YR_45Q3XahC6uMi9EfZT"
     CA_CERTS = "C:/elasticsearch/config/certs/http_ca.crt"
 
 

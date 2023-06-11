@@ -77,7 +77,7 @@ def setQueryByKeyword(keyword,request):
                             "should": {
                                 "multi_match" : {
                                 "query":    keyword, 
-                                "fields": [ "Giới thiệu sách", "Tên^5" ] 
+                                "fields": [ "Giới thiệu sách", "Tên^5", "Tác giả^2" ] 
                                 }
                             },
                         }
